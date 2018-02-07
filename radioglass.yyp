@@ -457,6 +457,25 @@
             }
         },
         {
+            "Key": "c191e9aa-1e06-4876-86b4-a16fada6cfb9",
+            "Value": {
+                "id": "66b72767-2824-4232-bb96-7901d90b1382",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/obj_lightController\/obj_lightController.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c8e9440f-c42a-4128-8b6b-42d0c67e8ea2",
             "Value": {
                 "id": "8015bbec-8d2e-4e0d-a1d0-62c810fba2e5",
@@ -511,6 +530,25 @@
                 ],
                 "resourcePath": "objects\/obj_barrier\/obj_barrier.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d6f848b2-fba8-462a-b716-3d7a6c9f701a",
+            "Value": {
+                "id": "ba320529-96d6-43e2-95a4-6a565b832ad6",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_light\/spr_light.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
