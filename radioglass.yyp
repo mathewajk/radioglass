@@ -571,6 +571,25 @@
             }
         },
         {
+            "Key": "d98d49f7-54a8-4224-8924-6007866d3f87",
+            "Value": {
+                "id": "fd277a0a-9ffa-40a5-9401-b412bf8acbc9",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_playerWalkLeft\/spr_playerWalkLeft.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ebca299b-dc88-4897-bcb4-3930216b18e5",
             "Value": {
                 "id": "655e5ad4-f052-4c5b-912b-2b377eaf6a02",
@@ -606,6 +625,25 @@
                 ],
                 "resourcePath": "views\/ee4a0525-661b-4079-beea-65da20228323.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f1f45fcc-0485-4e79-976d-b9ab81f9d44f",
+            "Value": {
+                "id": "15dddde4-d99f-41c0-a17b-508d10a33480",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_playerWalkRight\/spr_playerWalkRight.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
