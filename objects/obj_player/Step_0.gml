@@ -27,8 +27,8 @@ else {
 	}
 }
 
-hspd = (-keyboard_check(vk_left) + keyboard_check(vk_right)) * 5;
-vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 5;
+hspd = (-keyboard_check(vk_left) + keyboard_check(vk_right)) * 4;
+vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 4;
 
 if (place_meeting(x + hspd, y, obj_barrier)) {
     while (!place_meeting(x + sign(hspd), y, obj_barrier)) {
