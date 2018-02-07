@@ -53,7 +53,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/sprite_nodeActive\/sprite_nodeActive.yy",
+                "resourcePath": "sprites\/spr_nodeActive\/spr_nodeActive.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -167,7 +167,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/sprite_nodeInactive\/sprite_nodeInactive.yy",
+                "resourcePath": "sprites\/spr_nodeInactive\/spr_nodeInactive.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -262,7 +262,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "objects\/object_nodeHandler\/object_nodeHandler.yy",
+                "resourcePath": "objects\/obj_nodeController\/obj_nodeController.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -281,7 +281,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "objects\/object_node\/object_node.yy",
+                "resourcePath": "objects\/obj_node\/obj_node.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -319,7 +319,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "objects\/object_barrierSpawner\/object_barrierSpawner.yy",
+                "resourcePath": "objects\/obj_barrierController\/obj_barrierController.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -395,7 +395,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "objects\/object_player\/object_player.yy",
+                "resourcePath": "objects\/obj_player\/obj_player.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -433,7 +433,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/sprite12\/sprite12.yy",
+                "resourcePath": "sprites\/spr_barrier\/spr_barrier.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -509,7 +509,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "objects\/object_barrier\/object_barrier.yy",
+                "resourcePath": "objects\/obj_barrier\/obj_barrier.yy",
                 "resourceType": "GMObject"
             }
         },

@@ -2,7 +2,7 @@
     "id": "8899ec44-70b7-4aa6-9e8d-bce3652bfa3b",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "object_barrierSpawner",
+    "name": "obj_barrierController",
     "eventList": [
         {
             "id": "c24e177b-013f-46c1-99a8-12f51dbf303b",
