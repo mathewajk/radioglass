@@ -24,4 +24,4 @@ draw_sprite_ext(spr_light, 0, obj_player.x - camera_x, obj_player.y - camera_y, 
 gpu_set_blendmode(bm_normal);
 surface_reset_target();
 
-draw_surface(sfc_light, camera_get_view_x(0), camera_get_view_y(0));
+draw_surface(sfc_light, camera_x, camera_y);
