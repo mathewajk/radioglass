@@ -1,10 +1,10 @@
 /// @description Move the player
 
 if (keyboard_check(vk_left)) {
-	//sprite_index = sprite_playerWalkLeft;
+	sprite_index = spr_playerWalkLeft;
 }
 else if (keyboard_check(vk_right)) {
-	//sprite_index = sprite_playerWalkRight;
+	sprite_index = spr_playerWalkRight;
 }
 else if (keyboard_check(vk_up)) {
 	//sprite_index = sprite_playerWalkBack;
