@@ -1,29 +1,29 @@
 /// @description Move the player
 
 if (keyboard_check(vk_left)) {
-	sprite_index = sprite_playerWalkLeft;
+	//sprite_index = sprite_playerWalkLeft;
 }
 else if (keyboard_check(vk_right)) {
-	sprite_index = sprite_playerWalkRight;
+	//sprite_index = sprite_playerWalkRight;
 }
 else if (keyboard_check(vk_up)) {
-	sprite_index = sprite_playerWalkBack;
+	//sprite_index = sprite_playerWalkBack;
 }
 else if(keyboard_check(vk_down)) {
-	sprite_index = sprite_playerWalkForward;
+	//sprite_index = sprite_playerWalkForward;
 }
 else {
 	if (keyboard_check_released(vk_left)) {
-		sprite_index = sprite_playerStandLeft;
+		sprite_index = spr_playerStandLeft;
 	} 
 	if (keyboard_check_released(vk_right)) {
-		sprite_index = sprite_playerStandRight;
+		sprite_index = spr_playerStandRight;
 	}
 	if (keyboard_check_released(vk_up)) {
-		sprite_index = sprite_playerStandBack;
+		//sprite_index = sprite_playerStandBack;
 	}
 	if (keyboard_check_released(vk_down)) {
-		sprite_index = sprite_playerStandForward;
+		//sprite_index = sprite_playerStandForward;
 	}
 }
 
