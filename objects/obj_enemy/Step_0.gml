@@ -5,6 +5,8 @@
 var layer_id = layer_get_id("tiles_path");
 var tilemap_id = layer_tilemap_get_id(layer_id);
 
+mp_potential_step(obj_player.x, obj_player.y, 2, true);
+
 var coll = instance_place(x, y, obj_damage)
 if(coll && coll != last_coll) {
 	show_debug_message("Hit!! " + string(id));
