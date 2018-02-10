@@ -108,6 +108,29 @@ if(shift_down) {
 		last_valid_x_dist = x_dist;
 		last_valid_x_sign = x_sign;
 	}
+	else if(x_dist == y_dist) {
+		for(var i = 1; i < x_dist + 1; i++) {
+			if(mouse_pressed) {
+				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y + i * y_sign) == 0) {
+					tilemap_set(tilemap_id_terra, 6, tile_x + i * x_sign, tile_y + i * y_sign);
+					instance_create_layer((tile_x + i * x_sign) * 16, (tile_y + i * y_sign) * 16, "instances_paths", obj_damage);
+				}
+				else {
+					break;
+				}
+				continue;
+			}
+			
+			if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y + i * y_sign) != 0) {
+				break;
+			}
+			if(tilemap_get(tilemap_id, tile_x + i * x_sign, tile_y + i * y_sign) == 0) {
+				tilemap_set(tilemap_id, 1, tile_x + i * x_sign, tile_y + i * y_sign);
+			}
+		}
+		last_valid_x_dist = x_dist;
+		last_valid_x_sign = x_sign;
+	}
 }
 
 if(keyboard_check_released(vk_shift)) {
