@@ -36,6 +36,8 @@ var mouse_down = mouse_check_button(mb_left);
 var tile_x = floor(x / 16);
 var tile_y = floor(y / 16);
 	
+tilemap_set(layer_tilemap_get_id("tiles_path"), 2, tile_x, tile_y);
+
 if(shift_down) {
 	
 	var layer_id = layer_get_id("tiles_path");
