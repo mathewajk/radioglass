@@ -2,7 +2,7 @@
     "id": "f1004c92-6497-4fef-b8f1-b9cd94982b69",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "sprite10",
+    "name": "spr_robot",
     "For3D": false,
     "HTile": false,
     "VTile": false,
