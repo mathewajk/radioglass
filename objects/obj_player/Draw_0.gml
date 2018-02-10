@@ -31,12 +31,10 @@ else {
 draw_sprite(sprite_index, image_index, x, y);
 
 var shift_down = keyboard_check(vk_shift);
-var mouse_down = mouse_check_button(mb_left);
+var mouse_pressed = mouse_check_button_pressed(mb_left);
 
 var tile_x = floor(x / 16);
 var tile_y = floor(y / 16);
-	
-tilemap_set(layer_tilemap_get_id("tiles_path"), 2, tile_x, tile_y);
 
 if(shift_down) {
 	
@@ -60,9 +58,23 @@ if(shift_down) {
 	}
 	
 	tilemap_set(tilemap_id, 2, tile_x, tile_y);
-
+	
+	var last_tile;
+	var adjust;
+		
 	if(floor(mouse_x / 16)  == tile_x){	
 		for(var i = 1; i < y_dist + 1; i++) {
+			if(mouse_pressed) {
+				if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) == 0) {
+					tilemap_set(tilemap_id_terra, 6, tile_x, tile_y + i * y_sign);
+					instance_create_layer(tile_x * 16, (tile_y + i * y_sign) * 16, "instances_paths", obj_damage);
+				}
+				else {
+					break;
+				}
+				continue;
+			}
+			
 			if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) != 0) {
 				break;
 			}
@@ -75,6 +87,17 @@ if(shift_down) {
 	}
 	else if(floor(mouse_y / 16) == tile_y) {
 		for(var i = 1; i < x_dist + 1; i++) {
+			if(mouse_pressed) {
+				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) == 0) {
+					tilemap_set(tilemap_id_terra, 6, tile_x + i * x_sign, tile_y);
+					instance_create_layer((tile_x + i * x_sign) * 16, tile_y * 16, "instances_paths", obj_damage);
+				}
+				else {
+					break;
+				}
+				continue;
+			}
+			
 			if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) != 0) {
 				break;
 			}
@@ -84,41 +107,6 @@ if(shift_down) {
 		}
 		last_valid_x_dist = x_dist;
 		last_valid_x_sign = x_sign;
-	}
-	
-	if(mouse_check_button_pressed(mb_left)) {
-		
-		var last_tile;
-		var adjust;
-		
-		if(floor(mouse_x / 16)  == tile_x){	
-			adjust = (y_sign == 1? 1 : 0);
-			for(var i = 1; i < y_dist + 1; i++) {
-				last_tile = i;
-				if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) == 0) {
-					tilemap_set(tilemap_id_terra, 6, tile_x, tile_y + i * y_sign);
-				}
-				else {
-					break;
-				}
-			}
-			var damage_spread = instance_create_layer(tile_x * 16, (tile_y + adjust * y_sign) * 16, "instances_player", obj_damage);
-			damage_spread.image_yscale = (last_tile + 1) * y_sign;
-		}
-		else if(floor(mouse_y / 16) == tile_y) {
-			adjust = (x_sign == 1? 1 : 0);
-			for(var i = 1; i < x_dist + 1; i++) {
-				last_tile = i;
-				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) == 0) {
-					tilemap_set(tilemap_id_terra, 6, tile_x + i * x_sign, tile_y);
-				}
-				else {
-					break;
-				}
-			} 
-			var damage_spread = instance_create_layer((tile_x + adjust * x_sign) * 16, tile_y * 16, "instances_player", obj_damage);
-			damage_spread.image_xscale = (last_tile + 1) * x_sign;
-		}
 	}
 }
 
