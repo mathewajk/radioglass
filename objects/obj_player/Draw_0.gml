@@ -49,9 +49,29 @@ if(shift_down) {
 		
 	}
 	
-	if(mouse_check_button_pressed(mb_left) {
-		var layerid_terra = layer_get_id("tiles_terraformed") {
-			
+	if(mouse_check_button_pressed(mb_left)) {
+		var layer_id_terra = layer_get_id("tiles_terraformed");
+		var tilemap_id_terra = layer_tilemap_get_id(layer_id_terra);
+		
+		if(floor(mouse_x / 16)  == tile_x){	
+			for(var i = 0; i < y_dist + 1; i++) {
+				if(tilemap_get(tilemap_id_terra, floor(x / 16), floor(y / 16) + i * y_sign) != 1) {
+					tilemap_set(tilemap_id_terra, 5, tile_x, tile_y + i * y_sign);
+				}
+			}
+			last_valid_y_dist = y_dist;
+			last_valid_y_sign = y_sign;
+		
+		}
+		else if(floor(mouse_y / 16) == tile_y) {
+			for(var i = 0; i < x_dist + 1; i++) {
+				if(tilemap_get(tilemap_id_terra, floor(x / 16) + i * x_sign, floor(y / 16)) != 1) {
+					tilemap_set(tilemap_id_terra, 5, tile_x + i * x_sign, tile_y);
+				}
+			}
+			last_valid_x_dist = x_dist;
+			last_valid_x_sign = x_sign;
+		
 		}
 	}
 }
