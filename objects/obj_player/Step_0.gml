@@ -37,3 +37,21 @@ if (place_meeting(x + hspd, y + vspd, obj_enemy)) {
 
 x += hspd;
 y += vspd;
+
+var atk_chosen = 0;
+switch(keyboard_key) {
+	case ord("1"):
+		atk_chosen = 0; break;
+	case ord("2"):
+		atk_chosen = 1; break;
+	case ord("3"):
+		atk_chosen = 2; break;
+	case ord("4"):
+		atk_chosen = 3; break;
+	case ord("5"):
+		atk_chosen = 4; break;
+}
+
+if(attacks[atk_chosen] != 0) {
+	curr_attack = attacks[atk_chosen];
+}
