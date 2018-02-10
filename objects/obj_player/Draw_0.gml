@@ -1,7 +1,34 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-draw_sprite(object_get_sprite(obj_player), obj_player.sprite_index, x, y);
+if (keyboard_check(vk_left)) {
+	sprite_index = spr_playerWalkLeft;
+}
+else if (keyboard_check(vk_right)) {
+	sprite_index = spr_playerWalkRight;
+}
+else if (keyboard_check(vk_up)) {
+	//sprite_index = sprite_playerWalkBack;
+}
+else if(keyboard_check(vk_down)) {
+	//sprite_index = sprite_playerWalkForward;
+}
+else {
+	if (keyboard_check_released(vk_left)) {
+		sprite_index = spr_playerStandLeft;
+	} 
+	else if (keyboard_check_released(vk_right)) {
+		sprite_index = spr_playerStandRight;
+	}
+	else if (keyboard_check_released(vk_up)) {
+		//sprite_index = sprite_playerStandBack;
+	}
+	if (keyboard_check_released(vk_down)) {
+		//sprite_index = sprite_playerStandForward;
+	}
+}
+
+draw_sprite(sprite_index, image_index, x, y);
 
 var shift_down = keyboard_check(vk_shift);
 var mouse_down = mouse_check_button(mb_left);
@@ -13,7 +40,6 @@ if(shift_down) {
 	
 	var layer_id = layer_get_id("tiles_path");
 	var tilemap_id = layer_tilemap_get_id(layer_id);	
-	tilemap_set(tilemap_id, 1, tile_x, tile_y);
 	
 	var y_dist = floor((mouse_y - y) / 16);
 	var y_sign = sign(y_dist);
@@ -29,6 +55,7 @@ if(shift_down) {
 	}
 	
 	if(floor(mouse_x / 16)  == tile_x){	
+		tilemap_set(tilemap_id, 1, tile_x, tile_y + y_sign);
 		for(var i = 1; i < y_dist + 1; i++) {
 			if(tilemap_get(tilemap_id, floor(x / 16), floor(y / 16) + i * y_sign) != 1) {
 				tilemap_set(tilemap_id, 1, tile_x, tile_y + i * y_sign);
@@ -36,9 +63,9 @@ if(shift_down) {
 		}
 		last_valid_y_dist = y_dist;
 		last_valid_y_sign = y_sign;
-		
 	}
 	else if(floor(mouse_y / 16) == tile_y) {
+			tilemap_set(tilemap_id, 1, tile_x + x_sign, tile_y);
 		for(var i = 1; i < x_dist + 1; i++) {
 			if(tilemap_get(tilemap_id, floor(x / 16) + i * x_sign, floor(y / 16)) != 1) {
 				tilemap_set(tilemap_id, 1, tile_x + i * x_sign, tile_y);
@@ -46,7 +73,6 @@ if(shift_down) {
 		}
 		last_valid_x_dist = x_dist;
 		last_valid_x_sign = x_sign;
-		
 	}
 	
 	if(mouse_check_button_pressed(mb_left)) {
@@ -54,24 +80,22 @@ if(shift_down) {
 		var tilemap_id_terra = layer_tilemap_get_id(layer_id_terra);
 		
 		if(floor(mouse_x / 16)  == tile_x){	
-			for(var i = 0; i < y_dist + 1; i++) {
+			for(var i = 1; i < y_dist + 1; i++) {
 				if(tilemap_get(tilemap_id_terra, floor(x / 16), floor(y / 16) + i * y_sign) != 1) {
 					tilemap_set(tilemap_id_terra, 5, tile_x, tile_y + i * y_sign);
 				}
 			}
-			last_valid_y_dist = y_dist;
-			last_valid_y_sign = y_sign;
-		
+			var damage_spread = instance_create_layer(tile_x * 16, (tile_y + 1 * y_sign) * 16, "instances_player", obj_damage);
+			damage_spread.image_yscale = (y_dist + 1) * y_sign;
 		}
 		else if(floor(mouse_y / 16) == tile_y) {
-			for(var i = 0; i < x_dist + 1; i++) {
+			for(var i = 1; i < x_dist + 1; i++) {
 				if(tilemap_get(tilemap_id_terra, floor(x / 16) + i * x_sign, floor(y / 16)) != 1) {
 					tilemap_set(tilemap_id_terra, 5, tile_x + i * x_sign, tile_y);
 				}
-			}
-			last_valid_x_dist = x_dist;
-			last_valid_x_sign = x_sign;
-		
+			} 
+			var damage_spread = instance_create_layer((tile_x + 1 * x_sign) * 16, tile_y * 16, "instances_player", obj_damage);
+			damage_spread.image_xscale = (x_dist + 1) * x_sign;
 		}
 	}
 }
