@@ -267,44 +267,6 @@
             }
         },
         {
-            "Key": "70f97417-114d-4336-8667-7311cd992b63",
-            "Value": {
-                "id": "2c1dc75c-ee06-4699-9848-738c55352995",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "objects\/obj_nodeController\/obj_nodeController.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
-            "Key": "73e5d674-b9dc-41b1-93a4-5a19794cfa44",
-            "Value": {
-                "id": "7e31a6be-bf8a-4b02-8533-a720256c85ec",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "objects\/obj_node\/obj_node.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "7c91c579-4a38-47ab-946e-7445af0c9259",
             "Value": {
                 "id": "58b41e8a-66b4-4b19-bb8a-53723ba70e46",
