@@ -1,32 +1,5 @@
 /// @description Move the player
 
-if (keyboard_check(vk_left)) {
-	sprite_index = spr_playerWalkLeft;
-}
-else if (keyboard_check(vk_right)) {
-	sprite_index = spr_playerWalkRight;
-}
-else if (keyboard_check(vk_up)) {
-	//sprite_index = sprite_playerWalkBack;
-}
-else if(keyboard_check(vk_down)) {
-	//sprite_index = sprite_playerWalkForward;
-}
-else {
-	if (keyboard_check_released(vk_left)) {
-		sprite_index = spr_playerStandLeft;
-	} 
-	else if (keyboard_check_released(vk_right)) {
-		sprite_index = spr_playerStandRight;
-	}
-	else if (keyboard_check_released(vk_up)) {
-		//sprite_index = sprite_playerStandBack;
-	}
-	if (keyboard_check_released(vk_down)) {
-		//sprite_index = sprite_playerStandForward;
-	}
-}
-
 hspd = (-keyboard_check(vk_left) + keyboard_check(vk_right)) * 4;
 if(!hspd) {
 	vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 4;
@@ -53,6 +26,13 @@ if (place_meeting(x, y + vspd, obj_barrier)) {
         y += sign(vspd);
 	}
     vspd = 0;
+}
+
+if (place_meeting(x, y, obj_enemy)) {
+    vspd = 20 * -sign(vspd);
+}
+if (place_meeting(x + hspd, y + vspd, obj_enemy)) {
+    hspd = 20 * -sign(hspd);
 }
 
 x += hspd;
