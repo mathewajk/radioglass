@@ -6,10 +6,12 @@ var layer_id = layer_get_id("tiles_path");
 var tilemap_id = layer_tilemap_get_id(layer_id);
 
 var coll = instance_place(x, y, obj_damage)
-if(coll) {
+if(coll && coll != last_coll) {
+	show_debug_message("Hit!! " + string(id));
+	show_debug_message("This coll: " + string(coll));
+	show_debug_message("Last coll: " + string(last_coll));
 	hp -= 5;
-	instance_destroy(coll);
-	show_debug_message("Hit!!");
+	last_coll = coll;
 }
 					
 if(hp == 0) {
