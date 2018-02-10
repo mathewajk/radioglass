@@ -1,6 +1,7 @@
 /// @description Draw light around player
 // You can write your code in this editor
 
+//view_set_camera(view_current, 0);
 
 if(!surface_exists(sfc_light)) {
 	sfc_light = surface_create(view_wview[0],view_hview[0]);
@@ -11,8 +12,10 @@ if(!surface_exists(sfc_light)) {
 surface_set_target(sfc_light);
 surface_reset_target();
 
-var camera_x = camera_get_view_x(0);
-var camera_y = camera_get_view_y(0);
+camera = camera_get_active();
+target = camera_get_view_target(0)
+camera_x = camera_get_view_x(0);
+camera_y = camera_get_view_y(0);
 
 surface_set_target(sfc_light);
 
