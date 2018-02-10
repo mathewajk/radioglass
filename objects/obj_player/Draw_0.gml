@@ -130,6 +130,8 @@ if(shift_down) {
 		}
 		last_valid_x_dist = x_dist;
 		last_valid_x_sign = x_sign;
+		last_valid_y_dist = y_dist;
+		last_valid_y_sign = y_sign;
 	}
 }
 
