@@ -5,14 +5,6 @@ if(!hspd) {
 	vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 4;
 }
 
-if(place_meeting(x + hspd, y, obj_barrier) && place_meeting(x, y + vspd, obj_barrier)) {
-	while (!place_meeting(x, y + sign(vspd), obj_barrier) && !place_meeting(x + sign(hspd), y, obj_barrier)) {
-        y += sign(vspd);
-		x += sign(hspd);
-	}
-    vspd = 0;
-	hspd = 0;
-}
 
 if (place_meeting(x + hspd, y, obj_barrier)) {
     while (!place_meeting(x + sign(hspd), y, obj_barrier)) {
@@ -20,7 +12,6 @@ if (place_meeting(x + hspd, y, obj_barrier)) {
 	}
     hspd = 0;
 }
-
 if (place_meeting(x, y + vspd, obj_barrier)) {
     while (!place_meeting(x, y + sign(vspd), obj_barrier)) {
         y += sign(vspd);
