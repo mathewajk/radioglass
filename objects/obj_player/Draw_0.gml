@@ -86,10 +86,23 @@ if(shift_down) {
 		last_valid_y_sign = y_sign;
 	}
 	else if(floor(mouse_y / 16) == tile_y) {
+		
 		for(var i = 1; i < x_dist + 1; i++) {
+			
+			var tile_data;	
+			var rev_x_dist = x_dist * -1;
+			switch(i * x_sign) {
+				case 1: tile_data = 4; break;
+				case -1: tile_data = 6; break;
+				case x_dist: tile_data = 6; break;
+				case rev_x_dist: tile_data = 4; break;
+				default: tile_data = 8;
+			}
+		
+		
 			if(mouse_pressed) {
 				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) == 0) {
-					tilemap_set(tilemap_id_terra, 6, tile_x + i * x_sign, tile_y);
+					tilemap_set(tilemap_id_terra, tile_data, tile_x + i * x_sign, tile_y);
 					instance_create_layer((tile_x + i * x_sign) * 16, tile_y * 16, "instances_paths", obj_damage);
 				}
 				else {
