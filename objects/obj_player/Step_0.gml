@@ -29,20 +29,21 @@ if (place_meeting(x + hspd, y + vspd, obj_enemy)) {
 x += hspd;
 y += vspd;
 
-var atk_chosen = 0;
-switch(keyboard_key) {
+var atk_chosen = -1;
+switch(keyboard_lastkey) {
 	case ord("1"):
-		atk_chosen = 0; break;
+		atk_chosen = 0; show_debug_message(string(atk_chosen)); break;
 	case ord("2"):
-		atk_chosen = 1; break;
+		atk_chosen = 1; show_debug_message(string(atk_chosen)); break;
 	case ord("3"):
-		atk_chosen = 2; break;
+		atk_chosen = 2; show_debug_message(string(atk_chosen)); break;
 	case ord("4"):
-		atk_chosen = 3; break;
+		atk_chosen = 3; show_debug_message(string(atk_chosen)); break;
 	case ord("5"):
-		atk_chosen = 4; break;
+		atk_chosen = 4; show_debug_message(string(atk_chosen)); break;
 }
 
-if(attacks[atk_chosen] != 0) {
+if((atk_chosen != -1) && attacks[atk_chosen] != -1) {
 	curr_attack = attacks[atk_chosen];
+	show_debug_message(string(curr_attack));
 }
