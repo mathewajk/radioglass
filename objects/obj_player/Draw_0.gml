@@ -44,119 +44,144 @@ if(shift_down) {
 	var layer_id_terra = layer_get_id("tiles_terraformed");
 	var tilemap_id_terra = layer_tilemap_get_id(layer_id_terra);
 	
-	var y_dist = floor((mouse_y - y) / 16);
-	var y_sign = sign(y_dist);
+	if(curr_attack == 1) {
+		var y_dist = floor((mouse_y - y) / 16);
+		var y_sign = sign(y_dist);
 	
-	var x_dist = floor((mouse_x - x) / 16);
-	var x_sign = sign(x_dist);
+		var x_dist = floor((mouse_x - x) / 16);
+		var x_sign = sign(x_dist);
 		
-	x_dist = abs(x_dist);
-	y_dist = abs(y_dist);
+		x_dist = abs(x_dist);
+		y_dist = abs(y_dist);
 	
-	if(last_valid_y_dist * last_valid_y_sign != y_dist * y_sign || last_valid_x_dist * last_valid_x_sign != x_dist * x_sign) {
-		tilemap_clear(tilemap_id, 0);
-	}
+		if(last_valid_y_dist * last_valid_y_sign != y_dist * y_sign || last_valid_x_dist * last_valid_x_sign != x_dist * x_sign) {
+			tilemap_clear(tilemap_id, 0);
+		}
 	
-	tilemap_set(tilemap_id, 2, tile_x, tile_y);
+		tilemap_set(tilemap_id, 2, tile_x, tile_y);
 	
-	var last_tile;
-	var adjust;
+		if(floor(mouse_x / 16)  == tile_x){	
 		
-	if(floor(mouse_x / 16)  == tile_x){	
-		
-		for(var i = 1; i < y_dist + 1; i++) {
+			for(var i = 1; i < y_dist + 1; i++) {
 			
-			var tile_data;	
-			var rev_y_dist = y_dist * -1;
-			switch(i * y_sign) {
-				case 1: tile_data = 7; break;
-				case -1: tile_data = 5; break;
-				case y_dist: tile_data = 5; break;
-				case rev_y_dist: tile_data = 7; break;
-				default: tile_data = 9;
-			}
-			
-			if(mouse_pressed) {
-				if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) == 0) {
-					tilemap_set(tilemap_id_terra, tile_data, tile_x, tile_y + i * y_sign);
-					instance_create_layer(tile_x * 16, (tile_y + i * y_sign) * 16, "instances_paths", obj_damage);
+				var tile_data;	
+				var rev_y_dist = y_dist * -1;
+				switch(i * y_sign) {
+					case 1: tile_data = 7; break;
+					case -1: tile_data = 5; break;
+					case y_dist: tile_data = 5; break;
+					case rev_y_dist: tile_data = 7; break;
+					default: tile_data = 9;
 				}
-				else {
+			
+				if(mouse_pressed) {
+					if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) == 0) {
+						tilemap_set(tilemap_id_terra, tile_data, tile_x, tile_y + i * y_sign);
+						instance_create_layer(tile_x * 16, (tile_y + i * y_sign) * 16, "instances_paths", obj_damage);
+					}
+					else {
+						break;
+					}
+					continue;
+				}
+			
+				if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) != 0) {
 					break;
 				}
-				continue;
-			}
-			
-			if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) != 0) {
-				break;
-			}
-			if(tilemap_get(tilemap_id, tile_x, tile_y + i * y_sign) == 0) {
-				tilemap_set(tilemap_id, 1, tile_x, tile_y + i * y_sign);
-			}
-		}
-		last_valid_y_dist = y_dist;
-		last_valid_y_sign = y_sign;
-	}
-	else if(floor(mouse_y / 16) == tile_y) {
-		
-		for(var i = 1; i < x_dist + 1; i++) {
-			
-			var tile_data;	
-			var rev_x_dist = x_dist * -1;
-			switch(i * x_sign) {
-				case 1: tile_data = 4; break;
-				case -1: tile_data = 6; break;
-				case x_dist: tile_data = 6; break;
-				case rev_x_dist: tile_data = 4; break;
-				default: tile_data = 8;
-			}
-		
-		
-			if(mouse_pressed) {
-				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) == 0) {
-					tilemap_set(tilemap_id_terra, tile_data, tile_x + i * x_sign, tile_y);
-					instance_create_layer((tile_x + i * x_sign) * 16, tile_y * 16, "instances_paths", obj_damage);
+				if(tilemap_get(tilemap_id, tile_x, tile_y + i * y_sign) == 0) {
+					tilemap_set(tilemap_id, 1, tile_x, tile_y + i * y_sign);
 				}
-				else {
+			}
+			last_valid_y_dist = y_dist;
+			last_valid_y_sign = y_sign;
+		}
+		else if(floor(mouse_y / 16) == tile_y) {
+		
+			for(var i = 1; i < x_dist + 1; i++) {
+			
+				var tile_data;	
+				var rev_x_dist = x_dist * -1;
+				switch(i * x_sign) {
+					case 1: tile_data = 4; break;
+					case -1: tile_data = 6; break;
+					case x_dist: tile_data = 6; break;
+					case rev_x_dist: tile_data = 4; break;
+					default: tile_data = 8;
+				}
+		
+		
+				if(mouse_pressed) {
+					if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) == 0) {
+						tilemap_set(tilemap_id_terra, tile_data, tile_x + i * x_sign, tile_y);
+						instance_create_layer((tile_x + i * x_sign) * 16, tile_y * 16, "instances_paths", obj_damage);
+					}
+					else {
+						break;
+					}
+					continue;
+				}
+			
+				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) != 0) {
 					break;
 				}
-				continue;
-			}
-			
-			if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) != 0) {
-				break;
-			}
-			if(tilemap_get(tilemap_id, tile_x + i * x_sign, tile_y) == 0) {
-				tilemap_set(tilemap_id, 1, tile_x + i * x_sign, tile_y);
-			}
-		}
-		last_valid_x_dist = x_dist;
-		last_valid_x_sign = x_sign;
-	}
-	else if(x_dist == y_dist) {
-		for(var i = 1; i < x_dist + 1; i++) {
-			if(mouse_pressed) {
-				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y + i * y_sign) == 0) {
-					tilemap_set(tilemap_id_terra, 6, tile_x + i * x_sign, tile_y + i * y_sign);
-					instance_create_layer((tile_x + i * x_sign) * 16, (tile_y + i * y_sign) * 16, "instances_paths", obj_damage);
+				if(tilemap_get(tilemap_id, tile_x + i * x_sign, tile_y) == 0) {
+					tilemap_set(tilemap_id, 1, tile_x + i * x_sign, tile_y);
 				}
-				else {
+			}
+			last_valid_x_dist = x_dist;
+			last_valid_x_sign = x_sign;
+		}
+		else if(x_dist == y_dist) {
+			for(var i = 1; i < x_dist + 1; i++) {
+				if(mouse_pressed) {
+					if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y + i * y_sign) == 0) {
+						tilemap_set(tilemap_id_terra, 6, tile_x + i * x_sign, tile_y + i * y_sign);
+						instance_create_layer((tile_x + i * x_sign) * 16, (tile_y + i * y_sign) * 16, "instances_paths", obj_damage);
+					}
+					else {
+						break;
+					}
+					continue;
+				}
+			
+				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y + i * y_sign) != 0) {
 					break;
 				}
-				continue;
+				if(tilemap_get(tilemap_id, tile_x + i * x_sign, tile_y + i * y_sign) == 0) {
+					tilemap_set(tilemap_id, 1, tile_x + i * x_sign, tile_y + i * y_sign);
+				}
 			}
-			
-			if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y + i * y_sign) != 0) {
-				break;
-			}
-			if(tilemap_get(tilemap_id, tile_x + i * x_sign, tile_y + i * y_sign) == 0) {
-				tilemap_set(tilemap_id, 1, tile_x + i * x_sign, tile_y + i * y_sign);
-			}
+			last_valid_x_dist = x_dist;
+			last_valid_x_sign = x_sign;
+			last_valid_y_dist = y_dist;
+			last_valid_y_sign = y_sign;
 		}
-		last_valid_x_dist = x_dist;
-		last_valid_x_sign = x_sign;
-		last_valid_y_dist = y_dist;
-		last_valid_y_sign = y_sign;
+	}
+	
+	if(curr_attack == 2) {
+		for(var i = -1; i <= 1; i++) {
+			for(var j =  -1; j <= 1; j++) {
+				if(mouse_pressed) {
+					if(tilemap_get(tilemap_id_terra, tile_x + i, tile_y + j) == 0) {
+						tilemap_set(tilemap_id_terra, 24 + (j * 11) + i, tile_x + i, tile_y + j);
+						instance_create_layer((tile_x + i) * 16, (tile_y + j) * 16, "instances_paths", obj_damage);
+					}
+					else {
+						break;
+					}
+					continue;
+				}
+				
+				if(tilemap_get(tilemap_id_terra, tile_x + i, tile_y + j) != 0) {
+					tilemap_clear(tilemap_id, 0);
+					break;
+				}
+				if(tilemap_get(tilemap_id, tile_x + i, tile_y + j) == 0) {
+					tilemap_set(tilemap_id, 1, tile_x + i, tile_y + j);
+				}
+			}
+			tilemap_set(tilemap_id, 2, tile_x, tile_y);
+		}
 	}
 }
 

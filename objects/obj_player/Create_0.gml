@@ -11,4 +11,4 @@ last_valid_x_sign = 0;
 last_valid_y_sign = 0;
 
 curr_attack = 1;
-attacks = [1, 2, 0, 0, 0, 0, 0, 0, 0];
+attacks = [1, 2, -1, -1, -1, -1, -1, -1, -1];
