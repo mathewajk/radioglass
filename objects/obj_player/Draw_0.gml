@@ -63,10 +63,22 @@ if(shift_down) {
 	var adjust;
 		
 	if(floor(mouse_x / 16)  == tile_x){	
+		
 		for(var i = 1; i < y_dist + 1; i++) {
+			
+			var tile_data;	
+			var rev_y_dist = y_dist * -1;
+			switch(i * y_sign) {
+				case 1: tile_data = 7; break;
+				case -1: tile_data = 5; break;
+				case y_dist: tile_data = 5; break;
+				case rev_y_dist: tile_data = 7; break;
+				default: tile_data = 9;
+			}
+			
 			if(mouse_pressed) {
 				if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) == 0) {
-					tilemap_set(tilemap_id_terra, 6, tile_x, tile_y + i * y_sign);
+					tilemap_set(tilemap_id_terra, tile_data, tile_x, tile_y + i * y_sign);
 					instance_create_layer(tile_x * 16, (tile_y + i * y_sign) * 16, "instances_paths", obj_damage);
 				}
 				else {
