@@ -1,30 +1,30 @@
-/// @description Insert description here
+/// @description Draw player and paths
 // You can write your code in this editor
 
 if (keyboard_check(vk_left)) {
 	sprite_index = spr_playerWalkLeft;
+	last_dir = 1;
 }
 else if (keyboard_check(vk_right)) {
 	sprite_index = spr_playerWalkRight;
+	last_dir = 2;
 }
 else if (keyboard_check(vk_up)) {
 	sprite_index = spr_playerWalkRight;
+	last_dir = 3;
 }
 else if(keyboard_check(vk_down)) {
 	sprite_index = spr_playerWalkLeft;
+	last_dir = 4;
 }
 else {
-	if (keyboard_check_released(vk_left)) {
-		sprite_index = spr_playerStandLeft;
-	} 
-	else if (keyboard_check_released(vk_right)) {
-		sprite_index = spr_playerStandRight;
-	}
-	else if (keyboard_check_released(vk_up)) {
-		sprite_index = spr_playerStandLeft;
-	}
-	if (keyboard_check_released(vk_down)) {
-		sprite_index = spr_playerStandRight;
+	if(state != snap) {
+		switch(last_dir) {
+			case 1: sprite_index = spr_playerStandLeft; break;
+			case 2: sprite_index = spr_playerStandRight; break;
+			case 3: sprite_index = spr_playerStandRight; break;
+			case 4: sprite_index = spr_playerStandLeft; break;
+		}
 	}
 }
 
