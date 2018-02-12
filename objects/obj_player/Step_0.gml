@@ -1,29 +1,62 @@
 /// @description Move the player
 
-hspd = (-keyboard_check(vk_left) + keyboard_check(vk_right)) * 4;
-vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 4;
+var hspd = (-keyboard_check(vk_left) + keyboard_check(vk_right)) * 4;
+var vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 4;
 
 if(hspd == 0 && vspd == 0) {
 	if(x % 16 > 0 || y % 16 > 0) {
 		state = snap;
+		show_debug_message("Snapping.");
 	}
 }
 else {
-	last_x_dir = sign(hspd);
-	last_y_dir = sign(vspd);
+	// default to positive snap until I think of something better
+	last_x_dir = (sign(hspd) != 0) ? sign(hspd) : 1;
+	last_y_dir = (sign(vspd) != 0) ? sign(vspd) : 1;
 	state = 0;
+}
+
+var coll = instance_place(x, y, obj_enemy);
+if(coll) {	
+	show_debug_message(string(coll));
+	var xx = coll.x;
+	var yy = coll.y;
+	var mx = (coll.x - x)
+	var my = (coll.y - y);
+	var l = sqrt(mx * mx + my * my);
+	
+	hspd = -floor(16 * (mx / l));
+	vspd = -floor(16 * (my / l));
+	
+	show_debug_message(string(hspd) + " " + string(vspd));
+	
+	last_x_dir = (sign(hspd) != 0) ? sign(hspd) : 1;
+	last_y_dir = (sign(vspd) != 0) ? sign(vspd) : 1;
 }
 
 if(state == snap) {
 	if(x % 16 == 0 && y % 16 == 0) {
 		state = 0;
+		show_debug_message("End snap.");
 	}
 	else {
 		if(x % 16 != 0) {
-			hspd = 4 * last_x_dir;
+			show_debug_message("X pre-snap:" + string(x));
+			if(x % 16 < 4) {
+				hspd = (x % 16) * last_x_dir;
+			}
+			else {
+				hspd = 4 * last_x_dir;
+			}
 		}
 		if(y % 16 != 0) {
-			vspd = 4 * last_y_dir;
+			show_debug_message("Y pre-snap:" + string(y));
+			if(y % 16 < 4) {
+				vspd = (y % 16) * last_y_dir;
+			}
+			else {
+				vspd = 4 * last_y_dir;
+			}
 		}
 	}
 }
