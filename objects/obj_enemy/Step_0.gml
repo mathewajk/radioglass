@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
 var layer_id = layer_get_id("tiles_path");
 var tilemap_id = layer_tilemap_get_id(layer_id);
 
@@ -19,3 +18,5 @@ if(coll && coll != last_coll) {
 if(hp == 0) {
 	instance_destroy(id);
 }
+
+depth = -y + 16;
