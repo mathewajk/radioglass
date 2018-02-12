@@ -1,30 +1,36 @@
 /// @description Move the player
 
 hspd = (-keyboard_check(vk_left) + keyboard_check(vk_right)) * 4;
-if(!hspd) {
-	vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 4;
+vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 4;
+
+
+if (place_meeting(x, y, obj_enemy)) {
+    vspd = 20 * -sign(vspd);
+}
+if (place_meeting(x, y, obj_enemy)) {
+    hspd = 20 * -sign(hspd);
 }
 
-
 if (place_meeting(x + hspd, y, obj_barrier)) {
+	show_debug_message("Oh no! x");
     while (!place_meeting(x + sign(hspd), y, obj_barrier)) {
+		show_debug_message("Adjusting x.");
         x += sign(hspd);
 	}
     hspd = 0;
 }
 if (place_meeting(x, y + vspd, obj_barrier)) {
+	show_debug_message("Oh no! y");
     while (!place_meeting(x, y + sign(vspd), obj_barrier)) {
+		show_debug_message("Adjusting y.");
         y += sign(vspd);
 	}
     vspd = 0;
 }
-
-if (place_meeting(x, y, obj_enemy)) {
-    vspd = 20 * -sign(vspd);
-}
-if (place_meeting(x + hspd, y + vspd, obj_enemy)) {
-    hspd = 20 * -sign(hspd);
-}
+//if(place_meeting(x, y, obj_barrier)) {
+//	x--;
+//	y--;
+//}
 
 x += hspd;
 y += vspd;

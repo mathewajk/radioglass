@@ -8,10 +8,10 @@ else if (keyboard_check(vk_right)) {
 	sprite_index = spr_playerWalkRight;
 }
 else if (keyboard_check(vk_up)) {
-	//sprite_index = sprite_playerWalkBack;
+	sprite_index = spr_playerWalkRight;
 }
 else if(keyboard_check(vk_down)) {
-	//sprite_index = sprite_playerWalkForward;
+	sprite_index = spr_playerWalkLeft;
 }
 else {
 	if (keyboard_check_released(vk_left)) {
@@ -21,10 +21,10 @@ else {
 		sprite_index = spr_playerStandRight;
 	}
 	else if (keyboard_check_released(vk_up)) {
-		//sprite_index = sprite_playerStandBack;
+		sprite_index = spr_playerStandLeft;
 	}
 	if (keyboard_check_released(vk_down)) {
-		//sprite_index = sprite_playerStandForward;
+		sprite_index = spr_playerStandRight;
 	}
 }
 
