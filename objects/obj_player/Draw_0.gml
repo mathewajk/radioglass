@@ -28,7 +28,7 @@ else {
 	}
 }
 
-draw_sprite(sprite_index, image_index, x, y);
+draw_self();
 
 var shift_down = keyboard_check(vk_shift);
 var mouse_pressed = mouse_check_button_pressed(mb_left);
