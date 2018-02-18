@@ -1,7 +1,7 @@
 /// @description Move the player
 
-var hspd = (-keyboard_check(vk_left) + keyboard_check(vk_right)) * 4;
-var vspd = (-keyboard_check(vk_up) + keyboard_check(vk_down)) * 4;
+var hspd = (-keyboard_check(ord("A")) + keyboard_check(ord("D"))) * 4;
+var vspd = (-keyboard_check(ord("W")) + keyboard_check(ord("S"))) * 4;
 
 if(hspd == 0 && vspd == 0) {
 	if(x % 16 > 0 || y % 16 > 0) {
