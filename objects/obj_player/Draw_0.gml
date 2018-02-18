@@ -1,19 +1,19 @@
 /// @description Draw player and paths
 // You can write your code in this editor
 
-if (keyboard_check(vk_left)) {
+if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
 	sprite_index = spr_playerWalkLeft;
 	last_dir = 1;
 }
-else if (keyboard_check(vk_right)) {
+else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
 	sprite_index = spr_playerWalkRight;
 	last_dir = 2;
 }
-else if (keyboard_check(vk_up)) {
+else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
 	sprite_index = spr_playerWalkRight;
 	last_dir = 3;
 }
-else if(keyboard_check(vk_down)) {
+else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
 	sprite_index = spr_playerWalkLeft;
 	last_dir = 4;
 }
