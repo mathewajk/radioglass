@@ -16,7 +16,8 @@ else {
 	state = 0;
 }
 
-var coll = instance_place(x, y, obj_enemy);
+//check position for collision w/ instance or all instances of obj
+var coll = instance_place(x, y, obj_enemy); 
 if(coll) {	
 	show_debug_message(string(coll));
 	var xx = coll.x;

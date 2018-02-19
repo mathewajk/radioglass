@@ -2,8 +2,8 @@
 // You can write your code in this editor
 
 if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-	sprite_index = spr_playerWalkLeft;
-	last_dir = 1;
+	sprite_index = spr_playerWalkLeft; //animate sprite
+	last_dir = 1; // set last direction
 }
 else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
 	sprite_index = spr_playerWalkRight;
@@ -18,8 +18,8 @@ else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
 	last_dir = 4;
 }
 else {
-	if(state != snap) {
-		switch(last_dir) {
+	if(state != snap) { //if player character not snapped to grid
+		switch(last_dir) { //set sprite for direction
 			case 1: sprite_index = spr_playerStandLeft; break;
 			case 2: sprite_index = spr_playerStandRight; break;
 			case 3: sprite_index = spr_playerStandRight; break;
@@ -28,12 +28,12 @@ else {
 	}
 }
 
-draw_self();
+draw_self(); // this function draws instance sprite same as default draw. 
 
 var shift_down = keyboard_check(vk_shift);
 var mouse_pressed = mouse_check_button_pressed(mb_left);
 
-var tile_x = floor(x / 16);
+var tile_x = floor(x / 16); // get coordinates of current tile
 var tile_y = floor(y / 16);
 
 if(shift_down) {
