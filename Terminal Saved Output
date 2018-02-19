@@ -1,0 +1,98 @@
+MacBook-Pro:~ guanwu$ cd radioglass
+MacBook-Pro:radioglass guanwu$ git pull
+Already up-to-date.
+MacBook-Pro:radioglass guanwu$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   .DS_Store
+	modified:   objects/obj_player/Draw_0.gml
+	modified:   objects/obj_player/Step_0.gml
+	modified:   rooms/room_test/room_test.yy
+
+no changes added to commit (use "git add" and/or "git commit -a")
+MacBook-Pro:radioglass guanwu$ git add .
+MacBook-Pro:radioglass guanwu$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   .DS_Store
+	modified:   objects/obj_player/Draw_0.gml
+	modified:   objects/obj_player/Step_0.gml
+	modified:   rooms/room_test/room_test.yy
+
+MacBook-Pro:radioglass guanwu$ git commit -am "WASD movement"
+[master b8a4535] WASD movement
+ 4 files changed, 49 insertions(+), 14 deletions(-)
+MacBook-Pro:radioglass guanwu$ git push
+Username for 'https://github.com': kwuhua
+Password for 'https://kwuhua@github.com': 
+Counting objects: 10, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (10/10), 1.24 KiB | 1.24 MiB/s, done.
+Total 10 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+To https://github.com/Narquelion/radioglass.git
+   dd261fb..b8a4535  master -> master
+MacBook-Pro:radioglass guanwu$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   radioglass.yyp
+	modified:   views/27c11b1e-65fd-440b-86be-d828fc723ae2.yy
+	modified:   views/b3750a28-ac4b-4ee2-85c1-385a262bfb6e.yy
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	sprites/spr_pathTileTest/
+	tilesets/tileset1/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+MacBook-Pro:radioglass guanwu$ git add . 
+MacBook-Pro:radioglass guanwu$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   radioglass.yyp
+	new file:   sprites/spr_pathTileTest/c77d3539-7253-4e8b-a8db-c4e5eabcba2f.png
+	new file:   sprites/spr_pathTileTest/layers/c77d3539-7253-4e8b-a8db-c4e5eabcba2f/d26ad53c-3cd3-4872-a8ac-a9f79dac27d9.png
+	new file:   sprites/spr_pathTileTest/spr_pathTileTest.yy
+	new file:   tilesets/tileset1/output_tileset.png
+	new file:   tilesets/tileset1/tileset1.yy
+	modified:   views/27c11b1e-65fd-440b-86be-d828fc723ae2.yy
+	modified:   views/b3750a28-ac4b-4ee2-85c1-385a262bfb6e.yy
+
+MacBook-Pro:radioglass guanwu$  git commit -am "added 4x4 tiles"
+[master 83a3c88] added 4x4 tiles
+ 8 files changed, 153 insertions(+), 2 deletions(-)
+ create mode 100644 sprites/spr_pathTileTest/c77d3539-7253-4e8b-a8db-c4e5eabcba2f.png
+ create mode 100644 sprites/spr_pathTileTest/layers/c77d3539-7253-4e8b-a8db-c4e5eabcba2f/d26ad53c-3cd3-4872-a8ac-a9f79dac27d9.png
+ create mode 100644 sprites/spr_pathTileTest/spr_pathTileTest.yy
+ create mode 100644 tilesets/tileset1/output_tileset.png
+ create mode 100644 tilesets/tileset1/tileset1.yy
+MacBook-Pro:radioglass guanwu$ git push
+Counting objects: 16, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (16/16), 2.59 KiB | 2.59 MiB/s, done.
+Total 16 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+To https://github.com/Narquelion/radioglass.git
+   b8a4535..83a3c88  master -> master
+MacBook-Pro:radioglass guanwu$ 

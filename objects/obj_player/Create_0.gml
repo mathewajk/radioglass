@@ -4,8 +4,8 @@
 xspeed = 4;
 yspeed = 4;
 
-hdir = 0;
-vdir = 0;
+hdir = 0; //horizontal direction
+vdir = 0; //vertical direction 
 
 last_valid_x_dist = 0;
 last_valid_y_dist = 0;
@@ -16,8 +16,8 @@ last_valid_y_sign = 0;
 last_x_dir = 0;
 last_y_dir = 0;
 
-curr_attack = 1;
-attacks = [1, 2, -1, -1, -1, -1, -1, -1, -1];
+curr_attack = 1; //toggle between path and radius attack
+attacks = [1, 2, -1, -1, -1, -1, -1, -1, -1]; //what is this array? 
 
 state = 0;
 snap = 1;
