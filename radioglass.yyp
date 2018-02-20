@@ -172,25 +172,6 @@
             }
         },
         {
-            "Key": "4adde0aa-e18e-4f53-869d-f45d21af8460",
-            "Value": {
-                "id": "abd7ea30-c7bc-42c1-871a-4ac050d2923f",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "scripts\/plotLine\/plotLine.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "5aa53502-5020-4f3a-a97a-7d8308dcdda5",
             "Value": {
                 "id": "95067009-d7ef-4e2a-9fc3-ccfb7472b9f0",
@@ -324,25 +305,6 @@
             }
         },
         {
-            "Key": "8b18fdbe-7f1a-4ad6-8894-b1ad419e41f7",
-            "Value": {
-                "id": "b28b2ce9-1bd5-493b-9675-24bf186eb832",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "scripts\/plotLineHigh\/plotLineHigh.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "9374cd69-7ad1-43ea-8110-b18a7f0098ce",
             "Value": {
                 "id": "add4037f-0bc1-4d99-9903-eb9142049b6f",
@@ -416,25 +378,6 @@
                 ],
                 "resourcePath": "sprites\/spr_playerStandRight\/spr_playerStandRight.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "a7ac9a59-0618-412a-8c40-4cdea1fce9af",
-            "Value": {
-                "id": "e0420763-12f9-4c3d-b47a-28c01eea6d30",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "scripts\/plotLineLow\/plotLineLow.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -762,9 +705,7 @@
         }
     ],
     "script_order": [
-        "4adde0aa-e18e-4f53-869d-f45d21af8460",
-        "8b18fdbe-7f1a-4ad6-8894-b1ad419e41f7",
-        "a7ac9a59-0618-412a-8c40-4cdea1fce9af"
+        
     ],
     "tutorial": ""
 }

@@ -17,17 +17,7 @@ else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
 	sprite_index = spr_playerWalkLeft;
 	last_dir = 4;
 }
-/*
-else {
-	if(state != snap) { //if player character not snapped to grid
-		switch(last_dir) { //set sprite for direction
-			case 1: sprite_index = spr_playerStandLeft; break;
-			case 2: sprite_index = spr_playerStandRight; break;
-			case 3: sprite_index = spr_playerStandRight; break;
-			case 4: sprite_index = spr_playerStandLeft; break;
-		}
-	}
-}*/
+
 
 draw_self(); // this function draws instance sprite same as default draw. 
 
@@ -69,110 +59,57 @@ if(shift_down) {
 		var tile_x = floor(x / 4); // get coordinates of current tile
 		var tile_y = floor(y / 4);
 		
-		//DRAW PATHS
+		/////////////////////////////////////////////////////////////////////////DRAW PATHS
 		
-		var x0 = floor(x / 4);; //current tile x coordinate
-		var y0 = floor(y / 4);; 
-		var x2 = floor(mouse_x / 4)
-		var y2 = floor(mouse_y / 4)
+		var x0 = tile_x; //current tile x coordinate
+		var y0 = tile_y; //current tile y coordinate
+		var x1 = floor(mouse_x / 4) //where you want to end the path x coordinate
+		var y1 = floor(mouse_y / 4) //where you want to end the path y coordinate 
 		
-		var dx; 
-		var dy;
-		var p; //midpoint
-		var xc; //current x
-		var yc; //current y 
-  
-	var xc=x0;
-	var yc=y0;
+	 	var xc=x0; //current x you are drawing
+		var yc=y0; //current y you are drawing
 		
-	var w = x2 - xc ;
-    var h = y2 - yc ;
-    var dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0 ;
-    if (w<0) dx1 = -1 ; else if (w>0) dx1 = 1 ;
-    if (h<0) dy1 = -1 ; else if (h>0) dy1 = 1 ;
-    if (w<0) dx2 = -1 ; else if (w>0) dx2 = 1 ;
+		var w = x1 - xc ;
+		var h = y1 - yc ;
+		var dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0 ;
+		if (w<0) dx1 = -1 ; else if (w>0) dx1 = 1 ;
+		if (h<0) dy1 = -1 ; else if (h>0) dy1 = 1 ;
+		if (w<0) dx2 = -1 ; else if (w>0) dx2 = 1 ;
 
-    var longest = abs(w) ;
-    var shortest = abs(h) ;
+		var longest = abs(w) ;
+		var shortest = abs(h) ;
 
-    if (!(longest>shortest)) 
-    {
-        longest = abs(h) ;
-        shortest = abs(w) ;
-        if (h<0) dy2 = -1 ; 
-        else if (h>0) dy2 = 1 ;
-        dx2 = 0 ;            
-    }
-    var numerator = longest >> 1 ;
-    for (var i=0;i<=longest;i++) 
-    {
-        tilemap_set(tilemap_id, 13, xc,yc);
-        numerator += shortest ;
-        if (!(numerator<longest)) 
-        {
-            numerator -= longest ;
-            xc += dx1 ;
-            yc += dy1 ;
-        } else {
-            xc += dx2 ;
-            yc += dy2 ;
-        }
-    }
+	    if (!(longest>shortest)) 
+	    {
+	        longest = abs(h) ;
+	        shortest = abs(w) ;
+	        if (h<0) dy2 = -1 ; 
+	        else if (h>0) dy2 = 1 ;
+	        dx2 = 0 ;            
+	    }
+	    var numerator = longest >> 1 ;
+	    for (var i=0;i<=longest;i++) 
+	    {
+			
+				tilemap_set(tilemap_id, 13, xc,yc);
+			
+			
+	        numerator += shortest ;
+	        if (!(numerator<longest)) 
+	        {
+	            numerator -= longest ;
+	            xc += dx1 ;
+	            yc += dy1 ;
+	        } else {
+	            xc += dx2 ;
+	            yc += dy2 ;
+	        }
+		}
 }
  
- /*
-		dx=x1-x0; 
-		dy=y1-y0;
- 
-		
- 
-		p=2*dy-dx;//*/
- 
- //if(mouse_pressed) {
-	 //plotLine(x0,y0, x1, y1, tilemap_id);
- //}
+
 	 
-/*if (abs(y1 - y0) < abs(x1 - x0)) {//if x change is greater than y change - PLOTLINE LOW **********************
-	if (x0<x1){	
-		while(xc<x1)//plotLine Low: xchange greater than y change, both change in positive direction
-		{
-			 if (dy < 0) { 
-				yi = -1;
-				dy = -dy;
-			}
-        if(p>=0)
-        {
-            tilemap_set(tilemap_id, 13, xc,yc);
-            yc=yc+1;
-            p=p+2*dy-2*dx;
-        }
-        else
-        {
-            tilemap_set(tilemap_id, 13, xc,yc);
-            p=p+2*dy;
-        }
-        xc=xc+1;
-		}
-	} else {		
-		while(xc<x1)//plotLine Low: xchange greater than y change, but y needs to decrease
-		{
-        if(p>=0)
-        {
-            tilemap_set(tilemap_id, 13, xc,yc);
-            yc=yc-1;
-            p=p-2*dy-2*dx;
-        }
-        else
-        {
-            tilemap_set(tilemap_id, 13, xc,yc);
-            p=p-2*dy;
-        }
-        xc=xc+1;
-		}
-	}
-}  // y change is bigger than x change PLOTLINE HIGH ****************************
- 
-	*/	
+
 		
 
 
