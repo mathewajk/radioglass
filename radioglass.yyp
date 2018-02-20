@@ -683,25 +683,6 @@
                 "resourcePath": "views\/fa656c4f-4366-4f77-ac93-0fa5899e11c3.yy",
                 "resourceType": "GMFolder"
             }
-        },
-        {
-            "Key": "fc3b54a2-42ea-4790-9af7-6fedd2ca13e7",
-            "Value": {
-                "id": "26345e85-7112-4257-97b5-20d2b3d62e55",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "tilesets\/tileset1\/tileset1.yy",
-                "resourceType": "GMTileSet"
-            }
         }
     ],
     "script_order": [
