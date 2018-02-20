@@ -17,6 +17,7 @@ else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
 	sprite_index = spr_playerWalkLeft;
 	last_dir = 4;
 }
+/*
 else {
 	if(state != snap) { //if player character not snapped to grid
 		switch(last_dir) { //set sprite for direction
@@ -26,23 +27,23 @@ else {
 			case 4: sprite_index = spr_playerStandLeft; break;
 		}
 	}
-}
+}*/
 
 draw_self(); // this function draws instance sprite same as default draw. 
 
 var shift_down = keyboard_check(vk_shift);
 var mouse_pressed = mouse_check_button_pressed(mb_left);
 
-var tile_x = floor(x / 16); // get coordinates of current tile
-var tile_y = floor(y / 16);
+var tile_x = floor(x / 4); // get coordinates of current tile
+var tile_y = floor(y / 4);
 
 if(shift_down) {
 	
-	var layer_id = layer_get_id("tiles_path");
+	var layer_id = layer_get_id("small_tiles_path");
 	var tilemap_id = layer_tilemap_get_id(layer_id);	
 	
-	var layer_id_terra = layer_get_id("tiles_terraformed");
-	var tilemap_id_terra = layer_tilemap_get_id(layer_id_terra);
+	var layer_id_terra = layer_get_id("small_tiles_terraformed");
+	var tilemap_id_terra = layer_tilemap_get_id(layer_id_terra); //tilemap id of terraformed area
 	
 	if(curr_attack == 1) {
 		var y_dist = floor((mouse_y - y) / 16);
@@ -54,11 +55,16 @@ if(shift_down) {
 		x_dist = abs(x_dist);
 		y_dist = abs(y_dist);
 	
-		if(last_valid_y_dist * last_valid_y_sign != y_dist * y_sign || last_valid_x_dist * last_valid_x_sign != x_dist * x_sign) {
-			tilemap_clear(tilemap_id, 0);
+		//if(last_valid_y_dist * last_valid_y_sign != y_dist * y_sign || last_valid_x_dist * last_valid_x_sign != x_dist * x_sign) {
+		//	tilemap_clear(tilemap_id, 0);
 		}
 	
-		tilemap_set(tilemap_id, 2, tile_x, tile_y);
+		//MAKE PLAYER'S CURRENT TILE BLUE
+		for(var i = 0 ; i<4;i++){
+			for(var j = 0 ; j<4;j++){
+				tilemap_set(tilemap_id, 12, tile_x+i, tile_y+j)
+			}
+		}
 	
 		if(floor(mouse_x / 16)  == tile_x){	
 		
@@ -157,7 +163,8 @@ if(shift_down) {
 			last_valid_y_sign = y_sign;
 		}
 	}
-	
+
+	/*
 	if(curr_attack == 2) {
 		for(var i = -1; i <= 1; i++) {
 			for(var j =  -1; j <= 1; j++) {
@@ -182,11 +189,12 @@ if(shift_down) {
 			}
 			tilemap_set(tilemap_id, 2, tile_x, tile_y);
 		}
-	}
-}
+	}*/
+
+
 
 if(keyboard_check_released(vk_shift)) {
-	var layer_id = layer_get_id("tiles_path");
+	var layer_id = layer_get_id("small_tiles_path");
 	var tilemap_id = layer_tilemap_get_id(layer_id);
 	tilemap_clear(tilemap_id, 0);
 }

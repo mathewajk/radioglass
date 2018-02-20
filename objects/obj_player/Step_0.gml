@@ -1,6 +1,7 @@
 /// @description Move the player
 
 
+
 if keyboard_check(ord("D")) && keyboard_check(ord("W")) //upper right
 {
 	x=x+sqrt(8);
@@ -46,6 +47,25 @@ else if keyboard_check(ord("S"))
 }
 
 else {}
+
+//check position for collision w/ instance or all instances of obj
+var coll = instance_place(x, y, obj_enemy); 
+if(coll) {	
+	show_debug_message(string(coll));
+	var xx = coll.x;
+	var yy = coll.y;
+	var mx = (coll.x - x)
+	var my = (coll.y - y);
+	var l = sqrt(mx * mx + my * my);
+	
+	hspd = -floor(16 * (mx / l));
+	vspd = -floor(16 * (my / l));
+	
+	show_debug_message(string(hspd) + " " + string(vspd));
+	
+	last_x_dir = (sign(hspd) != 0) ? sign(hspd) : 1;
+	last_y_dir = (sign(vspd) != 0) ? sign(vspd) : 1;
+}
 
 
 var atk_chosen = -1;

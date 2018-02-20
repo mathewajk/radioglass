@@ -39,6 +39,25 @@
     },
     "resources": [
         {
+            "Key": "1444f720-99a8-4a05-947e-484d8f74a664",
+            "Value": {
+                "id": "fda77aee-8722-4378-981a-ccbb739f6c28",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "tilesets\/small_ts\/small_ts.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "194d3827-b703-4fd0-a46c-e1c94631fab7",
             "Value": {
                 "id": "cbfbb23b-11c7-43da-9c14-e639af6317e2",
@@ -226,25 +245,6 @@
                 ],
                 "resourcePath": "views\/6fc56425-28b8-43f3-98b0-0f64ea4934ad.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "7b9b7799-1eb9-48d6-87e0-5938fc9d68b9",
-            "Value": {
-                "id": "70f0c2d1-b975-4631-9273-62b6d2652ddb",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "sprites\/spr_pathTileTest\/spr_pathTileTest.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -567,6 +567,25 @@
                     "default"
                 ],
                 "resourcePath": "sprites\/spr_playerWalkLeft\/spr_playerWalkLeft.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d9dbe291-5a41-4cbd-b263-855f88ca1af4",
+            "Value": {
+                "id": "96a22364-52e1-4fe0-b25c-6af4f89e9ce7",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/ts_small\/ts_small.yy",
                 "resourceType": "GMSprite"
             }
         },
