@@ -46,10 +46,10 @@ if(shift_down) {
 	var tilemap_id_terra = layer_tilemap_get_id(layer_id_terra); //tilemap id of terraformed area
 	
 	if(curr_attack == 1) {
-		var y_dist = floor((mouse_y - y) / 16);
+		var y_dist = floor((mouse_y - y) / 4);
 		var y_sign = sign(y_dist);
 	
-		var x_dist = floor((mouse_x - x) / 16);
+		var x_dist = floor((mouse_x - x) / 4);
 		var x_sign = sign(x_dist);
 		
 		x_dist = abs(x_dist);
@@ -62,11 +62,124 @@ if(shift_down) {
 		//MAKE PLAYER'S CURRENT TILE BLUE
 		for(var i = 0 ; i<4;i++){
 			for(var j = 0 ; j<4;j++){
-				tilemap_set(tilemap_id, 12, tile_x+i, tile_y+j)
+				tilemap_set(tilemap_id_terra, 12, tile_x+i, tile_y+j)
 			}
 		}
+		
+		var tile_x = floor(x / 4); // get coordinates of current tile
+		var tile_y = floor(y / 4);
+		
+		//DRAW PATHS
+		
+		var x0 = floor(x / 4);; //current tile x coordinate
+		var y0 = floor(y / 4);; 
+		var x2 = floor(mouse_x / 4)
+		var y2 = floor(mouse_y / 4)
+		
+		var dx; 
+		var dy;
+		var p; //midpoint
+		var xc; //current x
+		var yc; //current y 
+  
+	var xc=x0;
+	var yc=y0;
+		
+	var w = x2 - xc ;
+    var h = y2 - yc ;
+    var dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0 ;
+    if (w<0) dx1 = -1 ; else if (w>0) dx1 = 1 ;
+    if (h<0) dy1 = -1 ; else if (h>0) dy1 = 1 ;
+    if (w<0) dx2 = -1 ; else if (w>0) dx2 = 1 ;
+
+    var longest = abs(w) ;
+    var shortest = abs(h) ;
+
+    if (!(longest>shortest)) 
+    {
+        longest = abs(h) ;
+        shortest = abs(w) ;
+        if (h<0) dy2 = -1 ; 
+        else if (h>0) dy2 = 1 ;
+        dx2 = 0 ;            
+    }
+    var numerator = longest >> 1 ;
+    for (var i=0;i<=longest;i++) 
+    {
+        tilemap_set(tilemap_id, 13, xc,yc);
+        numerator += shortest ;
+        if (!(numerator<longest)) 
+        {
+            numerator -= longest ;
+            xc += dx1 ;
+            yc += dy1 ;
+        } else {
+            xc += dx2 ;
+            yc += dy2 ;
+        }
+    }
+}
+ 
+ /*
+		dx=x1-x0; 
+		dy=y1-y0;
+ 
+		
+ 
+		p=2*dy-dx;//*/
+ 
+ //if(mouse_pressed) {
+	 //plotLine(x0,y0, x1, y1, tilemap_id);
+ //}
+	 
+/*if (abs(y1 - y0) < abs(x1 - x0)) {//if x change is greater than y change - PLOTLINE LOW **********************
+	if (x0<x1){	
+		while(xc<x1)//plotLine Low: xchange greater than y change, both change in positive direction
+		{
+			 if (dy < 0) { 
+				yi = -1;
+				dy = -dy;
+			}
+        if(p>=0)
+        {
+            tilemap_set(tilemap_id, 13, xc,yc);
+            yc=yc+1;
+            p=p+2*dy-2*dx;
+        }
+        else
+        {
+            tilemap_set(tilemap_id, 13, xc,yc);
+            p=p+2*dy;
+        }
+        xc=xc+1;
+		}
+	} else {		
+		while(xc<x1)//plotLine Low: xchange greater than y change, but y needs to decrease
+		{
+        if(p>=0)
+        {
+            tilemap_set(tilemap_id, 13, xc,yc);
+            yc=yc-1;
+            p=p-2*dy-2*dx;
+        }
+        else
+        {
+            tilemap_set(tilemap_id, 13, xc,yc);
+            p=p-2*dy;
+        }
+        xc=xc+1;
+		}
+	}
+}  // y change is bigger than x change PLOTLINE HIGH ****************************
+ 
+	*/	
+		
+
+
+
 	
-		if(floor(mouse_x / 16)  == tile_x){	
+	
+		/*if(floor(mouse_x / 16)  == tile_x){	
 		
 			for(var i = 1; i < y_dist + 1; i++) {
 			
