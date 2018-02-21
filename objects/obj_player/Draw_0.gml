@@ -66,8 +66,8 @@ if(shift_down) {
 		var y0 = tile_y; //current tile y coordinate
 		var x1 = floor(mouse_x / 4); //where you want to end the path x coordinate
 		var y1 = floor(mouse_y / 4); //where you want to end the path y coordinate 
-		
-		drawPath(x0, y0, x1, y1, tilemap_id_terra);
+		var width = 4
+		thick_octant(x0,y0,x1,y1,width,tilemap_id);
 	 	
 }
  
