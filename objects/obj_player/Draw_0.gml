@@ -52,7 +52,7 @@ if(shift_down) {
 		//MAKE PLAYER'S CURRENT TILE BLUE
 		for(var i = 0 ; i<4;i++){
 			for(var j = 0 ; j<4;j++){
-				tilemap_set(tilemap_id_terra, 12, tile_x+i, tile_y+j)
+				tilemap_set(tilemap_id, 12, tile_x+i, tile_y+j)
 			}
 		}
 		
@@ -66,6 +66,66 @@ if(shift_down) {
 		var x1 = floor(mouse_x / 4) //where you want to end the path x coordinate
 		var y1 = floor(mouse_y / 4) //where you want to end the path y coordinate 
 		
+		// Calculate angle in rads
+		var dy = x0 - x1;
+		var dx = y0 - y1;
+		var theta = arctan(dy/dx);
+		
+		// Convert to degrees
+		theta *= 180/pi;
+		
+		var xmod = 0;
+		var ymod = 0;
+		
+		show_debug_message(theta);
+		
+		// Determine angle to "spread" tiles in
+		// TODO: Solution that makes more elegant diagonals?
+		if(x1 > x0) {
+			if(theta > 45 && theta <= 90) {
+				x0 += 4;
+				xmod = 0;
+				ymod = 1;
+			}
+			else if(theta > 0 && theta <= 45) {
+				y0 += 4;
+				xmod = 1;
+				ymod = 0;
+			}
+			else if(theta <= 0 && theta >= -45) {
+				y0 -= 1;
+				xmod = 1;
+				ymod = 0;
+			}
+			else if(theta < -45 && theta >= -90) {
+				x0 += 4;
+				xmod = 0;
+				ymod = 1;
+			}
+		}	
+		else {
+			if(theta > 45 && theta <= 90) {
+				x0 -= 1;
+				xmod = 0;
+				ymod = 1;
+			}
+			else if(theta > 0 && theta <= 45) {
+				y0 -= 1;
+				xmod = 1;
+				ymod = 0;
+			}
+			else if(theta <= 0 && theta >= -45) {
+				y0 += 4;
+				xmod = 1;
+				ymod = 0;
+			}
+			else if(theta < -45 && theta >= -90) {
+				x0 -= 1;
+				xmod = 0;
+				ymod = 1;
+			}
+		}
+
 	 	var xc=x0; //current x you are drawing
 		var yc=y0; //current y you are drawing
 		
@@ -90,9 +150,10 @@ if(shift_down) {
 	    var numerator = longest >> 1 ;
 	    for (var i=0;i<=longest;i++) 
 	    {
-			
-				tilemap_set(tilemap_id, 13, xc,yc);
-			
+			// Draw four tiles in a line based on angle
+			for(var j=0; j < 4; j++) {
+				tilemap_set(tilemap_id, 13, xc + xmod * j,yc + ymod * j);
+			}
 			
 	        numerator += shortest ;
 	        if (!(numerator<longest)) 
