@@ -1,5 +1,5 @@
 ///drawPath(x0, y0, x1, y1, tilemap_id)
-//Special thanks to Emma Dasgupta for doing the perpendicular math for me <3 
+
 /*
 var x0= argument0;
 var y0= argument1;
@@ -25,6 +25,7 @@ var dd0y;
 
 var inc_x = sign(sign(dx) + 0.5);                             
 var inc_y = sign(sign(dy) + 0.5);
+
 if (dx < 0) {
 	dx = -dx; 
 }
@@ -64,7 +65,7 @@ if (dx > dy) {
     kd = kv - ku;                                             
 
     kt = dy - kv;                                //threshold for error term
-end
+}
 
 // Initialization                                         % Figure 5A in [1]
 
@@ -76,66 +77,47 @@ var dd = 0;                                             //% thickness error term
 
 //% Murphy line draw
 //% ----------------
-while dd < tk                          ////% outer loop (perpendicular to line)
+while (dd < tk){                          ////% outer loop (perpendicular to line)
 
-    bitmap = bresenham_line_draw(bitmap, pt0, d1);
+    //bitmap = bresenham_line_draw(bitmap, pt0, d1);
 
-    if d0 < kt                           % square move (d0 -> M0, dd -> M0)
-        pt0.x = pt0.x + sd0x;
-        pt0.y = pt0.y + sd0y;
-    else                               % diagonal move (d0 -> M1, dd -> M1)
+    if (d0 < kt){//                          % square move (d0 -> M0, dd -> M0)
+        xc = xc + sd0x;
+        yc = yc + sd0y;
+	}
+    else  {                       //      % diagonal move (d0 -> M1, dd -> M1)
         dd = dd + kv;
         d0 = d0 - ku;
+	}
 
-        if d1 < kt                      % diagonal move (d1 needs extra M0)
-            pt0.x = pt0.x + dd0x;
-            pt0.y = pt0.y + dd0y;
+        if (d1 < kt ) {                    // % diagonal move (d1 needs extra M0)
+            xc = xc + dd0x;
+            yc = yc + dd0y;
 
             d1    = d1 - kv;
-        else                     % (double) square move (d1 needs extra M1)
-            if dx > dy
-                pt0.x = pt0.x + dd0x;
-            else
-                pt0.y = pt0.y + dd0y;    
-            end
+		} else  {                  // % (double) square move (d1 needs extra M1)
+            if (dx > dy) {
+                xc = xc + dd0x;
+			} else {
+                yc = yc + dd0y;    
+			}
 
             d1    = d1 - kd;
-            if dd > tk
-                return                         % breakout on the extra line
-            end
+            if (dd > tk){
+                return ;                       // % breakout on the extra line
+			}
 
-            bitmap = bresenham_line_draw(bitmap, pt0, d1);
+            //bitmap = bresenham_line_draw(bitmap, pt0, d1);
 
-            if dx > dy
-                pt0.y = pt0.y + dd0y;
+            if (dx > dy)
+                yc = yc + dd0y;
             else
-                pt0.x = pt0.x + dd0x;
-            end
-        end
-    end
-
+                xc = xc + dd0x;
+		}
+}
+    
     dd = dd + ku;
     d0 = d0 + kv;
-end
 
-% Bresenham line draw
-% -------------------
-function bitmap = bresenham_line_draw(bitmap, pt, d1)    % Figure 5B in [1]
-    for p = 0:len                           % inner loop (parallel to line)
 
-        bitmap(pt.x, pt.y) = bitmap(pt.x, pt.y) + 1;
-
-        if d1 <= kt                                % square move (d1 -> M0)
-            pt.x = pt.x + sd1x;
-            pt.y = pt.y + sd1y;
-
-            d1   = d1 + kv;
-        else                                     % diagonal move (d1 -> M1)
-            pt.x = pt.x + dd1x;
-            pt.y = pt.y + dd1y;
-
-            d1   = d1 + kd;
-        end
-    end
-end
-end*/
+*/

@@ -153,6 +153,25 @@
             }
         },
         {
+            "Key": "3e9d4789-0c9b-4453-b762-cbefcbd5c34d",
+            "Value": {
+                "id": "d8eb09d2-a061-441e-978e-6abcd60f03dd",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/thick_octant\/thick_octant.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "442fa8ca-a8e2-4b77-b672-7f870aa5622c",
             "Value": {
                 "id": "d7c9e64d-580d-49b5-913e-f454278a9e0b",
@@ -167,7 +186,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "scripts\/drawPath\/drawPath.yy",
+                "resourcePath": "scripts\/perp_octant1\/perp_octant1.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -188,25 +207,6 @@
                 ],
                 "resourcePath": "views\/46053108-5e3d-4389-b8e9-8e4989b50e25.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "4ca1e741-d009-43c6-a578-555efce12a22",
-            "Value": {
-                "id": "ac228ec3-1f14-4a88-a5c6-096197e855da",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "scripts\/drawPathPerp\/drawPathPerp.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -283,25 +283,6 @@
                 ],
                 "resourcePath": "views\/6fc56425-28b8-43f3-98b0-0f64ea4934ad.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "71026e72-c226-437d-8d7d-d94c6f12de8e",
-            "Value": {
-                "id": "92589dea-ae88-4a7f-b007-66c74e9832f5",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "scripts\/drawThickPath\/drawThickPath.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -763,8 +744,7 @@
     ],
     "script_order": [
         "442fa8ca-a8e2-4b77-b672-7f870aa5622c",
-        "4ca1e741-d009-43c6-a578-555efce12a22",
-        "71026e72-c226-437d-8d7d-d94c6f12de8e"
+        "3e9d4789-0c9b-4453-b762-cbefcbd5c34d"
     ],
     "tutorial": ""
 }
