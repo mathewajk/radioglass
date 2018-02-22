@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-	sprite_index = spr_playerWalkLeft; //animate sprite
+	sprite_index = spr_playerWalkLeft; //sprite animation
 	last_dir = 1; // set last direction
 }
 else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
