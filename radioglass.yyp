@@ -205,7 +205,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "scripts\/perp_octant1\/perp_octant1.yy",
+                "resourcePath": "scripts\/lineWidth\/lineWidth.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -528,7 +528,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "scripts\/thick_octant\/thick_octant.yy",
+                "resourcePath": "scripts\/drawPath\/drawPath.yy",
                 "resourceType": "GMScript"
             }
         },

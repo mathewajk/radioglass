@@ -1,4 +1,12 @@
-///thick_octant1(x0,y0,x1,y1,width,tilemap_id):
+///drawPath(x0,y0,x1,y1,width,tilemap_id)
+
+//code taken from http://kt8216.unixcab.org/murphy/index.html
+
+//function that draws paths
+//currently only works properly in the octant 45 degrees 
+//under the positive x axis on a normal graph
+
+
 var x0= argument0;
 var y0= argument1;
 var x1= argument2;
@@ -20,12 +28,12 @@ var tilemap_id= argument5;
 
 
   for (var p= 1; p<length; p++) { 
-    perp_octant1(xc,yc, dx, dy, p_error,width,error, tilemap_id)
+    lineWidth(xc,yc, dx, dy, p_error,width,error, tilemap_id)
     if (error > threshold)  {
       yc= yc + 1;
       error = error + E_diag;
       if (p_error > threshold) {
-        perp_octant1(xc,yc, dx, dy, p_error+E_diag+E_square,width,error,tilemap_id);
+        lineWidth(xc,yc, dx, dy, p_error+E_diag+E_square,width,error,tilemap_id);
         p_error= p_error + E_diag;
 	  }
       p_error= p_error + E_square;

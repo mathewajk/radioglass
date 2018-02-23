@@ -1,8 +1,60 @@
 /// @description Move the player
 
+//WASD momvent and making sure diagonal movement isn't faster
+//definitely a better way to do this...
+
+
+if keyboard_check(ord("D")) && keyboard_check(ord("W")) //upper right
+{
+	x=x+sqrt(8);
+	y=y-sqrt(8);
+}
+
+else if keyboard_check(ord("A")) && keyboard_check(ord("W")) //upper left
+{
+	x=x-sqrt(8);
+	y=y-sqrt(8);
+}
+
+else if keyboard_check(ord("D")) && keyboard_check(ord("S")) //lower right
+{
+	x=x+sqrt(8);
+	y=y+sqrt(8);
+}
+
+else if keyboard_check(ord("A")) && keyboard_check(ord("S"))//lower left
+{
+	x=x-sqrt(8);
+	y=y+sqrt(8);
+}
+
+else if keyboard_check(ord("D"))
+{
+	x=x+4;
+}
+
+else if keyboard_check(ord("A"))
+{
+	x=x-4;
+}
+
+else if keyboard_check(ord("W"))
+{
+	y=y-4;
+}
+
+else if keyboard_check(ord("S"))
+{
+	y=y+4;
+}
+
+else {}
+
+
 var hspd = (-keyboard_check(ord("A")) + keyboard_check(ord("D"))) * 4;
 var vspd = (-keyboard_check(ord("W")) + keyboard_check(ord("S"))) * 4;
 
+/* Old snapping code in case we need it
 if(hspd == 0 && vspd == 0) {
 	if(x % 16 > 0 || y % 16 > 0) {
 		state = snap;
@@ -15,6 +67,7 @@ else {
 	last_y_dir = (sign(vspd) != 0) ? sign(vspd) : 1;
 	state = 0;
 }
+*/
 
 //check position for collision w/ instance or all instances of obj
 var coll = instance_place(x, y, obj_enemy); 
@@ -35,6 +88,7 @@ if(coll) {
 	last_y_dir = (sign(vspd) != 0) ? sign(vspd) : 1;
 }
 
+/* Old snapping code in case we need it
 if(state == snap) {
 	if(x % 16 == 0 && y % 16 == 0) {
 		state = 0;
@@ -61,6 +115,8 @@ if(state == snap) {
 		}
 	}
 }
+*/
+
 
 if (place_meeting(x + hspd, y, obj_barrier)) {
     while (!place_meeting(x + sign(hspd), y, obj_barrier)) {
@@ -74,9 +130,12 @@ if (place_meeting(x, y + vspd, obj_barrier)) {
 	}
     vspd = 0;
 }
-	
+
+
+//character moves too fast currently unless these lines are commented out - how to resolve? 
 x += hspd;
 y += vspd;
+
 
 var atk_chosen = -1;
 switch(keyboard_lastkey) {
@@ -98,3 +157,4 @@ if((atk_chosen != -1) && attacks[atk_chosen] != -1) {
 }
 
 depth = -y + 16;
+
