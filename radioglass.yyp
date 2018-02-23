@@ -39,6 +39,25 @@
     },
     "resources": [
         {
+            "Key": "0960a044-58fe-4d14-9fce-d03638c27641",
+            "Value": {
+                "id": "036230cf-51fc-4d15-b9fa-c550a516ef71",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "tilesets\/ts_small\/ts_small.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "194d3827-b703-4fd0-a46c-e1c94631fab7",
             "Value": {
                 "id": "cbfbb23b-11c7-43da-9c14-e639af6317e2",
@@ -169,6 +188,25 @@
                 ],
                 "resourcePath": "sprites\/spr_sampleTileset\/spr_sampleTileset.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5d8ce83a-8283-4327-8fbb-dd1a13bde58d",
+            "Value": {
+                "id": "4b1ccf95-5605-40ca-831d-e75ca6fb3303",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/perp_octant1\/perp_octant1.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -419,6 +457,25 @@
             }
         },
         {
+            "Key": "bf3fadd9-5fb2-4bdf-89fa-7bb37fd074fc",
+            "Value": {
+                "id": "4e694678-fc40-40c0-9bf2-ea7796a9ec5e",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_ts_small\/spr_ts_small.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c0f8f26d-9bde-4ef8-b6c0-726f58903ae8",
             "Value": {
                 "id": "31b0810b-5f58-49bf-84ef-efb7ab4767b4",
@@ -454,6 +511,25 @@
                 ],
                 "resourcePath": "objects\/obj_lightController\/obj_lightController.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c46259fa-b13c-4280-b897-a968454748a6",
+            "Value": {
+                "id": "637fd6ef-a4b8-4c6e-aeae-d98918821a0a",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/thick_octant\/thick_octant.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -683,29 +759,11 @@
                 "resourcePath": "views\/fa656c4f-4366-4f77-ac93-0fa5899e11c3.yy",
                 "resourceType": "GMFolder"
             }
-        },
-        {
-            "Key": "fc3b54a2-42ea-4790-9af7-6fedd2ca13e7",
-            "Value": {
-                "id": "26345e85-7112-4257-97b5-20d2b3d62e55",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "tilesets\/tileset1\/tileset1.yy",
-                "resourceType": "GMTileSet"
-            }
         }
     ],
     "script_order": [
-        
+        "5d8ce83a-8283-4327-8fbb-dd1a13bde58d",
+        "c46259fa-b13c-4280-b897-a968454748a6"
     ],
     "tutorial": ""
 }
