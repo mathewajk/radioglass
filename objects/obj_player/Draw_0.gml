@@ -27,8 +27,6 @@ var mouse_pressed = mouse_check_button_pressed(mb_left);
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
 
-// temp comment for test
-
 if(shift_down) {
 	
 	var layer_id = layer_get_id("small_tiles_path");
