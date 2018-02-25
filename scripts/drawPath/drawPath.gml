@@ -14,23 +14,46 @@ var y1= argument3;
 var width = argument4; 
 var tilemap_id= argument5;
 
-
   var dx= x1 - x0;
   var dy= y1 - y0;
+  
+  var xstep = 1;
+  var ystep = 1;
+  if (dx < 0)
+	xstep = -1;
+  if (dy < 0)
+    ystep = -1;
+  
   var p_error= 0;
   var error= 0;
   var yc= y0;
   var xc= x0;
-  var threshold = dx - 2*dy;;
-  var E_diag= -2*dx;
-  var E_square= 2*dy;
-  var length = dx+1;
+  
+  var vOctant = (abs(dy) > abs(dx));
+  
+  if (vOctant)
+  {
+	  var threshold = abs(dy) - 2*abs(dx);
+	  var E_diag= -2*abs(dy);
+	  var E_square= 2*abs(dx);
+	  var length = abs(dy)+1;
+  }
+  else
+  {
+	  var threshold = abs(dx) - 2*abs(dy);
+	  var E_diag= -2*abs(dx);
+	  var E_square= 2*abs(dy);
+	  var length = abs(dx)+1;
+  }
 
 
   for (var p= 1; p<length; p++) { 
     lineWidth(xc,yc, dx, dy, p_error,width,error, tilemap_id)
     if (error > threshold)  {
-      yc= yc + 1;
+		if (vOctant)
+			xc = xc + xstep;
+		else
+			yc= yc + ystep;
       error = error + E_diag;
       if (p_error > threshold) {
         lineWidth(xc,yc, dx, dy, p_error+E_diag+E_square,width,error,tilemap_id);
@@ -39,5 +62,8 @@ var tilemap_id= argument5;
       p_error= p_error + E_square;
 	}
     error = error + E_square;
-    xc= xc + 1;
+	if (vOctant)
+			yc= yc + ystep;
+		else
+			xc = xc + xstep;
   }
