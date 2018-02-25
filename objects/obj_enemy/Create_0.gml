@@ -3,3 +3,4 @@
 
 hp = 10;
 last_coll = -1;
+state = 0; //damageable
