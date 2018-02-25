@@ -121,7 +121,7 @@ draw_self(); // this function draws instance sprite same as default draw.
 var shift_down = keyboard_check(vk_shift);
 var mouse_pressed = mouse_check_button_pressed(mb_left);
 
-var tile_x = floor(x / 16); // get coordinates of current tile
+var tile_x = floor(x / 16); // get coordinates of current tile the player is standing on
 var tile_y = floor(y / 16);
 
 if(shift_down) {
@@ -145,16 +145,22 @@ if(shift_down) {
 		if(last_valid_y_dist * last_valid_y_sign != y_dist * y_sign || last_valid_x_dist * last_valid_x_sign != x_dist * x_sign) {
 			tilemap_clear(tilemap_id, 0);
 		}
-	
+		// -- clear map if the path created at last moment is different from the path at the current moment
+		// -- determined by comparing the numerical difference between x and y coordinates of mouse and player position
+		
+		
 		tilemap_set(tilemap_id, 2, tile_x, tile_y);
 	
-		if(floor(mouse_x / 16)  == tile_x){	
+		if(floor(mouse_x / 16)  == tile_x) {	
+		// -- drawing vertically, i.e. x value of player's position is same as mouse position
 		
 			for(var i = 1; i < y_dist + 1; i++) {
-			
+			// -- iterate vertically
 				var tile_data;	
 				var rev_y_dist = y_dist * -1;
-				switch(i * y_sign) {
+				
+				// -- set the id of tiles according to iteration index, i.e. position of tile in path
+				switch(i * y_sign) {  
 					case 1: tile_data = 7; break;
 					case -1: tile_data = 5; break;
 					case y_dist: tile_data = 5; break;
@@ -165,28 +171,48 @@ if(shift_down) {
 				if(mouse_pressed) {
 					if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) == 0) {
 						tilemap_set(tilemap_id_terra, tile_data, tile_x, tile_y + i * y_sign);
+						// -- perform terraform when mouse is pressed down, by setting tile on "tilemap_id_terra"
 						instance_create_layer(tile_x * 16, (tile_y + i * y_sign) * 16, "instances_paths", obj_damage);
+						
+						// -- on the "instances_path" layer, 
+						// -- place at the corresponding coordinate of the tile that is just terraformed
+						// -- an object that does damage to an enemy 
 					}
 					else {
-						break;
+						break; 
+						
+						// -- break out of the iteration if the tile at position (tile_x, tile_y + i * y_sign)
+						// -- is not empty, i.e. is already terraformed
+						// -- path stops when intersects with other path
 					}
 					continue;
 				}
 			
 				if(tilemap_get(tilemap_id_terra, tile_x, tile_y + i * y_sign) != 0) {
 					break;
+					
+					// -- break condition same as above
 				}
 				if(tilemap_get(tilemap_id, tile_x, tile_y + i * y_sign) == 0) {
 					tilemap_set(tilemap_id, 1, tile_x, tile_y + i * y_sign);
+					
+					// -- displaying tile as a part of the preview path on layer "tilemap_id"
+					
 				}
 			}
 			last_valid_y_dist = y_dist;
 			last_valid_y_sign = y_sign;
+			// -- storing data about the preview path at the current moment
 		}
+		
+		// -- draw path horizontally
+		
 		else if(floor(mouse_y / 16) == tile_y) {
 		
 			for(var i = 1; i < x_dist + 1; i++) {
-			
+				
+				// -- set the id of tiles according to iteration index, i.e. position of tile in path
+				
 				var tile_data;	
 				var rev_x_dist = x_dist * -1;
 				switch(i * x_sign) {
@@ -200,25 +226,35 @@ if(shift_down) {
 		
 				if(mouse_pressed) {
 					if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) == 0) {
+						// -- perform terraform and place damage objects, similar to above
 						tilemap_set(tilemap_id_terra, tile_data, tile_x + i * x_sign, tile_y);
 						instance_create_layer((tile_x + i * x_sign) * 16, tile_y * 16, "instances_paths", obj_damage);
+						
 					}
 					else {
 						break;
+						// -- break out of iteration if terraformed tile is met
 					}
 					continue;
 				}
 			
 				if(tilemap_get(tilemap_id_terra, tile_x + i * x_sign, tile_y) != 0) {
 					break;
+					// -- break out of iteration of terraformed tile is met
 				}
 				if(tilemap_get(tilemap_id, tile_x + i * x_sign, tile_y) == 0) {
 					tilemap_set(tilemap_id, 1, tile_x + i * x_sign, tile_y);
+					// -- displaying tile as a part of the preview path on layer "tilemap_id"
 				}
 			}
+			// -- storing data about the preview path at the current moment
 			last_valid_x_dist = x_dist;
 			last_valid_x_sign = x_sign;
 		}
+		
+		// -- draw path 45deg diagonally
+		// --- (same structure of code as above)
+		
 		else if(x_dist == y_dist) {
 			for(var i = 1; i < x_dist + 1; i++) {
 				if(mouse_pressed) {
@@ -246,6 +282,8 @@ if(shift_down) {
 		}
 	}
 	
+	// -- draw pond around player
+	// -- similar structure to above parts
 	if(curr_attack == 2) {
 		for(var i = -1; i <= 1; i++) {
 			for(var j =  -1; j <= 1; j++) {
@@ -273,6 +311,7 @@ if(shift_down) {
 	}
 }
 
+// clear all preview paths when shift is released
 if(keyboard_check_released(vk_shift)) {
 	var layer_id = layer_get_id("tiles_path");
 	var tilemap_id = layer_tilemap_get_id(layer_id);
