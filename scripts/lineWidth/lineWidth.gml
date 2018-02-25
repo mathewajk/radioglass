@@ -17,17 +17,17 @@ var tilemap_id = argument7;
 var terraform_on = argument8;
 
 
-var xc=x0+(sign(dx) * 2 / (sqrt(1 + (power(dy, 2)/power(dx, 2))))); //current x you are drawing
-var yc=y0+(sign(dy) * 2 / (sqrt(1 + (power(dx, 2)/power(dy, 2))))); //current y you are drawing
+var xc=x0+(sign(dx) * 2 / (sqrt(1 + (power(dy, 2)/power(dx, 2))))); //current x you are drawing, shifted some distance away from the player
+var yc=y0+(sign(dy) * 2 / (sqrt(1 + (power(dx, 2)/power(dy, 2))))); //current y you are drawing, shifted some distance away from the player
 
 var xstep = 1;
 var ystep = 1;
 if (dx < 0)
-	xstep = -1;
+	xstep = -1; //tests if x is in a negative quadrant
 if (dy < 0)
-    ystep = -1;
+    ystep = -1; //tests if y is in a negative quadrant
 
-var vOctant = (abs(dy) > abs(dx));
+var vOctant = (abs(dy) > abs(dx)); //tests if path lies in a vertical octant or not
 
 if (vOctant)
   {
@@ -46,7 +46,7 @@ var wthr= 2*width*sqrt(dx*dx+dy*dy);
 var error= einit;
 var tk= abs(dx)+abs(dy)-winit;
 
-while (tk<=wthr){
+while (tk<=wthr){ //remove "=" for even tiled widths
 	
 	if(tilemap_get(tilemap_id, xc, yc) == 0) {
 		if(terraform_on) {
