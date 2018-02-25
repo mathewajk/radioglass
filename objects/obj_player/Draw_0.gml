@@ -73,7 +73,7 @@ if(shift_down) { //if shift down, show preview for paths
 		var y0 = tile_y; //current tile y coordinate
 		var x1 = floor(mouse_x / 4); //where you want to end the path x coordinate
 		var y1 = floor(mouse_y / 4); //where you want to end the path y coordinate 
-		var width = 2.5;
+		var width = 3;
 		
 		var layer_id = layer_get_id("small_tiles_path");
 		var tilemap_id = layer_tilemap_get_id(layer_id);
