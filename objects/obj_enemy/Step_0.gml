@@ -6,6 +6,8 @@ var tilemap_id = layer_tilemap_get_id(layer_id);
 
 mp_potential_step(obj_player.x, obj_player.y, 2, true);
 
+if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) obj_player.hp-=5;
+
 var coll = instance_place(x, y, obj_damage);
 // -- instance_place checks if there enemy collides with damage object
 // -- if there is, returns the instance id of the obj_damage to coll
