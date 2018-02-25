@@ -10,12 +10,13 @@ var coll = instance_place(x, y, obj_damage);
 // -- pseudo-false: any number < 0.5
 // -- pseudo-true: any number >= 0.5
 
-if(coll && coll != last_coll) {
+if(coll && state = 0) {
 	show_debug_message("Hit!! " + string(id));
-	show_debug_message("This coll: " + string(coll));
-	show_debug_message("Last coll: " + string(last_coll));
 	hp -= 5;
-	last_coll = coll;
+	
+	state = 1;
+	alarm[0] = 10; //10 frames of invulnerability
+	
 	// only deal damage to enemy if it collides with a damage object
 	// and if the damage object that collides with the enemy now has a different id
 	// than the previous collided object
