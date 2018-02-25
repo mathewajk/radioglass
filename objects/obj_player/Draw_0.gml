@@ -76,7 +76,29 @@ if(shift_down) { //if shift down, show preview for paths
 		tilemap_clear(tilemap_id, 0);
 	
 		if(mouse_check_button(mb_left)) {
+			
 			drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
+			
+			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) {
+				for(var j = 0; j < tilemap_get_height(tilemap_id_terra); j++) {
+					if(tilemap_get(tilemap_id_terra, i, j) != 0) {
+						var no_tile_above = (tilemap_get(tilemap_id_terra, i, j - 1) == 0? 1 : 0);
+						var no_tile_below = (tilemap_get(tilemap_id_terra, i, j + 1) == 0? 2 : 0);
+						var no_tile_left = (tilemap_get(tilemap_id_terra, i - 1, j) == 0? 4 : 0);
+						var no_tile_right= (tilemap_get(tilemap_id_terra, i + 1, j) == 0? 8 : 0);
+						
+						var tile = no_tile_above | no_tile_below | no_tile_right | no_tile_left;
+						
+						if(tile != 0) {
+							tilemap_set(tilemap_id_terra, tile, i, j);
+							show_debug_message(tile);
+						}
+						else {
+							tilemap_set(tilemap_id_terra, 15, i, j)
+						}
+					}
+				}
+			}
 		}
 		else {
 			drawPath(x0,y0,x1,y1,width,tilemap_id,false);
