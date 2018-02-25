@@ -15,45 +15,101 @@ var width = argument5
 var winit= argument6; 
 var tilemap_id= argument7;
 
-var xc=x0; //current x you are drawing
-var yc=y0; //current y you are drawing
-		
-var threshold = dx - 2*dy;
-var E_diag= -2*dx;
-var E_square= 2*dy;
+
+var xc=x0+(sign(dx) * 2 / (sqrt(1 + (power(dy, 2)/power(dx, 2))))); //current x you are drawing
+var yc=y0+(sign(dy) * 2 / (sqrt(1 + (power(dx, 2)/power(dy, 2))))); //current y you are drawing
+
+var xstep = 1;
+var ystep = 1;
+if (dx < 0)
+	xstep = -1;
+if (dy < 0)
+    ystep = -1;
+
+var vOctant = (abs(dy) > abs(dx));
+
+if (vOctant)
+  {
+	  var threshold = abs(dy) - 2*abs(dx);
+	  var E_diag= -2*abs(dy);
+	  var E_square= 2*abs(dx);
+  }
+else
+  {
+	  var threshold = abs(dx) - 2*abs(dy);
+	  var E_diag= -2*abs(dx);
+	  var E_square= 2*abs(dy);
+  }
 var wthr= 2*width*sqrt(dx*dx+dy*dy);
 
 var error= einit;
-var tk= dx+dy-winit;
+var tk= abs(dx)+abs(dy)-winit;
 
 while (tk<=wthr){
 	tilemap_set(tilemap_id, 13, xc,yc);
     if (error > threshold) { 
-       xc= xc - 1;
-       error = error + E_diag;
-       tk= tk + 2*dy;
+       if (vOctant)
+	   {
+		   yc= yc - ystep;
+	       error = error + E_diag;
+	       tk= tk + 2*abs(dx);
+	   }
+	   else
+	   {
+		   xc= xc - xstep;
+	       error = error + E_diag;
+	       tk= tk + 2*abs(dy);
+	   }
 	 }
-     error = error + E_square;
-     yc= yc + 1;
-     tk= tk + 2*dx;
+	 if (vOctant)
+	   {
+		   error = error + E_square;
+		   xc= xc + xstep;
+		   tk= tk + 2*abs(dy);
+	   }
+	   else
+	   {
+		   error = error + E_square;
+		   yc= yc + ystep;
+		   tk= tk + 2*abs(dx);
+	   }
+     
 }
 
   
-xc=x0; //current x you are drawing
-yc=y0; //current y you are drawing
+xc=x0+(sign(dx) * 2 / (sqrt(1 + (power(dy, 2)/power(dx, 2))))); //current x you are drawing
+yc=y0+(sign(dy) * 2 / (sqrt(1 + (power(dx, 2)/power(dy, 2))))); //current y you are drawing
 
 error= -einit;
-tk= dx+dy+winit;
+tk= abs(dx)+abs(dy)+winit;
 
 while (tk<=wthr) { 
       tilemap_set(tilemap_id, 13, xc,yc);
      if (error > threshold) { 
-       xc= xc + 1;
-       error = error + E_diag;
-       tk= tk + 2*dy;
+	   if (vOctant)
+	   {
+		   yc= yc + ystep;
+	       error = error + E_diag;
+	       tk= tk + 2*abs(dx);
+	   }
+	   else
+	   {
+	       xc= xc + xstep;
+	       error = error + E_diag;
+	       tk= tk + 2*abs(dy);
+	   }
 	 }
-     error = error + E_square;
-     yc= yc - 1;
-     tk= tk + 2*dx;
+	   if (vOctant)
+	   {
+		   error = error + E_square;
+		   xc= xc - xstep;
+		   tk= tk + 2*abs(dy);
+	   }
+	   else
+	   {
+		   error = error + E_square;
+		   yc= yc - ystep;
+		   tk= tk + 2*abs(dx);
+	   }
   }
 
