@@ -81,19 +81,19 @@ if(shift_down) { //if shift down, show preview for paths
 			
 			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) {
 				for(var j = 0; j < tilemap_get_height(tilemap_id_terra); j++) {
-					if(tilemap_get(tilemap_id_terra, i, j) != 0) {
+					var cur_tile = tilemap_get(tilemap_id_terra, i, j);
+					if(cur_tile != 0) {
 						var no_tile_above = (tilemap_get(tilemap_id_terra, i, j - 1) == 0? 1 : 0);
 						var no_tile_below = (tilemap_get(tilemap_id_terra, i, j + 1) == 0? 2 : 0);
 						var no_tile_left = (tilemap_get(tilemap_id_terra, i - 1, j) == 0? 4 : 0);
 						var no_tile_right= (tilemap_get(tilemap_id_terra, i + 1, j) == 0? 8 : 0);
 						
-						var tile = no_tile_above | no_tile_below | no_tile_right | no_tile_left;
+						var new_tile = no_tile_above | no_tile_below | no_tile_right | no_tile_left;
 						
-						if(tile != 0) {
-							tilemap_set(tilemap_id_terra, tile, i, j);
-							show_debug_message(tile);
+						if(new_tile != 0) {
+							tilemap_set(tilemap_id_terra, new_tile, i, j);
 						}
-						else {
+						else if(cur_tile != 17 && cur_tile != 15) {
 							tilemap_set(tilemap_id_terra, 15, i, j)
 						}
 					}

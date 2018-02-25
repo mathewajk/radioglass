@@ -50,11 +50,17 @@ while (tk<=wthr){
 	
 	if(tilemap_get(tilemap_id, xc, yc) == 0) {
 		if(terraform_on) {
-	      tilemap_set(tilemap_id, 15, xc, yc);
+		  var coinflip = floor(random(4));
+			
+		  if(coinflip != 0)
+			tilemap_set(tilemap_id, 15, xc, yc);
+		  else
+			tilemap_set(tilemap_id, 17, xc, yc);
+			
 		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage);
 		}
 		else {
-			tilemap_set(tilemap_id, 12, xc,yc);
+			tilemap_set(tilemap_id, 16, xc,yc);
 		}
 	}
 
@@ -98,11 +104,17 @@ while (tk<=wthr) {
 	
 	if(tilemap_get(tilemap_id, xc, yc) == 0) {
 		if(terraform_on) {
-	      tilemap_set(tilemap_id, 15, xc, yc);
+		  var coinflip = floor(random(4));
+			
+		  if(coinflip != 0)
+			tilemap_set(tilemap_id, 15, xc, yc);
+		  else
+			tilemap_set(tilemap_id, 17, xc, yc);
+			
 		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage);
 		}
 		else {
-			tilemap_set(tilemap_id, 12, xc,yc);
+			tilemap_set(tilemap_id, 16, xc,yc);
 		}
 	}
 	
