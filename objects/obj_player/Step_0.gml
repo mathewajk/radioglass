@@ -6,33 +6,38 @@
 var hspd = 0;
 var vspd = 0;
 
-if keyboard_check(ord("D")) && keyboard_check(ord("W")) //upper right
+var key_up    = -(keyboard_check(ord("W")) | keyboard_check(vk_up));
+var key_left  = -(keyboard_check(ord("A")) | keyboard_check(vk_left));
+var key_down  = keyboard_check(ord("S")) | keyboard_check(vk_down);
+var key_right = keyboard_check(ord("D")) | keyboard_check(vk_right);
+
+if (-key_up && key_right) //upper right
 {
 	hspd = sqrt(8);
 	vspd = -sqrt(8);
 }
 
-else if keyboard_check(ord("A")) && keyboard_check(ord("W")) //upper left
+else if (-key_up && -key_left) //upper left
 {
 	hspd = -sqrt(8);
 	vspd = -sqrt(8);
 }
 
-else if keyboard_check(ord("D")) && keyboard_check(ord("S")) //lower right
+else if (key_down && key_right) //lower right
 {
 	hspd = sqrt(8);
 	vspd = sqrt(8);
 }
 
-else if keyboard_check(ord("A")) && keyboard_check(ord("S"))//lower left
+else if (key_down && -key_left) //lower left
 {
 	hspd = -sqrt(8);
 	vspd = sqrt(8);
 }
 
 else {
-	hspd = (-keyboard_check(ord("A")) + keyboard_check(ord("D"))) * 4;
-	vspd = (-keyboard_check(ord("W")) + keyboard_check(ord("S"))) * 4;
+	hspd = (key_left + key_right) * 4;
+	vspd = (key_up + key_down) * 4;
 }
 
 
