@@ -1,9 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-var layer_id = layer_get_id("tiles_path");
-var tilemap_id = layer_tilemap_get_id(layer_id);
-
 mp_potential_step(obj_player.x, obj_player.y, 2, true);
 
 var coll = instance_place(x, y, obj_damage);
