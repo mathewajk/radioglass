@@ -267,6 +267,25 @@
             }
         },
         {
+            "Key": "7aab0172-204e-4fc4-bdc2-92a3c2fd1b82",
+            "Value": {
+                "id": "97d27e88-cf42-49cb-bf5c-64a0e5d0afff",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_damage\/spr_damage.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7b9b7799-1eb9-48d6-87e0-5938fc9d68b9",
             "Value": {
                 "id": "70f0c2d1-b975-4631-9273-62b6d2652ddb",

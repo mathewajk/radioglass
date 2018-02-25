@@ -12,8 +12,9 @@ var dx= argument2;
 var dy= argument3;
 var einit = argument4;
 var width = argument5
-var winit= argument6; 
-var tilemap_id= argument7;
+var winit = argument6; 
+var tilemap_id = argument7;
+var terraform_on = argument8;
 
 
 var xc=x0+(sign(dx) * 2 / (sqrt(1 + (power(dy, 2)/power(dx, 2))))); //current x you are drawing
@@ -46,7 +47,17 @@ var error= einit;
 var tk= abs(dx)+abs(dy)-winit;
 
 while (tk<=wthr){
-	tilemap_set(tilemap_id, 13, xc,yc);
+	
+	if(tilemap_get(tilemap_id, xc, yc) == 0) {
+		if(terraform_on) {
+	      tilemap_set(tilemap_id, 13, xc, yc);
+		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_player", obj_damage);
+		}
+		else {
+			tilemap_set(tilemap_id, 12, xc,yc);
+		}
+	}
+	
     if (error > threshold) { 
        if (vOctant)
 	   {
@@ -84,32 +95,41 @@ error= -einit;
 tk= abs(dx)+abs(dy)+winit;
 
 while (tk<=wthr) { 
-      tilemap_set(tilemap_id, 13, xc,yc);
-     if (error > threshold) { 
-	   if (vOctant)
-	   {
-		   yc= yc + ystep;
-	       error = error + E_diag;
-	       tk= tk + 2*abs(dx);
-	   }
-	   else
-	   {
-	       xc= xc + xstep;
-	       error = error + E_diag;
-	       tk= tk + 2*abs(dy);
-	   }
-	 }
-	   if (vOctant)
-	   {
-		   error = error + E_square;
-		   xc= xc - xstep;
-		   tk= tk + 2*abs(dy);
-	   }
-	   else
-	   {
-		   error = error + E_square;
-		   yc= yc - ystep;
-		   tk= tk + 2*abs(dx);
-	   }
-  }
-
+	
+	if(tilemap_get(tilemap_id, xc, yc) == 0) {
+		if(terraform_on) {
+	      tilemap_set(tilemap_id, 13, xc, yc);
+		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_player", obj_damage);
+		}
+		else {
+			tilemap_set(tilemap_id, 12, xc,yc);
+		}
+	}
+	
+    if (error > threshold) { 
+	if (vOctant)
+	{
+		yc= yc + ystep;
+	    error = error + E_diag;
+	    tk= tk + 2*abs(dx);
+	}
+	else
+	{
+	    xc= xc + xstep;
+	    error = error + E_diag;
+	    tk= tk + 2*abs(dy);
+	}
+	}
+	if (vOctant)
+	{
+		error = error + E_square;
+		xc= xc - xstep;
+		tk= tk + 2*abs(dy);
+	}
+	else
+	{
+		error = error + E_square;
+		yc= yc - ystep;
+		tk= tk + 2*abs(dx);
+	}
+}
