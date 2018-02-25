@@ -51,7 +51,7 @@ while (tk<=wthr){
 	if(tilemap_get(tilemap_id, xc, yc) == 0) {
 		if(terraform_on) {
 	      tilemap_set(tilemap_id, 13, xc, yc);
-		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_player", obj_damage);
+		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage);
 		}
 		else {
 			tilemap_set(tilemap_id, 12, xc,yc);
@@ -99,7 +99,7 @@ while (tk<=wthr) {
 	if(tilemap_get(tilemap_id, xc, yc) == 0) {
 		if(terraform_on) {
 	      tilemap_set(tilemap_id, 13, xc, yc);
-		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_player", obj_damage);
+		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage);
 		}
 		else {
 			tilemap_set(tilemap_id, 12, xc,yc);
