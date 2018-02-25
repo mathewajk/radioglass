@@ -75,8 +75,12 @@ if(shift_down) { //if shift down, show preview for paths
 		var tilemap_id = layer_tilemap_get_id(layer_id);
 		tilemap_clear(tilemap_id, 0);
 	
-		drawPath(x0,y0,x1,y1,width,tilemap_id);
-	 	
+		if(mouse_check_button(mb_left)) {
+			drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
+		}
+		else {
+			drawPath(x0,y0,x1,y1,width,tilemap_id,false);
+		}
 }
 
 //clear preview tiles
