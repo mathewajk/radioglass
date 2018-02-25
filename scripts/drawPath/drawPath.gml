@@ -21,16 +21,16 @@ var dy= y1 - y0;
 var xstep = 1;
 var ystep = 1;
 if (dx < 0)
-	xstep = -1;
+	xstep = -1; //test to see if path lies in negative x quadrant
 if (dy < 0)
-	ystep = -1;
+	ystep = -1; //test to see if path lies in negative y quadrant
   
 var p_error= 0;
 var error= 0;
 var yc= y0;
 var xc= x0;
   
-var vOctant = (abs(dy) > abs(dx));
+var vOctant = (abs(dy) > abs(dx)); //test to see if path lies in vertical octant
   
 if (vOctant)
 {
