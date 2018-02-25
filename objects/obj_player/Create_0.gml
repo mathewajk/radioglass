@@ -22,4 +22,6 @@ attacks = [1, 2, -1, -1, -1, -1, -1, -1, -1]; //what is this array?
 state = 0;
 snap = 1;
 
+hp=100;
+
 last_dir = 0;
