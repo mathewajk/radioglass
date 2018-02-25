@@ -1,10 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-mp_potential_step(obj_player.x, obj_player.y, 2, false);
+var layer_id = layer_get_id("tiles_path");
+var tilemap_id = layer_tilemap_get_id(layer_id);
 
-if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) obj_player.hp-=6;
+x+=random(8)-4;
+y+=random(8)-4;
+mp_potential_step(obj_player.x, obj_player.y, 3, false);
 
+if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) obj_player.hp-=3;
 
 var coll = instance_place(x, y, obj_damage);
 // -- instance_place checks if there enemy collides with damage object
