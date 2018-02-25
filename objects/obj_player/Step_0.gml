@@ -3,56 +3,38 @@
 //WASD momvent and making sure diagonal movement isn't faster
 //definitely a better way to do this...
 
+var hspd = 0;
+var vspd = 0;
 
 if keyboard_check(ord("D")) && keyboard_check(ord("W")) //upper right
 {
-	x=x+sqrt(8);
-	y=y-sqrt(8);
+	hspd = sqrt(8);
+	vspd = -sqrt(8);
 }
 
 else if keyboard_check(ord("A")) && keyboard_check(ord("W")) //upper left
 {
-	x=x-sqrt(8);
-	y=y-sqrt(8);
+	hspd = -sqrt(8);
+	vspd = -sqrt(8);
 }
 
 else if keyboard_check(ord("D")) && keyboard_check(ord("S")) //lower right
 {
-	x=x+sqrt(8);
-	y=y+sqrt(8);
+	hspd = sqrt(8);
+	vspd = sqrt(8);
 }
 
 else if keyboard_check(ord("A")) && keyboard_check(ord("S"))//lower left
 {
-	x=x-sqrt(8);
-	y=y+sqrt(8);
+	hspd = -sqrt(8);
+	vspd = sqrt(8);
 }
 
-else if keyboard_check(ord("D"))
-{
-	x=x+4;
+else {
+	hspd = (-keyboard_check(ord("A")) + keyboard_check(ord("D"))) * 4;
+	vspd = (-keyboard_check(ord("W")) + keyboard_check(ord("S"))) * 4;
 }
 
-else if keyboard_check(ord("A"))
-{
-	x=x-4;
-}
-
-else if keyboard_check(ord("W"))
-{
-	y=y-4;
-}
-
-else if keyboard_check(ord("S"))
-{
-	y=y+4;
-}
-
-else {}
-
-
-var hspd = (-keyboard_check(ord("A")) + keyboard_check(ord("D"))) * 4;
-var vspd = (-keyboard_check(ord("W")) + keyboard_check(ord("S"))) * 4;
 
 /* Old snapping code in case we need it
 if(hspd == 0 && vspd == 0) {
