@@ -15,12 +15,20 @@ else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
 	last_dir = 2;
 }
 else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
-	sprite_index = spr_playerWalkRight;
+	sprite_index = spr_playerWalkBack;
 	last_dir = 3;
 }
 else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
-	sprite_index = spr_playerWalkLeft;
+	sprite_index = spr_playerWalkForward;
 	last_dir = 4;
+}
+else {
+	switch(last_dir) {
+		case 1: sprite_index = spr_playerStandLeft; break;
+		case 2: sprite_index = spr_playerStandRight; break;
+		case 3: sprite_index = spr_playerStandBack; break;
+		case 4: sprite_index = spr_playerStandForward; break;
+	}
 }
 
 

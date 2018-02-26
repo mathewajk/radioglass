@@ -96,6 +96,25 @@
             }
         },
         {
+            "Key": "0e70601e-114c-458b-b09b-21181724d1ed",
+            "Value": {
+                "id": "8d75ff4a-dd4c-45f8-8710-3c3230338a78",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_playerStandRight\/spr_playerStandRight.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "194d3827-b703-4fd0-a46c-e1c94631fab7",
             "Value": {
                 "id": "cbfbb23b-11c7-43da-9c14-e639af6317e2",
@@ -188,6 +207,25 @@
                 ],
                 "resourcePath": "rooms\/room_test\/room_test.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "410b177e-68ab-4a44-83dd-87b6c09f75bc",
+            "Value": {
+                "id": "ce06518f-f101-4baa-944f-737d9065a8ef",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_playerWalkLeft\/spr_playerWalkLeft.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -419,6 +457,25 @@
             }
         },
         {
+            "Key": "8aa07284-a8e6-4723-8e35-12d5698c9207",
+            "Value": {
+                "id": "8a59476a-ad83-4c92-b3fb-df66408df76e",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_playerStandLeft\/spr_playerStandLeft.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9374cd69-7ad1-43ea-8110-b18a7f0098ce",
             "Value": {
                 "id": "add4037f-0bc1-4d99-9903-eb9142049b6f",
@@ -490,7 +547,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/spr_playerStandRight\/spr_playerStandRight.yy",
+                "resourcePath": "sprites\/spr_playerStandBack\/spr_playerStandBack.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -548,6 +605,25 @@
                     "default"
                 ],
                 "resourcePath": "sprites\/spr_ts_small\/spr_ts_small.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c00ab4f0-2414-447b-ac98-b285095493e1",
+            "Value": {
+                "id": "39e44b49-5384-4dec-b4fe-78cbe553f39a",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_playerWalkRight\/spr_playerWalkRight.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -699,7 +775,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/spr_playerStandLeft\/spr_playerStandLeft.yy",
+                "resourcePath": "sprites\/spr_playerStandForward\/spr_playerStandForward.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -718,7 +794,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/spr_playerWalkLeft\/spr_playerWalkLeft.yy",
+                "resourcePath": "sprites\/spr_playerWalkForward\/spr_playerWalkForward.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -794,7 +870,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "sprites\/spr_playerWalkRight\/spr_playerWalkRight.yy",
+                "resourcePath": "sprites\/spr_playerWalkBack\/spr_playerWalkBack.yy",
                 "resourceType": "GMSprite"
             }
         },
