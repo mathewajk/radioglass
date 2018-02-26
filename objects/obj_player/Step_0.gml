@@ -82,19 +82,14 @@ if(state == snap) {
 */
 
 
-if (place_meeting(x + hspd, y, obj_barrier)) {
-    while (!place_meeting(x + sign(hspd), y, obj_barrier)) {
-        x += sign(hspd);
-	}
+if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
     hspd = 0;
 }
-if (place_meeting(x, y + vspd, obj_barrier)) {
-    while (!place_meeting(x, y + sign(vspd), obj_barrier)) {
-        y += sign(vspd);
-	}
+if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
     vspd = 0;
 }
 
+// not sure about this code
 
 //character moves too fast currently unless these lines are commented out - how to resolve? 
 x += hspd;
