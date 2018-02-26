@@ -32,6 +32,11 @@ var mouse_pressed = mouse_check_button_pressed(mb_left);
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
 
+if(keyboard_check(ord(1))) //attack toggling
+	curr_attack = 1;
+if(keyboard_check(ord(2)))
+	curr_attack = 2;
+
 if(shift_down) { //if shift down, show preview for paths
 	
 	//set variables for layer and tilemap IDs
@@ -81,6 +86,11 @@ if(shift_down) { //if shift down, show preview for paths
 	
 		if(mouse_check_button(mb_left)) {
 			
+			if(curr_attack == 1)
+				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
+			else if(curr_attack == 2)
+				drawCircle(x0,y0,x1,y1,tilemap_id_terra,true);
+			
 			drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
 			
 			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) {
@@ -94,18 +104,34 @@ if(shift_down) { //if shift down, show preview for paths
 						
 						var new_tile = no_tile_above | no_tile_below | no_tile_right | no_tile_left;
 						
-						if(new_tile != 0) {
+						if(curr_attack == 2)
+							new_tile += 20;
+							
+						if(new_tile != 0 && new_tile != 20) {
 							tilemap_set(tilemap_id_terra, new_tile, i, j);
 						}
-						else if(cur_tile != 17 && cur_tile != 15) {
-							tilemap_set(tilemap_id_terra, 15, i, j)
+						else 
+						if(curr_attack == 1)
+						{
+							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35) {
+								tilemap_set(tilemap_id_terra, 15, i, j)
+							}
 						}
+						else if(curr_attack == 2)
+						{
+							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35) {
+								tilemap_set(tilemap_id_terra, 35, i, j)
+							}
+						}
+					}
 					}
 				}
 			}
-		}
 		else {
+			if(curr_attack == 1)
 			drawPath(x0,y0,x1,y1,width,tilemap_id,false);
+			else if(curr_attack == 2)
+			drawCircle(x0,y0,x1,y1,tilemap_id,false);
 		}
 }
 
