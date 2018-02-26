@@ -4,7 +4,7 @@
     "mvc": "1.0",
     "IsDnDProject": false,
     "configs": [
-
+        
     ],
     "option_ecma": false,
     "parentProject": {
@@ -25,7 +25,7 @@
             }
         ],
         "hiddenResources": [
-
+            
         ],
         "projectPath": "${base_project}"
     },
@@ -250,7 +250,7 @@
             "Key": "a5f97daa-2c37-4a00-b448-f653a8dcc179",
             "Value": {
                 "id": "edfc2317-b8d9-4e41-af47-1d386fd0f744",
-                "resourcePath": "scripts\\drawCircle\\drawCircle.yy",
+                "resourcePath": "scripts\/drawCircle\/drawCircle.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -321,7 +321,7 @@
         {
             "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
             "Value": {
-                "id": "9bfbf988-25f3-4c63-85d1-108b968a110a",
+                "id": "a42efce5-bdd6-40cf-bdce-c43e33981427",
                 "resourcePath": "options\\windows\\options_windows.yy",
                 "resourceType": "GMWindowsOptions"
             }
