@@ -1,5 +1,5 @@
 
-
+/*
 /// @description Expand collision object if possible
 
 //first check for neighbor (horizontal)
@@ -47,3 +47,4 @@ while (inst != noone) {
     inst = instance_position(x, y + (image_yscale * 32), object_barrier) //check for another neighbor
     }
 }
+*/
