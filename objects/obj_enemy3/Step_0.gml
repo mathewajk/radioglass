@@ -14,7 +14,7 @@ cd-=1;
 
 if(cd==0){
 	instance_create_layer(x,y,"instances_bullet",obj_bullet);
-	cd = 25 + random(10);
+	cd = 25;
 }
 
 var hspd;
