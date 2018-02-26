@@ -223,6 +223,14 @@
             }
         },
         {
+            "Key": "a5f97daa-2c37-4a00-b448-f653a8dcc179",
+            "Value": {
+                "id": "edfc2317-b8d9-4e41-af47-1d386fd0f744",
+                "resourcePath": "scripts\\drawCircle\\drawCircle.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ac5e593d-c7e1-4fab-a073-b0c9dc34c17c",
             "Value": {
                 "id": "dab43f62-1b3a-4d8a-a418-59c6907eb13f",
@@ -377,7 +385,8 @@
     ],
     "script_order": [
         "5d8ce83a-8283-4327-8fbb-dd1a13bde58d",
-        "c46259fa-b13c-4280-b897-a968454748a6"
+        "c46259fa-b13c-4280-b897-a968454748a6",
+        "a5f97daa-2c37-4a00-b448-f653a8dcc179"
     ],
     "tutorial": ""
 }
