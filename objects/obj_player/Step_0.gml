@@ -39,8 +39,8 @@ if(coll) {
 	show_debug_message(string(coll));
 	var xx = coll.x;
 	var yy = coll.y;
-	var mx = (coll.x - x)
-	var my = (coll.y - y);
+	var mx = abs(coll.x - x)
+	var my = abs(coll.y - y);
 	var l = sqrt(mx * mx + my * my);
 	
 	hspd = -floor(16 * (mx / l));
