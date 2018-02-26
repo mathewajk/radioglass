@@ -98,8 +98,7 @@ if(shift_down) { //if shift down, show preview for paths
 				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
 			else if(curr_attack == 2)
 				drawCircle(x0,y0,x1,y1,tilemap_id_terra,true);
-			
-			drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
+		
 			
 			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) {
 				for(var j = 0; j < tilemap_get_height(tilemap_id_terra); j++) {
@@ -112,8 +111,8 @@ if(shift_down) { //if shift down, show preview for paths
 						
 						var new_tile = no_tile_above | no_tile_below | no_tile_right | no_tile_left;
 						
-						if(curr_attack == 2)
-							new_tile += 20;
+						//if(curr_attack == 2)
+						//	new_tile += 20;
 							
 						if(new_tile != 0 && new_tile != 20) {
 							tilemap_set(tilemap_id_terra, new_tile, i, j);
