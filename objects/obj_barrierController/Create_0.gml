@@ -17,7 +17,8 @@ for (i = 0; i < tilemap_get_width(tilemapId); i++) {
 var tilemapId = layer_tilemap_get_id("tiles_background");
 for (var i = 0; i < tilemap_get_width(tilemapId); i++) {
 	for (var j = 0; j < tilemap_get_height(tilemapId); j++) {
-	    if (tilemap_get(tilemapId, i, j) >= 45) {
+		var curr_tile_index = tilemap_get(tilemapId, i, j);
+	    if (curr_tile_index >= 45 || curr_tile_index == 10) {
 	        var inst = instance_create_layer(i * 16, j * 16, "instances_walls", obj_barrier);
 		}
 	}
