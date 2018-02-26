@@ -3,7 +3,7 @@
 
 var cx=camera_get_view_x(view_camera[0]), cy=camera_get_view_y(view_camera[0])
 
-draw_healthbar(cx, cy, cx+200, cy+40, hp, c_black, c_red, c_green, 0, true, true);
+draw_healthbar(cx, cy, cx+100, cy+10, hp, c_black, c_red, c_green, 0, true, true);
 
 
 if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
