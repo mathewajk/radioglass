@@ -1,6 +1,8 @@
+
+
 /// @description Expand collision object if possible
 
-/*//first check for neighbor (horizontal)
+//first check for neighbor (horizontal)
 var inst = instance_place(x + (image_xscale * 32), y, object_barrier);
 
 show_debug_message("Got instance. " + string(inst));
@@ -44,4 +46,4 @@ while (inst != noone) {
    
     inst = instance_position(x, y + (image_yscale * 32), object_barrier) //check for another neighbor
     }
-}*/
+}

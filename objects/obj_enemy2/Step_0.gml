@@ -9,8 +9,10 @@ if (player_damage_cd == 0) {
 	player_damage_cd -= 1;
 }
 
+/*
 var layer_id = layer_get_id("tiles_path");
 var tilemap_id = layer_tilemap_get_id(layer_id);
+*/
 
 x+=random(8)-4;
 y+=random(8)-4;

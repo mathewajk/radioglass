@@ -14,7 +14,7 @@ if (player_damage_cd == 0) {
 
 
 var coll = instance_place(x, y, obj_damage);
-// -- instance_place checks if there enemy collides with damage object
+// -- instance_place checks if the enemy collides with damage object
 // -- if there is, returns the instance id of the obj_damage to coll
 // -- if there is, returns the contant noone with a value -4 (pseudo-false) to coll
 // -- pseudo-false: any number < 0.5

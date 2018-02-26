@@ -8,5 +8,8 @@ player_damage_cd = 0;
 last_coll = -1;
 facing = 1;
 
-alarm[0] = 50;
+alarm[0] = 80;
+
+x = 144;
+y = 32;
 
