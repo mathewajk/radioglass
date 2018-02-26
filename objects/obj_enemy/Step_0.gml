@@ -3,7 +3,14 @@
 
 mp_potential_step(obj_player.x, obj_player.y, 2, false);
 
-if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) obj_player.hp-=6;
+if (player_damage_cd == 0) {
+	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
+		obj_player.hp-=6;
+		player_damage_cd = 20;
+	}
+} else {
+	player_damage_cd -= 1;
+}
 
 
 var coll = instance_place(x, y, obj_damage);
