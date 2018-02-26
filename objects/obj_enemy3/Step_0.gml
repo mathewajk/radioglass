@@ -1,11 +1,20 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (player_damage_cd == 0) {
+	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
+		obj_player.hp-=3;
+		player_damage_cd = 20;
+	}
+} else {
+	player_damage_cd -= 1;
+}
+
 cd-=1;
 
 if(cd==0){
 	instance_create_layer(x,y,"instances_bullet",obj_bullet);
-	cd = 25 + random(10);
+	cd = 25;
 }
 
 var hspd;
