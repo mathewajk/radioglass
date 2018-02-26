@@ -99,8 +99,6 @@ if(shift_down) { //if shift down, show preview for paths
 			else if(curr_attack == 2)
 				drawCircle(x0,y0,x1,y1,tilemap_id_terra,true);
 			
-			drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
-			
 			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) {
 				for(var j = 0; j < tilemap_get_height(tilemap_id_terra); j++) {
 					var cur_tile = tilemap_get(tilemap_id_terra, i, j);
