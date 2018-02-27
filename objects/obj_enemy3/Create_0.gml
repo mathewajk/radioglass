@@ -10,6 +10,5 @@ facing = 1;
 
 alarm[0] = 80;
 
-x = 144;
-y = 32;
+state = 0;
 
