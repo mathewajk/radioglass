@@ -27,10 +27,10 @@ switch (facing) {
 	case 4: hspd = 0; vspd = -2;
 }
 
-if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
+if (place_meeting(x + hspd + sign(hspd), y, obj_barrier) || place_meeting(x + hspd + sign(hspd), y, obj_barrierSmall)) {
     hspd = 0;
 }
-if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
+if (place_meeting(x, y + vspd + sign(vspd), obj_barrier) || place_meeting(x, y + vspd + sign(vspd), obj_barrierSmall)) {
     vspd = 0;
 }
 

@@ -49,7 +49,10 @@ else
 
 
 for (var p= 1; p<length; p++) { 
-	lineWidth(xc, yc, dx, dy, p_error, width, error, tilemap_id, terraform_on);
+	if(curr_attack == 1)
+		lineWidth(xc, yc, dx, dy, p_error, width, error, tilemap_id, terraform_on);
+	else if(curr_attack == 3)
+		wallWidth(xc, yc, dx, dy, p_error, width, error, tilemap_id, terraform_on);
 	if (error > threshold)  {
 		if (vOctant)
 			xc = xc + xstep;
@@ -57,7 +60,10 @@ for (var p= 1; p<length; p++) {
 			yc= yc + ystep;
 	    error = error + E_diag;
 	    if (p_error > threshold) {
-			lineWidth(xc, yc, dx, dy, p_error + E_diag + E_square, width, error, tilemap_id, terraform_on);
+			if(curr_attack == 1)
+				lineWidth(xc, yc, dx, dy, p_error + E_diag + E_square, width, error, tilemap_id, terraform_on);
+			else if(curr_attack == 3)
+				wallWidth(xc, yc, dx, dy, p_error + E_diag + E_square, width, error, tilemap_id, terraform_on);
 	    p_error= p_error + E_diag;
 	}
     p_error= p_error + E_square;

@@ -44,6 +44,8 @@ if(keyboard_check(ord(1))) //attack toggling
 	curr_attack = 1;
 if(keyboard_check(ord(2)))
 	curr_attack = 2;
+if(keyboard_check(ord(3)))
+	curr_attack = 3;
 
 if(shift_down) { //if shift down, show preview for paths
 
@@ -94,7 +96,7 @@ if(shift_down) { //if shift down, show preview for paths
 
 		if(mouse_check_button(mb_left)) {
 
-			if(curr_attack == 1)
+			if(curr_attack == 1 || curr_attack == 3)
 				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
 			else if(curr_attack == 2)
 				drawCircle(x0,y0,x1,y1,tilemap_id_terra,true);
@@ -120,14 +122,20 @@ if(shift_down) { //if shift down, show preview for paths
 						else
 						if(curr_attack == 1)
 						{
-							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35) {
+							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35 && cur_tile != 39) {
 								tilemap_set(tilemap_id_terra, 15, i, j)
 							}
 						}
 						else if(curr_attack == 2)
 						{
-							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35) {
+							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35 && cur_tile != 39) {
 								tilemap_set(tilemap_id_terra, 35, i, j)
+							}
+						}
+						else if(curr_attack == 3)
+						{
+							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35 && cur_tile != 39) {
+								tilemap_set(tilemap_id_terra, 39, i, j)
 							}
 						}
 					}
@@ -135,7 +143,7 @@ if(shift_down) { //if shift down, show preview for paths
 				}
 			}
 		else {
-			if(curr_attack == 1)
+			if(curr_attack == 1 || curr_attack == 3)
 			drawPath(x0,y0,x1,y1,width,tilemap_id,false);
 			else if(curr_attack == 2)
 			drawCircle(x0,y0,x1,y1,tilemap_id,false);
