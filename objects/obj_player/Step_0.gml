@@ -8,15 +8,29 @@ var vspd = 0;
 
 var v_dir = -(keyboard_check(ord("W")) | keyboard_check(vk_up)) + keyboard_check(ord("S")) | keyboard_check(vk_down);
 var h_dir = -(keyboard_check(ord("A")) | keyboard_check(vk_left)) +  keyboard_check(ord("D")) | keyboard_check(vk_right);
+var dodge =  (keyboard_check_pressed(vk_space));
+
 
 if(h_dir !=0 && v_dir != 0) { // Moving diagonally
     hspd = h_dir * sqrt(8);
 	vspd = v_dir * sqrt(8);
+	
 }
 else {
 	hspd = h_dir * 4;
 	vspd = v_dir * 4;
 }
+
+//add dodge mechanics--tony
+if (dodge) {
+	if (dodge_cool){
+		hspd *= 10;
+	    vspd *= 10;
+		dodge_cool = false;
+		alarm[0] = room_speed*7;
+	}
+}	
+
 
 /* Old snapping code in case we need it
 if(hspd == 0 && vspd == 0) {
@@ -92,6 +106,8 @@ if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
 // not sure about this code
 
 //character moves too fast currently unless these lines are commented out - how to resolve? 
+
+
 x += hspd;
 y += vspd;
 
