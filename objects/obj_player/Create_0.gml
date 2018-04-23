@@ -17,13 +17,13 @@ last_x_dir = 0;
 last_y_dir = 0;
 
 curr_attack = 1; //toggle between path and radius attack
-attacks = [1, 2, 3, -1, -1, -1, -1, -1, -1]; //what is this array? 
+attacks = [1, 2, -1, -1, -1, -1, -1, -1, -1]; //what is this array? 
 
 state = 0;
 snap = 1;
 
 hp = 100;
-mp = 100;
+
 dodge_cool = true; 
 
 last_dir = 0;
