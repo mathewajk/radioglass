@@ -21,10 +21,10 @@ var hspd;
 var vspd;
 
 switch (facing) {
-	case 1: hspd = 2; vspd = 0; break;
-	case 2: hspd = 0; vspd = 2; break;
-	case 3: hspd = -2; vspd = 0; break;
-	case 4: hspd = 0; vspd = -2;
+	case 1: hspd = 1.2; vspd = 0; break;
+	case 2: hspd = 0; vspd = 1.2; break;
+	case 3: hspd = -1.2; vspd = 0; break;
+	case 4: hspd = 0; vspd = -1.2;
 }
 
 if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
