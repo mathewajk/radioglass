@@ -7,10 +7,10 @@
 //under the positive x axis on a normal graph
 
 
-var x0= argument0;
-var y0= argument1;
-var x1= argument2;
-var y1= argument3;
+var x0= argument0; // current x
+var y0= argument1; // current y
+var x1= argument2; // destination x
+var y1= argument3; // destination y
 var width = argument4; 
 var tilemap_id= argument5;
 var terraform_on = argument6;
@@ -46,7 +46,6 @@ else
 	var E_square= 2*abs(dy);
 	var length = abs(dx)+1;
 }
-
 
 for (var p= 1; p<length; p++) { 
 	lineWidth(xc, yc, dx, dy, p_error, width, error, tilemap_id, terraform_on);

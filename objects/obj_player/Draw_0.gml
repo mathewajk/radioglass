@@ -40,9 +40,9 @@ var mouse_pressed = mouse_check_button_pressed(mb_left);
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
 
-if(keyboard_check(ord(1))) //attack toggling
+if(keyboard_check(ord("1"))) //attack toggling
 	curr_attack = 1;
-if(keyboard_check(ord(2)))
+if(keyboard_check(ord("2")))
 	curr_attack = 2;
 
 if(shift_down) { //if shift down, show preview for paths
@@ -81,19 +81,28 @@ if(shift_down) { //if shift down, show preview for paths
 		var tile_y = floor(y / 4);
 
 		//DRAW PATHS
-
+		var length_limit = 30;
+		if (curr_attack == 1)
+			length_limit = 30;
+		else if (curr_attack == 2)
+			length_limit = 20;
+		
 		var x0 = tile_x; //current tile x coordinate
 		var y0 = tile_y; //current tile y coordinate
 		var x1 = floor(mouse_x / 4); //where you want to end the path x coordinate
 		var y1 = floor(mouse_y / 4); //where you want to end the path y coordinate
 		var width = 3;
+		var path_length = floor(sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
+		if (path_length > length_limit) {
+			x1 = x0 + floor(length_limit / path_length * (x1 - x0));
+			y1 = y0 + floor(length_limit / path_length * (y1 - y0));
+		}
 
 		var layer_id = layer_get_id("small_tiles_path");
 		var tilemap_id = layer_tilemap_get_id(layer_id);
 		tilemap_clear(tilemap_id, 0);
 
 		if(mouse_check_button(mb_left)) {
-
 			if(curr_attack == 1)
 				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
 			else if(curr_attack == 2)

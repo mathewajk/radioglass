@@ -47,7 +47,6 @@ var error= einit;
 var tk= abs(dx)+abs(dy)-winit;
 
 while (tk<=wthr){ //remove "=" for even tiled widths
-	
 	if(tilemap_get(tilemap_id, xc, yc) == 0) {
 		if(terraform_on) {
 		  var coinflip = floor(random(4));
