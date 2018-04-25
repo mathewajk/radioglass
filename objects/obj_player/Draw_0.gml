@@ -112,40 +112,91 @@ if(shift_down) { //if shift down, show preview for paths
 				drawCircle(x0,y0,x1,y1,tilemap_id_terra,true);
 
 
-			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) {
-				for(var j = 0; j < tilemap_get_height(tilemap_id_terra); j++) {
-					var cur_tile = tilemap_get(tilemap_id_terra, i, j);
-					if(cur_tile != 0) {
-						var no_tile_above = (tilemap_get(tilemap_id_terra, i, j - 1) == 0? 1 : 0);
-						var no_tile_below = (tilemap_get(tilemap_id_terra, i, j + 1) == 0? 2 : 0);
-						var no_tile_left = (tilemap_get(tilemap_id_terra, i - 1, j) == 0? 4 : 0);
-						var no_tile_right= (tilemap_get(tilemap_id_terra, i + 1, j) == 0? 8 : 0);
+			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) { //loop through columns
+				for(var j = 0; j < tilemap_get_height(tilemap_id_terra); j++) { //loop through rows
+					var cur_tile = tilemap_get(tilemap_id_terra, i, j); //sets current tile at i, j
+					if(cur_tile != 0) { //if current tile already contains a path
 
-						var new_tile = no_tile_above | no_tile_below | no_tile_right | no_tile_left;
-
-						//if(curr_attack == 2)
-						//	new_tile += 20;
-
-						if(new_tile != 0 && new_tile != 20) {
-							tilemap_set(tilemap_id_terra, new_tile, i, j);
-						}
-						else
-						if(curr_attack == 1)
+						var grass_tile = grassCheck(i, j); //check for adjacent grass tiles
+						var water_tile = waterCheck(i, j); //check for adjacent water tiles
+						/*if((cur_tile == 15 || cur_tile == 35) && (grass_tile + water_tile == 15) && (grass_tile != 15) && (water_tile != 15))
 						{
-							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35) {
-								tilemap_set(tilemap_id_terra, 15, i, j)
-							}
+							tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
 						}
-						else if(curr_attack == 2)
+						*/ // creates some weird pattern that might be useful later
+						if(cur_tile == 38)
 						{
-							if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35) {
-								tilemap_set(tilemap_id_terra, 35, i, j)
-							}
 						}
-					}
+						else if(cur_tile == 18) { //dealing with single grass tiles in the middle of water
+							if(grass_tile == 15 && water_tile == 0)
+							tilemap_set(tilemap_id_terra, 38, i, j);
+							else if(grass_tile != 15 && water_tile != 0)
+							tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
+						}
+						else if(grass_tile == 15 && water_tile != 15 && (cur_tile == 15 || cur_tile == 17)) { //dealing with single grass tiles in the middle of water
+							tilemap_set(tilemap_id_terra, 18, i, j);
+						}
+						else if((grass_tile != 0 || water_tile != 0) && (grass_tile + water_tile != 15) ) { // if the new tile is an edge tile
+
+							if(grass_tile != 15 && water_tile == 15 && curr_attack == 1) {
+								tilemap_set(tilemap_id_terra, grass_tile, i, j);
+							}
+							else if(grass_tile == 15 && water_tile != 15 && curr_attack == 2)
+							{
+								tilemap_set(tilemap_id_terra, water_tile + 20, i, j);
+							}
+							else if(grass_tile != 15 && water_tile != 15)
+							{
+								if(cur_tile > 0 && cur_tile < 20)
+									tilemap_set(tilemap_id_terra, grass_tile, i, j);
+								else if(cur_tile > 20 && cur_tile < 40)
+									tilemap_set(tilemap_id_terra, water_tile + 20, i, j);
+							}
+							}
+						else if (cur_tile == 40)
+						{
+							//show_debug_message(40);
+							tilemap_set(tilemap_id_terra, 15, i, j);
+						}
+						else if (cur_tile > 40) // if the current tile is a hybrid tile
+						{
+							tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
+						}
+						else if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35 && cur_tile != 39) { //replaces existing edge tiles with center tiles or hybrid tiles
+								switch(curr_attack){
+									case 1:
+									if(cur_tile > 20 && cur_tile < 35 && grass_tile!= 0) //if current tile is a water edge tile and land is being drawn
+									{
+										tilemap_set(tilemap_id_terra, 35, i, j);
+									}
+									else {
+										tilemap_set(tilemap_id_terra, 15, i, j)
+									}
+									break;
+									case 2:
+									if(cur_tile > 0 && cur_tile < 15)  //if current tile is a land edge tile and water is being drawn
+									{
+										tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
+									}
+									else {
+										tilemap_set(tilemap_id_terra, 35, i, j)
+									}
+									break;
+									case 3:
+									{
+									tilemap_set(tilemap_id_terra, 39, i, j)
+									}
+									break;
+								}
+						}
+						else if ((cur_tile == 15 || cur_tile == 17) && water_tile != 15)
+						{
+							tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
+						}
 					}
 				}
 			}
+		}
 		else {
 			if(curr_attack == 1)
 			drawPath(x0,y0,x1,y1,width,tilemap_id,false);

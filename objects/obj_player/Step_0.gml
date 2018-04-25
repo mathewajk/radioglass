@@ -50,7 +50,7 @@ else {
 //check position for collision w/ instance or all instances of obj
 var coll = instance_place(x, y, obj_enemy); 
 if(coll) {	
-	show_debug_message(string(coll));
+	//show_debug_message(string(coll));
 	var xx = coll.x;
 	var yy = coll.y;
 	var mx = abs(coll.x - x)
@@ -60,7 +60,7 @@ if(coll) {
 	hspd = -floor(16 * (mx / l));
 	vspd = -floor(16 * (my / l));
 	
-	show_debug_message(string(hspd) + " " + string(vspd));
+	//show_debug_message(string(hspd) + " " + string(vspd));
 	
 	last_x_dir = (sign(hspd) != 0) ? sign(hspd) : 1;
 	last_y_dir = (sign(vspd) != 0) ? sign(vspd) : 1;
@@ -113,6 +113,7 @@ y += vspd;
 
 
 var atk_chosen = -1;
+/*
 switch(keyboard_lastkey) {
 	case ord("1"):
 		atk_chosen = 0; show_debug_message(string(atk_chosen)); break;
@@ -125,10 +126,10 @@ switch(keyboard_lastkey) {
 	case ord("5"):
 		atk_chosen = 4; show_debug_message(string(atk_chosen)); break;
 }
-
+*/
 if((atk_chosen != -1) && attacks[atk_chosen] != -1) {
 	curr_attack = attacks[atk_chosen];
-	show_debug_message(string(curr_attack));
+	//show_debug_message(string(curr_attack));
 }
 
 depth = -y + 16;

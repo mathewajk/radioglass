@@ -79,6 +79,14 @@
             }
         },
         {
+            "Key": "2327f25b-4b68-4ced-b9d8-c6261daf81e9",
+            "Value": {
+                "id": "ebd83f50-4649-46c9-850d-a82fbe6c5bfb",
+                "resourcePath": "sprites\\sprite19\\sprite19.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "27c11b1e-65fd-440b-86be-d828fc723ae2",
             "Value": {
                 "id": "34b006a9-aa92-48fd-a57e-fe710ca9dd9c",
@@ -383,6 +391,22 @@
             }
         },
         {
+            "Key": "de0f79c8-d44c-444c-b181-eaf2d4cdb22b",
+            "Value": {
+                "id": "daefa86b-9c44-4575-8054-686c5318a910",
+                "resourcePath": "scripts\\waterCheck\\waterCheck.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e2d5019a-2b6c-45b4-8741-80669c2e0f9a",
+            "Value": {
+                "id": "295a5cd1-4ccc-4328-9bde-ff4947ece4f8",
+                "resourcePath": "scripts\\grassCheck\\grassCheck.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ebca299b-dc88-4897-bcb4-3930216b18e5",
             "Value": {
                 "id": "655e5ad4-f052-4c5b-912b-2b377eaf6a02",
@@ -442,7 +466,9 @@
     "script_order": [
         "5d8ce83a-8283-4327-8fbb-dd1a13bde58d",
         "c46259fa-b13c-4280-b897-a968454748a6",
-        "a5f97daa-2c37-4a00-b448-f653a8dcc179"
+        "a5f97daa-2c37-4a00-b448-f653a8dcc179",
+        "e2d5019a-2b6c-45b4-8741-80669c2e0f9a",
+        "de0f79c8-d44c-444c-b181-eaf2d4cdb22b"
     ],
     "tutorial": ""
 }
