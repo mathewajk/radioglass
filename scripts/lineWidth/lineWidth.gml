@@ -15,6 +15,7 @@ var width = argument5
 var winit = argument6; 
 var tilemap_id = argument7;
 var terraform_on = argument8;
+var bullet = argument9;
 
 
 var xc=x0+(sign(dx) * 2 / (sqrt(1 + (power(dy, 2)/power(dx, 2))))); //current x you are drawing, shifted some distance away from the player
@@ -55,8 +56,10 @@ while (tk<=wthr){ //remove "=" for even tiled widths
 			tilemap_set(tilemap_id, 15, xc, yc);
 		  else
 			tilemap_set(tilemap_id, 17, xc, yc);
-			
-		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage);
+		  switch (bullet){
+			case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow);break;
+			case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
+		  }
 		}
 		else {
 			tilemap_set(tilemap_id, 16, xc,yc);
@@ -110,7 +113,10 @@ while (tk<=wthr) {
 		  else
 			tilemap_set(tilemap_id, 17, xc, yc);
 			
-		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage);
+		 switch (bullet){
+			case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow);break;
+			case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
+		  }
 		}
 		else {
 			tilemap_set(tilemap_id, 16, xc,yc);

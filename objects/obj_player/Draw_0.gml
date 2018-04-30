@@ -7,9 +7,9 @@ draw_healthbar(cx, cy, cx+100, cy+10, hp, c_black, c_red, c_green, 0, true, true
 draw_healthbar(cx, cy+15, cx+100, cy+25, nrg, c_black, c_orange, c_yellow, 0, true, true);
 
 //show a symbol if dash possible 
-if (dodge_cool)
-	draw_text(cx, cy+15, "Dash");
-
+/*if (dodge_cool)
+	draw_text(cx, cy+15, "Dash");*/
+	
 if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
 	sprite_index = spr_playerWalkLeft; //animate sprite
 	last_dir = 1; // set last direction
@@ -48,6 +48,17 @@ if(keyboard_check(ord("1"))) //attack toggling
 	curr_attack = 1;
 if(keyboard_check(ord("2")))
 	curr_attack = 2;
+	
+	
+//bullet toggling
+if mouse_wheel_up() 
+	curr_bullet += 1;
+else if mouse_wheel_down()
+	curr_bullet -= 1;
+if (curr_bullet < 1) curr_bullet = num_bullets;
+else if (curr_bullet > num_bullets) curr_bullet = 1;
+draw_text(cx, cy+40, "attack: " + string(curr_bullet));
+
 
 if(shift_down) { //if shift down, show preview for paths
 
@@ -108,9 +119,9 @@ if(shift_down) { //if shift down, show preview for paths
 
 		if(mouse_check_button(mb_left)) {
 			if(curr_attack == 1)
-				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
+				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true,curr_bullet);
 			else if(curr_attack == 2)
-				drawFan(x0,y0,x1,y1, pi/2, tilemap_id_terra,true);
+				drawFan(x0,y0,x1,y1, pi/2, tilemap_id_terra,true,curr_bullet);
 
 
 			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) { //loop through columns
@@ -200,10 +211,10 @@ if(shift_down) { //if shift down, show preview for paths
 		}
 		else {
 			if(curr_attack == 1)
-			drawPath(x0,y0,x1,y1,width,tilemap_id,false);
+			drawPath(x0,y0,x1,y1,width,tilemap_id,false,curr_bullet);
 			else if(curr_attack == 2)
 			{
-			drawCircle(x0,y0,x1,y1, tilemap_id,false);
+			drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
 			}
 		}
 }
