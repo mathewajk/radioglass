@@ -109,7 +109,7 @@ if(shift_down) { //if shift down, show preview for paths
 			if(curr_attack == 1)
 				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true);
 			else if(curr_attack == 2)
-				drawCircle(x0,y0,x1,y1,tilemap_id_terra,true);
+				drawFan(x0,y0,x1,y1, pi/2, tilemap_id_terra,true);
 
 
 			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) { //loop through columns
@@ -201,7 +201,9 @@ if(shift_down) { //if shift down, show preview for paths
 			if(curr_attack == 1)
 			drawPath(x0,y0,x1,y1,width,tilemap_id,false);
 			else if(curr_attack == 2)
-			drawCircle(x0,y0,x1,y1,tilemap_id,false);
+			{
+			drawCircle(x0,y0,x1,y1, tilemap_id,false);
+			}
 		}
 }
 
