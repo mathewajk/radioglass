@@ -24,6 +24,7 @@ snap = 1;
 
 hp = 100;
 
-dodge_cool = true; 
+dodge_cool = true;
+dodge_length = 16;
 
 last_dir = 0;

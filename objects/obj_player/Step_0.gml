@@ -24,8 +24,11 @@ else {
 //add dodge mechanics--tony
 if (dodge) {
 	if (dodge_cool){
-		hspd *= 10;
-	    vspd *= 10;
+		var x1 = mouse_x - x;
+		var y1 = mouse_y - y;
+		var z1 = sqrt(sqr(x1)+sqr(y1)); 
+		hspd = dodge_length*(x1/z1);
+	    vspd = dodge_length*(y1/z1);
 		dodge_cool = false;
 		alarm[0] = room_speed*7;
 	}
