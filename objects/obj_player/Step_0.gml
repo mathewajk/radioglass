@@ -21,16 +21,23 @@ else {
 	vspd = v_dir * 4;
 }
 
+//energy bar
+var nrg_regen_rate = 0.5;
+if(nrg < 100)
+nrg += nrg_regen_rate;
+if(nrg > 100)
+nrg = 100;
+
 //add dodge mechanics--tony
 if (dodge) {
-	if (dodge_cool){
+	if (dodge_cost <= nrg){
 		var x1 = mouse_x - x;
 		var y1 = mouse_y - y;
 		var z1 = sqrt(sqr(x1)+sqr(y1)); 
 		hspd = dodge_length*(x1/z1);
 	    vspd = dodge_length*(y1/z1);
-		dodge_cool = false;
-		alarm[0] = room_speed*7;
+		nrg = nrg - dodge_cost;
+		//alarm[0] = room_speed*7;
 	}
 }	
 

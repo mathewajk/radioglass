@@ -23,7 +23,9 @@ state = 0;
 snap = 1;
 
 hp = 100;
+nrg = 100;
 
+dodge_cost = 75;
 dodge_cool = true;
 dodge_length = 16;
 
