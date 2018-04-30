@@ -49,6 +49,7 @@ if(keyboard_check(ord("1"))) //attack toggling
 if(keyboard_check(ord("2")))
 	curr_attack = 2;
 
+
 if(shift_down) { //if shift down, show preview for paths
 
 	//set variables for layer and tilemap IDs
