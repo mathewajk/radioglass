@@ -10,6 +10,28 @@ var v_dir = -(keyboard_check(ord("W")) | keyboard_check(vk_up)) + keyboard_check
 var h_dir = -(keyboard_check(ord("A")) | keyboard_check(vk_left)) +  keyboard_check(ord("D")) | keyboard_check(vk_right);
 var dodge =  (keyboard_check_pressed(vk_space));
 
+//shield code
+if(keyboard_check(ord("F")) && nrg > 0)
+{
+	shield_up = true;
+}
+else
+{
+	shield_up = false;
+}
+
+if(shield_up)
+{
+	shield_timer += 0.05;
+	nrg -= shield_timer;
+	nrg_cooldown = true;
+}
+else
+{
+	if(shield_timer > 0 && nrg_timer == 0)
+	shield_timer -= 0.05;
+}
+show_debug_message(shield_timer);
 
 if(h_dir !=0 && v_dir != 0) { // Moving diagonally
     hspd = h_dir * sqrt(8);
@@ -21,12 +43,7 @@ else {
 	vspd = v_dir * 4;
 }
 
-//energy bar
-var nrg_regen_rate = 0.5;
-if(nrg < 100)
-nrg += nrg_regen_rate;
-if(nrg > 100)
-nrg = 100;
+
 
 //add dodge mechanics--tony
 if (dodge) {
@@ -37,6 +54,7 @@ if (dodge) {
 		hspd = dodge_length*(x1/z1);
 	    vspd = dodge_length*(y1/z1);
 		nrg = nrg - dodge_cost;
+		nrg_cooldown = true;
 		//alarm[0] = room_speed*7;
 	}
 }	
@@ -144,3 +162,19 @@ if((atk_chosen != -1) && attacks[atk_chosen] != -1) {
 
 depth = -y + 16;
 
+//energy bar
+var nrg_regen_rate = 0.5;
+if(nrg_cooldown)
+{
+nrg_timer = 1;
+alarm[1] = 40;
+nrg_cooldown = false;
+}
+else if(nrg < 100 && nrg_timer == 0)
+{
+nrg += nrg_regen_rate;
+}
+else if(nrg > 100)
+{
+nrg = 100;
+}

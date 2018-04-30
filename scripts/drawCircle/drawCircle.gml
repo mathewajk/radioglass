@@ -19,12 +19,6 @@ for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
 
 		var cen_to_curr = sqrt(power((xc - x0), 2) + power((yc - y0), 2));
 		var curr_to_curs = sqrt(power((xc - x1), 2) + power((yc - y1), 2));
-		show_debug_message("Radius: ");
-		show_debug_message(radius);
-		show_debug_message("Cen to cur: ");
-		show_debug_message(cen_to_curr);
-		show_debug_message("Curr to curs: ");
-		show_debug_message(curr_to_curs);
 	if(sqrt(power((xc - x0), 2) + power((yc - y0), 2)) <= radius)
 	{
 	if(tilemap_get(tilemap_id, xc, yc) == 0) {
