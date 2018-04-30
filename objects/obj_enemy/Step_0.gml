@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
 mp_potential_step(obj_player.x, obj_player.y, 1.5, false);
 
 if (player_damage_cd == 0) {
@@ -13,7 +14,7 @@ if (player_damage_cd == 0) {
 }
 
 
-var coll = instance_place(x, y, obj_damage);
+coll = instance_place(x, y, obj_damage);
 // -- instance_place checks if the enemy collides with damage object
 // -- if there is, returns the instance id of the obj_damage to coll
 // -- if there is, returns the contant noone with a value -4 (pseudo-false) to coll

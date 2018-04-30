@@ -13,9 +13,15 @@ if (player_damage_cd == 0) {
 var layer_id = layer_get_id("tiles_path");
 var tilemap_id = layer_tilemap_get_id(layer_id);
 */
+var coll = instance_place(x,y,obj_slow);
+if (coll) {
+	show_debug_message("Slow!! " + string(id));
+	v = 2;
+}
+else v = 8;
 
-hspd = random(8)-4;
-vspd = random(8)-4;
+hspd = random(v)-v/2;
+vspd = random(v)-v/2;
 
 if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
     hspd = 0;
@@ -27,7 +33,7 @@ if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
 x += hspd;
 y += vspd;
 
-mp_potential_step(obj_player.x, obj_player.y, 3, false);
+mp_potential_step(obj_player.x, obj_player.y, (v/2-0.5), false);
 
 
 var coll = instance_place(x, y, obj_damage);

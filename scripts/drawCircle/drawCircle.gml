@@ -6,6 +6,7 @@ var x1= argument2;
 var y1= argument3;
 var tilemap_id= argument4;
 var terraform_on = argument5;
+var bullet = argument6;
 
 var dx = x1 - x0;
 var dy = y1 - y0;
@@ -35,8 +36,10 @@ for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
 			tilemap_set(tilemap_id, 35, xc, yc);
 		  else
 			tilemap_set(tilemap_id, 37, xc, yc);
-			
-		  instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage);
+		  switch (bullet){
+			case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
+			case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow); break;
+		  }
 		}
 		else {
 			tilemap_set(tilemap_id, 36, xc,yc);

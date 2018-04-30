@@ -139,8 +139,11 @@ switch(keyboard_lastkey) {
 */
 if((atk_chosen != -1) && attacks[atk_chosen] != -1) {
 	curr_attack = attacks[atk_chosen];
-	//show_debug_message(string(curr_attack));
+	show_debug_message(string(curr_attack));
 }
+
+
+
 
 depth = -y + 16;
 

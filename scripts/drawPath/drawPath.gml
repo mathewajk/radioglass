@@ -14,6 +14,7 @@ var y1= argument3; // destination y
 var width = argument4; 
 var tilemap_id= argument5;
 var terraform_on = argument6;
+var bullet = argument7;
 
 var dx= x1 - x0;
 var dy= y1 - y0;
@@ -48,7 +49,7 @@ else
 }
 
 for (var p= 1; p<length; p++) { 
-	lineWidth(xc, yc, dx, dy, p_error, width, error, tilemap_id, terraform_on);
+	lineWidth(xc, yc, dx, dy, p_error, width, error, tilemap_id, terraform_on, bullet);
 	if (error > threshold)  {
 		if (vOctant)
 			xc = xc + xstep;
@@ -56,7 +57,7 @@ for (var p= 1; p<length; p++) {
 			yc= yc + ystep;
 	    error = error + E_diag;
 	    if (p_error > threshold) {
-			lineWidth(xc, yc, dx, dy, p_error + E_diag + E_square, width, error, tilemap_id, terraform_on);
+			lineWidth(xc, yc, dx, dy, p_error + E_diag + E_square, width, error, tilemap_id, terraform_on,bullet);
 	    p_error= p_error + E_diag;
 	}
     p_error= p_error + E_square;
