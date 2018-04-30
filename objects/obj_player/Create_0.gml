@@ -25,8 +25,12 @@ attacks = [1, 2, -1, -1, -1, -1, -1, -1, -1]; //what is this array?
 state = 0;
 snap = 1;
 
+shield_up = false;
+shield_timer = 0;
 hp = 100;
 nrg = 100;
+nrg_cooldown = false;
+nrg_timer = 1;
 
 dodge_cost = 75;
 //dodge_cool = true;

@@ -60,6 +60,7 @@ else if (curr_bullet > num_bullets) curr_bullet = 1;
 draw_text(cx, cy+40, "attack: " + string(curr_bullet));
 
 
+
 if(shift_down) { //if shift down, show preview for paths
 
 	//set variables for layer and tilemap IDs

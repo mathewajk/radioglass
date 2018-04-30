@@ -6,8 +6,11 @@ mp_potential_step(obj_player.x, obj_player.y, 1.5, false);
 
 if (player_damage_cd == 0) {
 	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
+		if(not(obj_player.shield_up))
+		{
 		obj_player.hp-=6;
 		player_damage_cd = 20;
+		}
 	}
 } else {
 	player_damage_cd -= 1;
