@@ -255,6 +255,14 @@
             }
         },
         {
+            "Key": "8d8addf4-3f5d-42ab-a89d-eef2a97edc11",
+            "Value": {
+                "id": "1df38c94-41d1-48f6-a693-3f5c623467a6",
+                "resourcePath": "scripts\\deflectEnemy\\deflectEnemy.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "9374cd69-7ad1-43ea-8110-b18a7f0098ce",
             "Value": {
                 "id": "add4037f-0bc1-4d99-9903-eb9142049b6f",
@@ -493,7 +501,8 @@
         "a5f97daa-2c37-4a00-b448-f653a8dcc179",
         "81bbe50d-5e4c-4285-87a7-b73b5948d337",
         "e2d5019a-2b6c-45b4-8741-80669c2e0f9a",
-        "de0f79c8-d44c-444c-b181-eaf2d4cdb22b"
+        "de0f79c8-d44c-444c-b181-eaf2d4cdb22b",
+        "8d8addf4-3f5d-42ab-a89d-eef2a97edc11"
     ],
     "tutorial": ""
 }
