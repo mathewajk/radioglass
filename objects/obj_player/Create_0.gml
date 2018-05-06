@@ -42,6 +42,6 @@ dodge_length = 16;
 
 last_dir = 0;
 
-bomb_n = 5;
+bomb_n = 10;
 bomb_maxcd = 90;
 bomb_cd = 0;
