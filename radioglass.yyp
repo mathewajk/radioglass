@@ -628,25 +628,6 @@
             }
         },
         {
-            "Key": "979f57c9-657e-4c91-ac6e-5b6794d34980",
-            "Value": {
-                "id": "e366259c-cd7c-4ba3-b7df-78cd58aa0085",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
-                "resourcePath": "tilesets\/tileset3\/tileset3.yy",
-                "resourceType": "GMTileSet"
-            }
-        },
-        {
             "Key": "a082ddf4-2544-45fe-93f8-76a303651766",
             "Value": {
                 "id": "a46e8749-217e-495b-9820-c4e1114e70cd",
