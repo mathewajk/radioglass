@@ -79,14 +79,6 @@
             }
         },
         {
-            "Key": "2327f25b-4b68-4ced-b9d8-c6261daf81e9",
-            "Value": {
-                "id": "ebd83f50-4649-46c9-850d-a82fbe6c5bfb",
-                "resourcePath": "sprites\\sprite19\\sprite19.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "27c11b1e-65fd-440b-86be-d828fc723ae2",
             "Value": {
                 "id": "34b006a9-aa92-48fd-a57e-fe710ca9dd9c",
@@ -151,6 +143,14 @@
             }
         },
         {
+            "Key": "4cba4817-2594-488c-af3f-5a15cf2806da",
+            "Value": {
+                "id": "a13b1ea7-5f6c-4090-b665-635689b4663e",
+                "resourcePath": "sprites\\spr_explosion\\spr_explosion.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5aa53502-5020-4f3a-a97a-7d8308dcdda5",
             "Value": {
                 "id": "95067009-d7ef-4e2a-9fc3-ccfb7472b9f0",
@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "701ba8b0-6e71-4b32-b9d7-9130b1b4127e",
+            "Value": {
+                "id": "372a5d3a-fd39-4a3c-938b-f0eb7c06271c",
+                "resourcePath": "sprites\\spr_bomb\\spr_bomb.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "77c9cf4f-3424-48f8-8cd3-ff777fd8760d",
             "Value": {
                 "id": "452a027d-e382-41eb-93a4-bc5982f37209",
@@ -220,6 +228,14 @@
                 "id": "58b41e8a-66b4-4b19-bb8a-53723ba70e46",
                 "resourcePath": "views\/7c91c579-4a38-47ab-946e-7445af0c9259.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "7f85be9c-f700-42b3-a1c6-57718a8c3bb7",
+            "Value": {
+                "id": "c1a57a16-e9cc-4333-83de-07ddeff8f5d4",
+                "resourcePath": "objects\\obj_explosion\\obj_explosion.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -271,6 +287,14 @@
             }
         },
         {
+            "Key": "9e080b3e-ee59-436a-a6ef-e4605b2e8e3b",
+            "Value": {
+                "id": "5c9e80e7-4a7e-404c-bd9c-a051a2cf20bf",
+                "resourcePath": "objects\\obj_bomb\\obj_bomb.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a082ddf4-2544-45fe-93f8-76a303651766",
             "Value": {
                 "id": "a46e8749-217e-495b-9820-c4e1114e70cd",
@@ -292,6 +316,14 @@
                 "id": "edfc2317-b8d9-4e41-af47-1d386fd0f744",
                 "resourcePath": "scripts\/drawCircle\/drawCircle.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
+            "Value": {
+                "id": "a0c4ae4c-d592-4f14-bf2d-f6812fb95893",
+                "resourcePath": "options\\linux\\options_linux.yy",
+                "resourceType": "GMLinuxOptions"
             }
         },
         {
@@ -423,6 +455,14 @@
             }
         },
         {
+            "Key": "de9e1ccf-27e0-4d12-89a0-423b159e06f1",
+            "Value": {
+                "id": "26b4345f-874b-4651-87e9-07f63d1f5256",
+                "resourcePath": "objects\\obj_bomb_terra\\obj_bomb_terra.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e2d5019a-2b6c-45b4-8741-80669c2e0f9a",
             "Value": {
                 "id": "295a5cd1-4ccc-4328-9bde-ff4947ece4f8",
@@ -460,6 +500,14 @@
                 "id": "15dddde4-d99f-41c0-a17b-508d10a33480",
                 "resourcePath": "sprites\/spr_playerWalkBack\/spr_playerWalkBack.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
+            "Value": {
+                "id": "40c9b6dd-1d0d-4a0a-b08c-94f143fdf7ec",
+                "resourcePath": "options\\mac\\options_mac.yy",
+                "resourceType": "GMMacOptions"
             }
         },
         {
