@@ -1,10 +1,23 @@
 /// @description Draw player and paths
 // You can write your code in this editor
 
-var cx=camera_get_view_x(view_camera[0]), cy=camera_get_view_y(view_camera[0])
+var cx=camera_get_view_x(view_camera[0]), cy=camera_get_view_y(view_camera[0]);
 
 draw_healthbar(cx, cy, cx+100, cy+10, hp, c_black, c_red, c_green, 0, true, true);
 draw_healthbar(cx, cy+15, cx+100, cy+25, nrg, c_black, c_orange, c_yellow, 0, true, true);
+
+// draw bombs and bomb countdown
+for (var i = 0; i < bomb_n; i++) {
+	draw_sprite_stretched(spr_bomb, 0, cx+2+i*25, cy + 70, 15, 15);
+}
+var bomb_cdbar_height = 5;
+if (bomb_cd == 0) {
+	draw_rectangle_color(cx, cy+90, cx+100, cy+90+bomb_cdbar_height, c_green, c_green, c_green, c_green, false);
+} else {
+	var bomb_cdbar_length = floor(100*bomb_cd/bomb_maxcd);
+	draw_rectangle_color(cx, cy+90, cx+bomb_cdbar_length, cy+90+bomb_cdbar_height, c_red, c_red, c_red, c_red, false);
+	draw_rectangle_color(cx+bomb_cdbar_length, cy+90, cx+100, cy+90+bomb_cdbar_height, c_black, c_black, c_black, c_black, false);
+}
 
 //show a symbol if dash possible 
 /*if (dodge_cool)
@@ -46,9 +59,10 @@ var tile_y = floor(y / 4);
 
 if(keyboard_check(ord("1"))) //attack toggling
 	curr_attack = 1;
-if(keyboard_check(ord("2")))
+if(keyboard_check(ord("2"))) // fan
 	curr_attack = 2;
-	
+if(keyboard_check(ord("3"))) // bomb
+	curr_attack = 3;
 	
 //bullet toggling
 if mouse_wheel_up() 
@@ -108,11 +122,18 @@ if(shift_down) { //if shift down, show preview for paths
 		var x1 = floor(mouse_x / 4); //where you want to end the path x coordinate
 		var y1 = floor(mouse_y / 4); //where you want to end the path y coordinate
 		var width = 3;
-		var path_length = floor(sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
-		if (path_length > length_limit) {
-			x1 = x0 + floor(length_limit / path_length * (x1 - x0));
-			y1 = y0 + floor(length_limit / path_length * (y1 - y0));
+		
+		if (curr_attack != 3) {
+			var path_length = floor(sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
+			if (path_length > length_limit) {
+				x1 = x0 + floor(length_limit / path_length * (x1 - x0));
+				y1 = y0 + floor(length_limit / path_length * (y1 - y0));
+			}
+		} else {
+			x1 = x0 + 15;
+			y1 = y0 + 15;
 		}
+			
 
 		var layer_id = layer_get_id("small_tiles_path");
 		var tilemap_id = layer_tilemap_get_id(layer_id);
@@ -123,6 +144,12 @@ if(shift_down) { //if shift down, show preview for paths
 				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true,curr_bullet);
 			else if(curr_attack == 2)
 				drawFan(x0,y0,x1,y1, pi/2, tilemap_id_terra,true,curr_bullet);
+			else if(curr_attack == 3) // bomb
+				if (bomb_cd == 0 && bomb_n > 0) {
+					instance_create_layer(x, y, "instances_bullet", obj_bomb);
+					bomb_cd = bomb_maxcd;
+					bomb_n--;
+				}
 
 
 			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) { //loop through columns
@@ -213,7 +240,7 @@ if(shift_down) { //if shift down, show preview for paths
 		else {
 			if(curr_attack == 1)
 			drawPath(x0,y0,x1,y1,width,tilemap_id,false,curr_bullet);
-			else if(curr_attack == 2)
+			else if(curr_attack == 2 || curr_attack == 3)
 			{
 			drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
 			}

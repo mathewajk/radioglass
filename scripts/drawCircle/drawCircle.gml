@@ -17,28 +17,26 @@ for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
 {
 	for(var yc = (y0-radius)+1; yc < (y0+radius); yc++)
 	{
-
 		var cen_to_curr = sqrt(power((xc - x0), 2) + power((yc - y0), 2));
-		var curr_to_curs = sqrt(power((xc - x1), 2) + power((yc - y1), 2));
-	if(sqrt(power((xc - x0), 2) + power((yc - y0), 2)) <= radius)
-	{
-	if(tilemap_get(tilemap_id, xc, yc) == 0) {
-		if(terraform_on) {
-		  var coinflip = floor(random(4));
+		if (cen_to_curr <= radius)
+		{
+			if(tilemap_get(tilemap_id, xc, yc) == 0) {
+				if(terraform_on) {
+				  var coinflip = floor(random(4));
 			
-		  if(coinflip != 0)
-			tilemap_set(tilemap_id, 35, xc, yc);
-		  else
-			tilemap_set(tilemap_id, 37, xc, yc);
-		  switch (bullet){
-			case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
-			case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow); break;
-		  }
+				  if(coinflip != 0)
+					tilemap_set(tilemap_id, 35, xc, yc);
+				  else
+					tilemap_set(tilemap_id, 37, xc, yc);
+				  switch (bullet){
+					case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
+					case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow); break;
+				  }
+				}
+				else {
+					tilemap_set(tilemap_id, 36, xc,yc);
+				}
+			}
 		}
-		else {
-			tilemap_set(tilemap_id, 36, xc,yc);
-		}
-	}
-	}
 	}
 }

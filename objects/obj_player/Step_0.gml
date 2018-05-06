@@ -181,3 +181,7 @@ else if(nrg > 100)
 {
 nrg = 100;
 }
+
+//bomb count
+if (bomb_cd != 0) 
+	bomb_cd--;
