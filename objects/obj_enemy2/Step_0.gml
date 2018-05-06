@@ -1,5 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+if(obj_player.deflecting)
+	{
+		deflectEnemy(obj_player, obj_enemy2, 100);
+	}	
 if (player_damage_cd == 0) {
 	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
 		if(not(obj_player.shield_up))
@@ -32,12 +36,12 @@ if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
 if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
     vspd = 0;
 }
-
+if(!obj_player.deflecting || abs(obj_player.x-x)+abs(obj_player.y-y)>100)
+{
 x += hspd;
 y += vspd;
-
 mp_potential_step(obj_player.x, obj_player.y, (v/2-0.5), false);
-
+}
 
 var coll = instance_place(x, y, obj_damage);
 // -- instance_place checks if the enemy collides with damage object

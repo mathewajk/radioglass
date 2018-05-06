@@ -6,7 +6,11 @@
 time+=1;
 
 if(abs(x-obj_player.x)+abs(y-obj_player.y)<30){
-	if(not(obj_player.shield_up))
+	if(obj_player.deflecting)
+	{
+		direction = point_direction(x,y,mouse_x,mouse_y);
+	}
+	else if(not(obj_player.shield_up))
 	{
 	obj_player.hp -= 5;
 	cnt_damage = 1;

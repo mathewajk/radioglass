@@ -9,6 +9,17 @@ var vspd = 0;
 var v_dir = -(keyboard_check(ord("W")) | keyboard_check(vk_up)) + keyboard_check(ord("S")) | keyboard_check(vk_down);
 var h_dir = -(keyboard_check(ord("A")) | keyboard_check(vk_left)) +  keyboard_check(ord("D")) | keyboard_check(vk_right);
 var dodge =  (keyboard_check_pressed(vk_space));
+var deflect = keyboard_check_pressed(ord("R"));
+
+
+//deflect code
+if(deflect && deflect_cost <= nrg && !deflecting)
+{
+	deflecting = true;
+	nrg -= deflect_cost;
+	nrg_cooldown = true;
+	alarm[2] = 60;
+}
 
 //shield code
 if(keyboard_check(ord("F")) && nrg > 0)
