@@ -20,4 +20,3 @@ else*/
 	object.x += 2*dx;
 	object.y += 2*dy;
 }
-

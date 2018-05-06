@@ -1,5 +1,5 @@
 {
-    "id": "8d8addf4-3f5d-42ab-a89d-eef2a97edc11",
+    "id": "c49062de-195c-4c12-a7ef-b9e9c1047ca1",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "deflectEnemy",
