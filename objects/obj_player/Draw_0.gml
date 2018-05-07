@@ -122,9 +122,16 @@ if(shift_down) { //if shift down, show preview for paths
 		var x1 = floor(mouse_x / 4); //where you want to end the path x coordinate
 		var y1 = floor(mouse_y / 4); //where you want to end the path y coordinate
 		var width = 3;
-		
+
+	
 		if (curr_attack != 3) {
 			var path_length = floor(sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
+				//check if path is blocked by barrier, if so, shorten the length.
+			var curr_path = PathBlock(x0*4+2,y0*4+2,mouse_x,mouse_y,path_length);
+			x1 = x0 + floor(curr_path / path_length *(x1 - x0));
+			y1 = y0 + floor(curr_path / path_length * (y1 - y0));
+			path_length = curr_path;
+		
 			if (path_length > length_limit) {
 				x1 = x0 + floor(length_limit / path_length * (x1 - x0));
 				y1 = y0 + floor(length_limit / path_length * (y1 - y0));
