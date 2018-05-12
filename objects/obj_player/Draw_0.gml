@@ -19,6 +19,10 @@ if (bomb_cd == 0) {
 	draw_rectangle_color(cx+bomb_cdbar_length, cy+90, cx+100, cy+90+bomb_cdbar_height, c_black, c_black, c_black, c_black, false);
 }
 
+// draw 
+
+
+
 //show a symbol if dash possible 
 /*if (dodge_cool)
 	draw_text(cx, cy+15, "Dash");*/
@@ -57,12 +61,18 @@ var mouse_pressed = mouse_check_button_pressed(mb_left);
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
 
-if(keyboard_check(ord("1"))) //attack toggling
+if(keyboard_check(ord("1"))){ //attack toggling
 	curr_attack = 1;
-if(keyboard_check(ord("2"))) // fan
+	preview_on = true;
+}
+if(keyboard_check(ord("2"))){// fan
 	curr_attack = 2;
-if(keyboard_check(ord("3"))) // bomb
+	preview_on = true;
+}
+if(keyboard_check(ord("3"))){// bomb
 	curr_attack = 3;
+	preview_on = true;
+}
 	
 //bullet toggling
 if mouse_wheel_up() 
@@ -73,9 +83,10 @@ if (curr_bullet < 1) curr_bullet = num_bullets;
 else if (curr_bullet > num_bullets) curr_bullet = 1;
 draw_text(cx, cy+40, "attack: " + string(curr_bullet));
 
+if (mouse_check_button(mb_right) && preview_on)
+	preview_on = false;
 
-
-if(shift_down) { //if shift down, show preview for paths
+if(preview_on) { //if shift down, show preview for paths
 
 	//set variables for layer and tilemap IDs
 	var layer_id = layer_get_id("small_tiles_path");
@@ -111,11 +122,11 @@ if(shift_down) { //if shift down, show preview for paths
 		var tile_y = floor(y / 4);
 
 		//DRAW PATHS
-		var length_limit = 30;
+		var length_limit;
 		if (curr_attack == 1)
-			length_limit = 30;
+			length_limit = 50;
 		else if (curr_attack == 2)
-			length_limit = 20;
+			length_limit = 40;
 		
 		var x0 = tile_x; //current tile x coordinate
 		var y0 = tile_y; //current tile y coordinate
@@ -157,7 +168,6 @@ if(shift_down) { //if shift down, show preview for paths
 					bomb_cd = bomb_maxcd;
 					bomb_n--;
 				}
-
 
 			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) { //loop through columns
 				for(var j = 0; j < tilemap_get_height(tilemap_id_terra); j++) { //loop through rows
@@ -255,7 +265,7 @@ if(shift_down) { //if shift down, show preview for paths
 }
 
 //clear preview tiles
-if (keyboard_check_released(vk_shift)) {
+if (!preview_on) {
 	var layer_id = layer_get_id("small_tiles_path");
 	var tilemap_id = layer_tilemap_get_id(layer_id);
 	tilemap_clear(tilemap_id, 0);
