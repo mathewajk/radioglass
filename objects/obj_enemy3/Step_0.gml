@@ -49,7 +49,7 @@ var coll = instance_place(x, y, obj_damage);
 
 if(coll && state = 0) {
 	show_debug_message("Hit!! " + string(id));
-	hp -= 5;
+	hp -= 10; // increased damage from 5 to 10
 	
 	state = 1;
 	alarm[1] = 10; //10 frames of invulnerability
