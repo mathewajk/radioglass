@@ -45,3 +45,5 @@ last_dir = 0;
 bomb_n = 10;
 bomb_maxcd = 90;
 bomb_cd = 0;
+
+preview_on = false;
