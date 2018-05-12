@@ -1,27 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-/*The new enemy starts with speed 6; 
-every 5 seconds, it will disappear and then appear after 5 seconds;
-when visible it acts like other enemies;
-when invisible it doesn't attack the player but if the player doesn't 
-find out where it is, it will attack player once it becomes visible;
-but when attacked by path when invisible, it will turn visible(so the point is
-player should try to use path to find out where he enemy is.)
-*/
-
-
-var v = 6;
-var coll;
-if (alarm[1] >= room_speed*5) 
-	visible = true;
-else 
-{
-	visible = false;
-	v = 3;
-}
-
-coll = instance_place(x,y,obj_slow);
+v = 6;
+var coll = instance_place(x,y,obj_slow);
 if (coll) {
 	if (visible)
 		v = 2;
@@ -32,16 +13,34 @@ if (coll) {
 	}
 }
 
-hspd = random(v)-v/2;
-vspd = random(v)-v/2;
-
-if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
-    hspd = 0;
+if(abs(obj_player.x - x) < 100 && abs(obj_player.y - y) < 100) {
+	mp_potential_step(obj_player.x, obj_player.y, 2, false);
 }
-if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
-    vspd = 0;
-}
+else if(xx != -1 && yy != -1){
+	if(point_distance(x, y, xx, yy) < 6) {
+		pos++;
+		if(pos = path_get_number(path)) {
+			if(mp_grid_path(global.robotGrid, path, x, y, x + nextdir, y, false)) {
+				pos = 1;
+				path_set_kind(path, 0);
+				xx = path_get_point_x(path, pos);
+				yy = path_get_point_y(path, pos);
+				nextdir *= -1;
+			}
+			else {
+				xx = -1;
+				yy = -1;
+			}
+		}
+		else {
+			xx = path_get_point_x(path, pos);
+			yy = path_get_point_y(path, pos);
+		}
+	}
 
+	mp_potential_step(xx, yy, 2, false);
+}
+	
 if (visible){
 	if (player_damage_cd == 0) {
 		if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
@@ -55,17 +54,6 @@ if (visible){
 		player_damage_cd -= 1;
 	}
 }
-
-/*
-var layer_id = layer_get_id("tiles_path");
-var tilemap_id = layer_tilemap_get_id(layer_id);
-*/
-
-x += hspd;
-y += vspd;
-
-mp_potential_step(obj_player.x, obj_player.y, (v/2-0.5), false);
-
 
 coll = instance_place(x, y, obj_damage);
 // -- instance_place checks if the enemy collides with damage object
