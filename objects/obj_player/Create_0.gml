@@ -1,6 +1,9 @@
 /// @description Initialize player
 // You can write your code in this editor
 
+
+
+
 xspeed = 4;
 yspeed = 4;
 
