@@ -3,6 +3,7 @@
 //WASD momvent and making sure diagonal movement isn't faster
 //definitely a better way to do this...
 
+
 var hspd = 0;
 var vspd = 0;
 
