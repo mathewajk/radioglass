@@ -52,7 +52,7 @@ var coll = instance_place(x, y, obj_damage);
 
 if(coll && state = 0) {
 	show_debug_message("Hit!! " + string(id));
-	hp -= 5;
+	hp -= 10;
 	
 	state = 1;
 	alarm[0] = 10; //10 frames of invulnerability
