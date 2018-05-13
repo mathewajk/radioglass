@@ -142,6 +142,18 @@ if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
 if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
     vspd = 0;
 }
+if (place_meeting(x + hspd + sign(hspd), y, obj_rock)) {
+	hspd = obj_rock.hspeed;
+}
+if (place_meeting(x, y + vspd + sign(vspd), obj_rock)) {
+	vspd = obj_rock.vspeed;
+}
+if(place_meeting(x, y, obj_barrier) && place_meeting(x, y, obj_rock))
+{
+	hp = 0;
+}
+
+
 
 // not sure about this code
 

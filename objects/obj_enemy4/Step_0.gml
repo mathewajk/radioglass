@@ -41,6 +41,7 @@ else if(xx != -1 && yy != -1){
 	mp_potential_step(xx, yy, 2, false);
 }
 	
+
 if (visible){
 	if (player_damage_cd == 0) {
 		if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
