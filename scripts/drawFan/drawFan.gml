@@ -12,7 +12,7 @@ var bullet = argument7;
 var dx = x1 - x0;
 var dy = y1 - y0;
 
-var radius = sqrt(power(dx, 2) + power(dy, 2));
+var radius = round(sqrt(abs(power(dx, 2) + power(dy, 2))));
 
 for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
 {
@@ -33,7 +33,6 @@ for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
 		{
 			if(cen_to_curr <= radius)
 			{
-				cur_angle = arccos(cur_angle);
 				if(tilemap_get(tilemap_id, xc, yc) == 0) {
 					if(terraform_on) {
 					  var coinflip = floor(random(4));
