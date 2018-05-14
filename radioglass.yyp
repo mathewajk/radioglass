@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "4ac4cd94-20ff-4727-90dd-0fa033b4efb9",
+            "Value": {
+                "id": "6e487365-b44c-4b76-9d2a-cedfae8244cb",
+                "resourcePath": "objects\\obj_waterReflect\\obj_waterReflect.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "4cba4817-2594-488c-af3f-5a15cf2806da",
             "Value": {
                 "id": "a13b1ea7-5f6c-4090-b665-635689b4663e",
@@ -252,6 +260,14 @@
                 "id": "58b41e8a-66b4-4b19-bb8a-53723ba70e46",
                 "resourcePath": "views\/7c91c579-4a38-47ab-946e-7445af0c9259.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "7d61dbc4-5122-4550-9125-9d10e2105e7f",
+            "Value": {
+                "id": "9732e746-2be4-458b-9dc2-429377ae4265",
+                "resourcePath": "objects\\obj_parentReflect\\obj_parentReflect.yy",
+                "resourceType": "GMObject"
             }
         },
         {

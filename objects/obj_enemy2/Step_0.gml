@@ -22,7 +22,7 @@ var tilemap_id = layer_tilemap_get_id(layer_id);
 */
 var coll = instance_place(x,y,obj_slow);
 if (coll) {
-	show_debug_message("Slow!! " + string(id));
+	//show_debug_message("Slow!! " + string(id));
 	v = 2;
 }
 else v = 8;
