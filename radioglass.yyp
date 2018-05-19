@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "0a9dfa58-2023-4188-8fa0-5fac23fd9e38",
+            "Value": {
+                "id": "f495f07a-7a09-429c-b91d-533cd36bcaa0",
+                "resourcePath": "sprites\\spr_playerAttackLeft\\spr_playerAttackLeft.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0e70601e-114c-458b-b09b-21181724d1ed",
             "Value": {
                 "id": "8d75ff4a-dd4c-45f8-8710-3c3230338a78",
@@ -76,6 +84,14 @@
                 "id": "65535148-097f-4a01-81ee-bb47b85e5fe9",
                 "resourcePath": "objects\/obj_damage\/obj_damage.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "25febdb5-c1dc-4e7a-a4c4-44994066a3da",
+            "Value": {
+                "id": "66be3f94-f3ae-4e61-b1a6-6cad18caf00d",
+                "resourcePath": "sprites\\spr_playerAttackDown\\spr_playerAttackDown.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -319,6 +335,14 @@
             }
         },
         {
+            "Key": "9418a2a0-0e6b-4713-8c21-f7af27e00635",
+            "Value": {
+                "id": "305b1490-dd40-45b7-ba16-0f74a8a58177",
+                "resourcePath": "sprites\\spr_playerAttackRight\\spr_playerAttackRight.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9457342b-ed37-44b5-81c5-bbe5de64055c",
             "Value": {
                 "id": "97eabc7f-af22-4b03-a003-fce8e47be8d3",
@@ -484,6 +508,14 @@
                 "id": "de033a36-c0f0-47da-ba7f-2dd9c436a405",
                 "resourcePath": "scripts\\drawEdgeRadius\\drawEdgeRadius.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "d3ee3a26-414b-4ee9-9d8e-982f824b63a3",
+            "Value": {
+                "id": "8396e536-a05e-41d2-9735-c882830dd089",
+                "resourcePath": "sprites\\spr_playerAttackUp\\spr_playerAttackUp.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
