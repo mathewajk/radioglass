@@ -14,7 +14,6 @@ var water_id = layer_tilemap_get_id(water_layer);
 
 var dx = x1 - x0;
 var dy = y1 - y0;
-
 var radius = round(sqrt(abs(power(dx, 2) + power(dy, 2))));
 
 for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
