@@ -26,10 +26,12 @@ if (bomb_cd == 0) {
 //show a symbol if dash possible 
 /*if (dodge_cool)
 	draw_text(cx, cy+15, "Dash");*/
-	
+var mouse_pressed = mouse_check_button_pressed(mb_left);
+
+if (not_in_attack){
 if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
 	sprite_index = spr_playerWalkLeft; //animate sprite
-	last_dir = 1; // set last direction
+ 	last_dir = 1; // set last direction
 }
 else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
 	sprite_index = spr_playerWalkRight;
@@ -51,12 +53,24 @@ else {
 		case 4: sprite_index = spr_playerStandForward; break;
 	}
 }
+}
+if (mouse_check_button_pressed(mb_left)) {
+	switch(last_dir) {
+		case 1: sprite_index = spr_playerAttackLeft; break;
+		case 2: sprite_index = spr_playerAttackRight; break;
+		case 3: sprite_index = spr_playerAttackUp; break;
+		case 4: sprite_index = spr_playerAttackDown; break;
+	}
+	not_in_attack = false;
+	alarm[3] =15;
+}
+	
 
 
 draw_self(); // this function draws instance sprite same as default draw.
 
 var shift_down = keyboard_check(vk_shift);
-var mouse_pressed = mouse_check_button_pressed(mb_left);
+
 
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
