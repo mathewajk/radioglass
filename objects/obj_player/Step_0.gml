@@ -135,6 +135,17 @@ if(state == snap) {
 }
 */
 
+if (attacking) {
+	if(h_dir !=0 && v_dir != 0) { // Moving diagonally
+	    hspd = h_dir * sqrt(0.5);
+		vspd = v_dir * sqrt(0.5);
+	
+	}
+	else {
+		hspd = h_dir;
+		vspd = v_dir;
+	}
+}
 
 if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
     hspd = 0;

@@ -6,30 +6,24 @@ var cx=camera_get_view_x(view_camera[0]), cy=camera_get_view_y(view_camera[0]);
 draw_healthbar(cx, cy, cx+100, cy+10, hp, c_black, c_red, c_green, 0, true, true);
 draw_healthbar(cx, cy+15, cx+100, cy+25, nrg, c_black, c_orange, c_yellow, 0, true, true);
 
-/*
-// draw bombs and bomb countdown
-for (var i = 0; i < bomb_n; i++) {
-	draw_sprite_stretched(spr_bomb, 0, cx+2+i*25, cy + 70, 15, 15);
-}
-
-
-var bomb_cdbar_height = 5;
-if (bomb_cd == 0) {
-	draw_rectangle_color(cx, cy+90, cx+100, cy+90+bomb_cdbar_height, c_green, c_green, c_green, c_green, false);
-} else {
-	var bomb_cdbar_length = floor(100*bomb_cd/bomb_maxcd);
-	draw_rectangle_color(cx, cy+90, cx+bomb_cdbar_length, cy+90+bomb_cdbar_height, c_red, c_red, c_red, c_red, false);
-	draw_rectangle_color(cx+bomb_cdbar_length, cy+90, cx+100, cy+90+bomb_cdbar_height, c_black, c_black, c_black, c_black, false);
-}
-*/
 
 // draw staff sprite
 var img_i = curr_attack;
 if (!preview_on) {
 	img_i = 0;
 }
+if (img_i == 3) {
+	draw_healthbar(cx+36, cy+236, cx+82, cy+254, (bomb_cd/bomb_maxcd)*100, c_black, c_orange, c_red, 0, false, false);
+}
 draw_sprite_stretched(spr_staff, img_i, cx+15, cy+200, 56, 56);
-draw_sprite_stretched(spr_bomb_framed, 0, cx+80, cy+240, 30, 30);
+
+var bomb_n_x_offset = cx+64;
+if (img_i != 3) {
+	draw_sprite_stretched(spr_bomb, 0, cx+80, cy+240, 16, 16);
+	bomb_n_x_offset = cx+100;
+}
+draw_set_font(font_bomb_count);
+draw_text(bomb_n_x_offset, cy+244, "x"+string(bomb_n));
 
 
 
@@ -110,7 +104,7 @@ draw_text(cx, cy+40, "attack: " + string(curr_bullet));
 if (mouse_check_button(mb_right) && preview_on)
 	preview_on = false;
 
-if(preview_on) { //if shift down, show preview for paths
+if(preview_on) {
 
 	//set variables for layer and tilemap IDs
 	var layer_id = layer_get_id("small_tiles_path");
@@ -183,6 +177,11 @@ if(preview_on) { //if shift down, show preview for paths
 		tilemap_clear(tilemap_id, 0);
 		
 		if(mouse_check_button(mb_left)) {
+			if (curr_attack == 1 || curr_attack = 2) {
+				attacking = 1;
+				alarm[4] = 10;
+			}
+			
 			if(curr_attack == 1)
 			{
 				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true,curr_bullet);
