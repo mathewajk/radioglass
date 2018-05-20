@@ -6,10 +6,13 @@ var cx=camera_get_view_x(view_camera[0]), cy=camera_get_view_y(view_camera[0]);
 draw_healthbar(cx, cy, cx+100, cy+10, hp, c_black, c_red, c_green, 0, true, true);
 draw_healthbar(cx, cy+15, cx+100, cy+25, nrg, c_black, c_orange, c_yellow, 0, true, true);
 
+/*
 // draw bombs and bomb countdown
 for (var i = 0; i < bomb_n; i++) {
 	draw_sprite_stretched(spr_bomb, 0, cx+2+i*25, cy + 70, 15, 15);
 }
+
+
 var bomb_cdbar_height = 5;
 if (bomb_cd == 0) {
 	draw_rectangle_color(cx, cy+90, cx+100, cy+90+bomb_cdbar_height, c_green, c_green, c_green, c_green, false);
@@ -18,8 +21,15 @@ if (bomb_cd == 0) {
 	draw_rectangle_color(cx, cy+90, cx+bomb_cdbar_length, cy+90+bomb_cdbar_height, c_red, c_red, c_red, c_red, false);
 	draw_rectangle_color(cx+bomb_cdbar_length, cy+90, cx+100, cy+90+bomb_cdbar_height, c_black, c_black, c_black, c_black, false);
 }
+*/
 
-// draw 
+// draw staff sprite
+var img_i = curr_attack;
+if (!preview_on) {
+	img_i = 0;
+}
+draw_sprite_stretched(spr_staff, img_i, cx+15, cy+200, 56, 56);
+draw_sprite_stretched(spr_bomb_framed, 0, cx+80, cy+240, 30, 30);
 
 
 

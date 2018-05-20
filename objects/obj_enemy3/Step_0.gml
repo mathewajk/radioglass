@@ -1,5 +1,5 @@
 /// @description Insert description here
-// You can write your code in this editor
+// This enemy goes around in circles and shoots bullets at the player
 
 if (player_damage_cd == 0) {
 	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
@@ -13,13 +13,23 @@ if (player_damage_cd == 0) {
 	player_damage_cd -= 1;
 }
 
-cd-=1;
-
-if(cd==0){
-	instance_create_layer(x,y,"instances_bullet",obj_bullet);
-	cd = 25;
+if (cd >= 1){
+	cd-=1;
 }
 
+var dist_to_player = point_distance(x, y, obj_player.x, obj_player.y);
+
+if (dist_to_player < 200){
+	path_speed = 0.5;
+	if (cd == 0) {
+		instance_create_layer(x,y,"instances_bullet",obj_bullet);
+		cd = 25;
+	}
+} else {
+	path_speed = 1.2;	
+}
+
+/*
 var hspd;
 var vspd;
 
@@ -36,22 +46,24 @@ if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
 if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
     vspd = 0;
 }
+
 if (place_meeting(x + hspd + sign(hspd), y, obj_rock)) {
 	hspd = obj_rock.hspeed;
 }
 if (place_meeting(x, y + vspd + sign(vspd), obj_rock)) {
 	vspd = obj_rock.vspeed;
 }
+*/
 if(place_meeting(x, y, obj_barrier) && place_meeting(x, y, obj_rock))
 {
 	hp = 0;
 }
 
 
-
+/*
 x += hspd;
 y += vspd;
-
+*/
 var coll = instance_place(x, y, obj_damage);
 // -- instance_place checks if the enemy collides with damage object
 // -- if there is, returns the instance id of the obj_damage to coll

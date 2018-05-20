@@ -271,6 +271,14 @@
             }
         },
         {
+            "Key": "83ab5b47-73a0-4632-b8a6-3da254c43dcc",
+            "Value": {
+                "id": "2332fe8e-9752-4a34-97d5-c32e0674fa2c",
+                "resourcePath": "paths\\path_enemy3\\path_enemy3.yy",
+                "resourceType": "GMPath"
+            }
+        },
+        {
             "Key": "8899ec44-70b7-4aa6-9e8d-bce3652bfa3b",
             "Value": {
                 "id": "70d0dc47-5143-4fec-80bc-f2ac219b50be",
@@ -308,6 +316,14 @@
                 "id": "97eabc7f-af22-4b03-a003-fce8e47be8d3",
                 "resourcePath": "views\/9457342b-ed37-44b5-81c5-bbe5de64055c.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "9d870fa8-6ff0-43e0-994d-c71b02441a95",
+            "Value": {
+                "id": "9a18e923-abcb-416f-b5e0-8db14cc12625",
+                "resourcePath": "sprites\\spr_bomb_framed\\spr_bomb_framed.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -500,6 +516,14 @@
                 "id": "daefa86b-9c44-4575-8054-686c5318a910",
                 "resourcePath": "scripts\/waterCheck\/waterCheck.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "de4eb98e-48e3-418a-91ab-ab0331530e78",
+            "Value": {
+                "id": "82873968-1439-43a1-b008-20cfe16d80d7",
+                "resourcePath": "sprites\\spr_staff\\spr_staff.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
