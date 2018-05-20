@@ -43,7 +43,7 @@ else
 	if(shield_timer > 0 && nrg_timer == 0)
 	shield_timer -= 0.05;
 }
-show_debug_message(shield_timer);
+//show_debug_message(shield_timer);
 
 if(h_dir !=0 && v_dir != 0) { // Moving diagonally
     hspd = h_dir * sqrt(8);

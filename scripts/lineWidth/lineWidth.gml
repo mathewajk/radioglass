@@ -16,7 +16,8 @@ var winit = argument6;
 var tilemap_id = argument7;
 var terraform_on = argument8;
 var bullet = argument9;
-
+var water_layer = layer_get_id("water_layer");
+var water_id = layer_tilemap_get_id(water_layer);
 
 var xc=x0+(sign(dx) * 2 / (sqrt(1 + (power(dy, 2)/power(dx, 2))))); //current x you are drawing, shifted some distance away from the player
 var yc=y0+(sign(dy) * 2 / (sqrt(1 + (power(dx, 2)/power(dy, 2))))); //current y you are drawing, shifted some distance away from the player
@@ -48,7 +49,7 @@ var error= einit;
 var tk= abs(dx)+abs(dy)-winit;
 
 while (tk<=wthr){ //remove "=" for even tiled widths
-	if(tilemap_get(tilemap_id, xc, yc) == 0) {
+	if(tilemap_get(tilemap_id, xc, yc) == 0 && tilemap_get(water_id, xc, yc) == 0 ) {
 		if(terraform_on) {
 		  var coinflip = floor(random(4));
 			
@@ -104,7 +105,7 @@ tk= abs(dx)+abs(dy)+winit;
 
 while (tk<=wthr) { 
 	
-	if(tilemap_get(tilemap_id, xc, yc) == 0) {
+	if(tilemap_get(tilemap_id, xc, yc) == 0 && tilemap_get(water_id, xc, yc) == 0 ) {
 		if(terraform_on) {
 		  var coinflip = floor(random(4));
 			

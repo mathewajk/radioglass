@@ -19,7 +19,7 @@ while(true)	{
 	y0 += dy;
 	curr_len += update;
 	if (curr_len >= len1) return len;
-	if (position_meeting(x0,y0,obj_barrier)) {
+	if (position_meeting(x0,y0,obj_barrier) || position_meeting(x0,y0,obj_rock)) {
 		return round(curr_len/4);}
 	
 }
