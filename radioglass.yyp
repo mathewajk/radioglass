@@ -856,6 +856,25 @@
             }
         },
         {
+            "Key": "9b173c67-eb06-4cc8-9d09-2ef40c17c77a",
+            "Value": {
+                "id": "fab03916-c452-4d52-bf4a-1945e9bed26a",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/room_game\/room_game.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "9e080b3e-ee59-436a-a6ef-e4605b2e8e3b",
             "Value": {
                 "id": "5c9e80e7-4a7e-404c-bd9c-a051a2cf20bf",
@@ -1498,6 +1517,25 @@
                     "default"
                 ],
                 "resourcePath": "sprites\/spr_playerWalkBack\/spr_playerWalkBack.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f270b808-0f24-42a5-ae79-0d91baa06a3c",
+            "Value": {
+                "id": "3c1d0961-a87b-49b6-bcfd-8652cb6ac2b7",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_background2\/spr_background2.yy",
                 "resourceType": "GMSprite"
             }
         },
