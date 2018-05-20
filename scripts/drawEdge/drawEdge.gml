@@ -64,10 +64,18 @@ var water_id = layer_tilemap_get_id(water_layer);
 									case 1:
 									if(cur_tile > 20 && cur_tile < 35 && grass_tile!= 0) //if current tile is a water edge tile and land is being drawn
 									{
-										tilemap_set(water_id, 35, x0, y0);
+										var coinflip = floor(random(4));
+										  if(coinflip != 0)
+											tilemap_set(water_id, 35, x0, y0);
+										  else
+											tilemap_set(water_id, 37, x0, y0);
 									}
 									else {
-										tilemap_set(tilemap_id, 15, x0, y0)
+										var coinflip = floor(random(4));
+										  if(coinflip != 0)
+											tilemap_set(tilemap_id, 15, x0, y0);
+										  else
+											tilemap_set(tilemap_id, 17, x0, y0);
 									}
 									break;
 									case 2:
@@ -78,7 +86,11 @@ var water_id = layer_tilemap_get_id(water_layer);
 									else {
 										
 										tilemap_set(tilemap_id, 0, x0, y0)
-										tilemap_set(water_id, 35, x0, y0)
+										var coinflip = floor(random(4));
+										  if(coinflip != 0)
+											tilemap_set(water_id, 35, x0, y0);
+										  else
+											tilemap_set(water_id, 37, x0, y0);
 									}
 									break;
 								}
