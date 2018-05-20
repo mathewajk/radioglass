@@ -57,16 +57,13 @@ if (!attacking){
 			case 4: sprite_index = spr_playerStandForward; break;
 		}
 	}
-} else {
-	last_dir = last_attack_dir;
-	switch(last_dir) {
+} else { // 
+	switch(last_attack_dir) {
 		case 1: sprite_index = spr_playerAttackLeft; break;
 		case 2: sprite_index = spr_playerAttackRight; break;
 		case 3: sprite_index = spr_playerAttackUp; break;
 		case 4: sprite_index = spr_playerAttackDown; break;
 	}
-	attacking = false;
-	alarm[3] =15;
 }
 	
 
@@ -177,9 +174,23 @@ if(preview_on) {
 		tilemap_clear(tilemap_id, 0);
 		
 		if(mouse_check_button(mb_left)) {
+			attacking = true;
+			alarm[3] = 15;
+			attack_slow = true;
 			if (curr_attack == 1 || curr_attack = 2) {
-				attacking = 1;
-				alarm[4] = 10;
+				alarm[4] = 6;
+				var ang = point_direction(x, y, mouse_x, mouse_y);
+				if (ang >= 135 && ang < 225)
+					last_attack_direction = 1;
+				else if (ang >= 45 && ang > 135)
+					last_attack_direction = 3;
+				else if (ang >= 225 && ang < 315)
+					last_attack_direction = 4;
+				else
+					last_attack_direction = 2;
+			} else if (curr_attack == 3) {
+				last_attack_direction = 4;
+				alarm[4] = 3;
 			}
 			
 			if(curr_attack == 1)

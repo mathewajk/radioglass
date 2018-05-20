@@ -17,6 +17,7 @@ last_x_dir = 0;
 last_y_dir = 0;
 
 attacking = false;
+attack_slow = false;
 last_attack_dir = 1;
 
 curr_attack = 1; //toggle between path and radius attack
