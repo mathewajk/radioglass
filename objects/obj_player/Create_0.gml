@@ -1,6 +1,6 @@
 /// @description Initialize player
 // You can write your code in this editor
-attacking = 0;
+
 xspeed = 4;
 yspeed = 4;
 
@@ -15,6 +15,9 @@ last_valid_y_sign = 0;
 
 last_x_dir = 0;
 last_y_dir = 0;
+
+attacking = false;
+last_attack_dir = 1;
 
 curr_attack = 1; //toggle between path and radius attack
 curr_bullet = 2; //toggle between different bullets
@@ -47,4 +50,3 @@ bomb_maxcd = 90;
 bomb_cd = 0;
 
 preview_on = false;
-not_in_attack = true;

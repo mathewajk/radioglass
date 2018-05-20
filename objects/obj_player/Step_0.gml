@@ -135,7 +135,7 @@ if(state == snap) {
 }
 */
 
-if (attacking) {
+if (attacking) { // slows speed down to 1 when attacking
 	if(h_dir !=0 && v_dir != 0) { // Moving diagonally
 	    hspd = h_dir * sqrt(0.5);
 		vspd = v_dir * sqrt(0.5);

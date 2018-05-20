@@ -32,40 +32,40 @@ draw_text(bomb_n_x_offset, cy+244, "x"+string(bomb_n));
 	draw_text(cx, cy+15, "Dash");*/
 var mouse_pressed = mouse_check_button_pressed(mb_left);
 
-if (not_in_attack){
-if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-	sprite_index = spr_playerWalkLeft; //animate sprite
- 	last_dir = 1; // set last direction
-}
-else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
-	sprite_index = spr_playerWalkRight;
-	last_dir = 2;
-}
-else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
-	sprite_index = spr_playerWalkBack;
-	last_dir = 3;
-}
-else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
-	sprite_index = spr_playerWalkForward;
-	last_dir = 4;
-}
-else {
-	switch(last_dir) {
-		case 1: sprite_index = spr_playerStandLeft; break;
-		case 2: sprite_index = spr_playerStandRight; break;
-		case 3: sprite_index = spr_playerStandBack; break;
-		case 4: sprite_index = spr_playerStandForward; break;
+if (!attacking){
+	if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
+		sprite_index = spr_playerWalkLeft; //animate sprite
+	 	last_dir = 1; // set last direction
 	}
-}
-}
-if (mouse_check_button_pressed(mb_left)) {
+	else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
+		sprite_index = spr_playerWalkRight;
+		last_dir = 2;
+	}
+	else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
+		sprite_index = spr_playerWalkBack;
+		last_dir = 3;
+	}
+	else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
+		sprite_index = spr_playerWalkForward;
+		last_dir = 4;
+	}
+	else {
+		switch(last_dir) {
+			case 1: sprite_index = spr_playerStandLeft; break;
+			case 2: sprite_index = spr_playerStandRight; break;
+			case 3: sprite_index = spr_playerStandBack; break;
+			case 4: sprite_index = spr_playerStandForward; break;
+		}
+	}
+} else {
+	last_dir = last_attack_dir;
 	switch(last_dir) {
 		case 1: sprite_index = spr_playerAttackLeft; break;
 		case 2: sprite_index = spr_playerAttackRight; break;
 		case 3: sprite_index = spr_playerAttackUp; break;
 		case 4: sprite_index = spr_playerAttackDown; break;
 	}
-	not_in_attack = false;
+	attacking = false;
 	alarm[3] =15;
 }
 	
