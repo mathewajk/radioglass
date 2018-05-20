@@ -1,1 +1,0 @@
-attacking = 0;
