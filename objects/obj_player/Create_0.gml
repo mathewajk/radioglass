@@ -50,3 +50,4 @@ bomb_maxcd = 90;
 bomb_cd = 0;
 
 preview_on = false;
+not_in_attack = true;

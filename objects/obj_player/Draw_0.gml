@@ -36,10 +36,12 @@ draw_sprite_stretched(spr_bomb_framed, 0, cx+80, cy+240, 30, 30);
 //show a symbol if dash possible 
 /*if (dodge_cool)
 	draw_text(cx, cy+15, "Dash");*/
-	
+var mouse_pressed = mouse_check_button_pressed(mb_left);
+
+if (not_in_attack){
 if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
 	sprite_index = spr_playerWalkLeft; //animate sprite
-	last_dir = 1; // set last direction
+ 	last_dir = 1; // set last direction
 }
 else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
 	sprite_index = spr_playerWalkRight;
@@ -61,12 +63,24 @@ else {
 		case 4: sprite_index = spr_playerStandForward; break;
 	}
 }
+}
+if (mouse_check_button_pressed(mb_left)) {
+	switch(last_dir) {
+		case 1: sprite_index = spr_playerAttackLeft; break;
+		case 2: sprite_index = spr_playerAttackRight; break;
+		case 3: sprite_index = spr_playerAttackUp; break;
+		case 4: sprite_index = spr_playerAttackDown; break;
+	}
+	not_in_attack = false;
+	alarm[3] =15;
+}
+	
 
 
 draw_self(); // this function draws instance sprite same as default draw.
 
 var shift_down = keyboard_check(vk_shift);
-var mouse_pressed = mouse_check_button_pressed(mb_left);
+
 
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
@@ -144,13 +158,14 @@ if(preview_on) { //if shift down, show preview for paths
 		var y1 = floor(mouse_y / 4); //where you want to end the path y coordinate
 		var width = 3;
 
-	
 		if (curr_attack != 3) {
 			var path_length = floor(sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
 				//check if path is blocked by barrier, if so, shorten the length.
 			var curr_path = PathBlock(x0*4+2,y0*4+2,mouse_x,mouse_y,path_length);
-			x1 = x0 + floor(curr_path / path_length *(x1 - x0));
-			y1 = y0 + floor(curr_path / path_length * (y1 - y0));
+			if(x1 != x0)
+				x1 = x0 + floor(curr_path / path_length *(x1 - x0));
+			if(y1 != y0)
+				y1 = y0 + floor(curr_path / path_length * (y1 - y0));
 			path_length = curr_path;
 		
 			if (path_length > length_limit) {
@@ -166,108 +181,34 @@ if(preview_on) { //if shift down, show preview for paths
 		var layer_id = layer_get_id("small_tiles_path");
 		var tilemap_id = layer_tilemap_get_id(layer_id);
 		tilemap_clear(tilemap_id, 0);
-
+		
 		if(mouse_check_button(mb_left)) {
 			if(curr_attack == 1)
+			{
 				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true,curr_bullet);
+				drawEdgeRadius((x0+x1)/2,(y0+y1)/2,x1,y1,tilemap_id_terra, curr_attack);
+			}
 			else if(curr_attack == 2)
+			{
 				drawFan(x0,y0,x1,y1, pi/2, tilemap_id_terra,true,curr_bullet);
+				drawEdgeRadius((x0+x1)/2,(y0+y1)/2,x1+((x1-x0)/5),y1+((y1-y0)/5),tilemap_id_terra, curr_attack);
+			}
 			else if(curr_attack == 3) // bomb
 				if (bomb_cd == 0 && bomb_n > 0) {
 					instance_create_layer(x, y, "instances_bullet", obj_bomb);
 					bomb_cd = bomb_maxcd;
 					bomb_n--;
-				}
-
-			for(var i = 0; i < tilemap_get_width(tilemap_id_terra); i++) { //loop through columns
-				for(var j = 0; j < tilemap_get_height(tilemap_id_terra); j++) { //loop through rows
-					var cur_tile = tilemap_get(tilemap_id_terra, i, j); //sets current tile at i, j
-					if(cur_tile != 0) { //if current tile already contains a path
-
-						var grass_tile = grassCheck(i, j); //check for adjacent grass tiles
-						var water_tile = waterCheck(i, j); //check for adjacent water tiles
-						/*if((cur_tile == 15 || cur_tile == 35) && (grass_tile + water_tile == 15) && (grass_tile != 15) && (water_tile != 15))
-						{
-							tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
-						}
-						*/ // creates some weird pattern that might be useful later
-						if(cur_tile == 38)
-						{
-						}
-						else if(cur_tile == 18) { //dealing with single grass tiles in the middle of water
-							if(grass_tile == 15 && water_tile == 0)
-							tilemap_set(tilemap_id_terra, 38, i, j);
-							else if(grass_tile != 15 && water_tile != 0)
-							tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
-						}
-						else if(grass_tile == 15 && water_tile != 15 && (cur_tile == 15 || cur_tile == 17)) { //dealing with single grass tiles in the middle of water
-							tilemap_set(tilemap_id_terra, 18, i, j);
-						}
-						else if((grass_tile != 0 || water_tile != 0) && (grass_tile + water_tile != 15) ) { // if the new tile is an edge tile
-
-							if(grass_tile != 15 && water_tile == 15 && curr_attack == 1) {
-								tilemap_set(tilemap_id_terra, grass_tile, i, j);
-							}
-							else if(grass_tile == 15 && water_tile != 15 && curr_attack == 2)
-							{
-								tilemap_set(tilemap_id_terra, water_tile + 20, i, j);
-							}
-							else if(grass_tile != 15 && water_tile != 15)
-							{
-								if(cur_tile > 0 && cur_tile < 20)
-									tilemap_set(tilemap_id_terra, grass_tile, i, j);
-								else if(cur_tile > 20 && cur_tile < 40)
-									tilemap_set(tilemap_id_terra, water_tile + 20, i, j);
-							}
-							}
-						else if (cur_tile == 40)
-						{
-							//show_debug_message(40);
-							tilemap_set(tilemap_id_terra, 15, i, j);
-						}
-						else if (cur_tile > 40) // if the current tile is a hybrid tile
-						{
-							tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
-						}
-						else if(cur_tile != 17 && cur_tile != 15 && cur_tile != 37 && cur_tile != 35 && cur_tile != 39) { //replaces existing edge tiles with center tiles or hybrid tiles
-								switch(curr_attack){
-									case 1:
-									if(cur_tile > 20 && cur_tile < 35 && grass_tile!= 0) //if current tile is a water edge tile and land is being drawn
-									{
-										tilemap_set(tilemap_id_terra, 35, i, j);
-									}
-									else {
-										tilemap_set(tilemap_id_terra, 15, i, j)
-									}
-									break;
-									case 2:
-									if(cur_tile > 0 && cur_tile < 15)  //if current tile is a land edge tile and water is being drawn
-									{
-										tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
-									}
-									else {
-										tilemap_set(tilemap_id_terra, 35, i, j)
-									}
-									break;
-									case 3:
-									{
-									tilemap_set(tilemap_id_terra, 39, i, j)
-									}
-									break;
-								}
-						}
-						else if ((cur_tile == 15 || cur_tile == 17) && water_tile != 15)
-						{
-							tilemap_set(tilemap_id_terra, grass_tile + 40, i, j);
-						}
-					}
-				}
-			}
+				}	
+			
 		}
 		else {
 			if(curr_attack == 1)
 			drawPath(x0,y0,x1,y1,width,tilemap_id,false,curr_bullet);
-			else if(curr_attack == 2 || curr_attack == 3)
+			else if(curr_attack == 2)
+			{
+			drawFan(x0, y0, x1, y1, pi/2, tilemap_id, false, curr_bullet);
+			}
+			else if(curr_attack == 3)
 			{
 			drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
 			}

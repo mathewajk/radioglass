@@ -1,5 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+
+
 if(obj_player.deflecting)
 	{
 		deflectEnemy(obj_player, obj_enemy2, 100);
@@ -22,7 +25,7 @@ var tilemap_id = layer_tilemap_get_id(layer_id);
 */
 var coll = instance_place(x,y,obj_slow);
 if (coll) {
-	show_debug_message("Slow!! " + string(id));
+	//show_debug_message("Slow!! " + string(id));
 	v = 2;
 }
 else v = 8;
@@ -64,7 +67,7 @@ var coll = instance_place(x, y, obj_damage);
 
 if(coll && state = 0) {
 	show_debug_message("Hit!! " + string(id));
-	hp -= 10;
+	hp -= 1;
 	
 	state = 1;
 	alarm[0] = 10; //10 frames of invulnerability
@@ -74,7 +77,7 @@ if(coll && state = 0) {
 	// than the previous collided object
 }
 					
-if(hp == 0) {
+if(hp <= 0) {
 	instance_destroy(id);
 }
 
