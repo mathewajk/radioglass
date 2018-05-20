@@ -615,6 +615,14 @@
             }
         },
         {
+            "Key": "e672c47b-f63e-43ed-80f6-a3da80813e53",
+            "Value": {
+                "id": "a58223cb-6231-4a7f-a9a7-b19a6c030905",
+                "resourcePath": "fonts\\font_bomb_count\\font_bomb_count.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "ebca299b-dc88-4897-bcb4-3930216b18e5",
             "Value": {
                 "id": "655e5ad4-f052-4c5b-912b-2b377eaf6a02",
