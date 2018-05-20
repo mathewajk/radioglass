@@ -14,6 +14,15 @@ draw_tilemap(layer_id, - cx, -cy);
 //-----------------------------------
 //Drawing the reflection 
 
+with (obj_player){
+	var yoff = (sprite_height - sprite_yoffset-2) * 2;
+
+	gpu_set_blendmode_ext(bm_dest_alpha, bm_inv_src_alpha);
+
+	draw_sprite_ext(sprite_index, image_index, x - cx, (y+yoff) - cy, image_xscale, -image_yscale,0,-1,0.6);
+}
+
+
 with (obj_parentReflect){
 	var yoff = (sprite_height - sprite_yoffset) * 2;
 

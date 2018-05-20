@@ -6,10 +6,10 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 40,
+    "bbox_bottom": 42,
     "bbox_left": 0,
     "bbox_right": 33,
-    "bbox_top": 4,
+    "bbox_top": 6,
     "bboxmode": 0,
     "colkind": 1,
     "coltolerance": 0,
@@ -242,5 +242,5 @@
     "type": 0,
     "width": 34,
     "xorig": 17,
-    "yorig": 38
+    "yorig": 40
 }
