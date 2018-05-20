@@ -2,7 +2,7 @@
     "id": "36554a61-0114-4840-b6cb-943f8deb8ceb",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "sprite17",
+    "name": "spr_scorpion",
     "For3D": false,
     "HTile": false,
     "VTile": false,

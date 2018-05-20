@@ -61,7 +61,7 @@ var coll = instance_place(x, y, obj_damage);
 
 if(coll && state = 0) {
 	show_debug_message("Hit!! " + string(id));
-	hp -= 10; // increased damage from 5 to 10
+	hp -= 1; // increased damage from 5 to 10
 	
 	state = 1;
 	alarm[1] = 10; //10 frames of invulnerability
@@ -71,6 +71,6 @@ if(coll && state = 0) {
 	// than the previous collided object
 }	
 
-if(hp == 0) {
+if(hp <= 0) {
 	instance_destroy(id);
 }

@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-hp = 20;
+hp = 3;
+hits = hp;
 cd = 30;
 player_damage_cd = 0;
 
