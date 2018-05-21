@@ -87,22 +87,6 @@
             }
         },
         {
-            "Key": "1bd337af-97b1-4a3f-8775-46decf5f4d2d",
-            "Value": {
-                "id": "0f7a71cd-e462-4963-961c-a6d9d731217a",
-                "resourcePath": "sprites\\spr_spike\\spr_spike.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "1cc32a31-ddb2-4762-833e-98982b8c3186",
-            "Value": {
-                "id": "a4a7caf2-dcbb-4a9c-b78e-8c07c30e0e73",
-                "resourcePath": "sprites\\spr_enemy5\\spr_enemy5.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "1de853c0-9870-409c-be6a-a23b09fc3bbe",
             "Value": {
                 "id": "65535148-097f-4a01-81ee-bb47b85e5fe9",
@@ -175,6 +159,14 @@
             }
         },
         {
+            "Key": "3a8cbddd-f04d-4bcb-9210-94ea39dcc78f",
+            "Value": {
+                "id": "4b6c971b-1570-4dbb-8854-5135351f62ef",
+                "resourcePath": "sprites\\spr_spike\\spr_spike.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "410b177e-68ab-4a44-83dd-87b6c09f75bc",
             "Value": {
                 "id": "ce06518f-f101-4baa-944f-737d9065a8ef",
@@ -218,17 +210,6 @@
             "Key": "4fb4ca0f-09ef-4155-93b6-e24c6006493a",
             "Value": {
                 "id": "43a6f2ed-a2bf-4840-9324-00098623abf1",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
                 "resourcePath": "sounds\/snd_wind\/snd_wind.yy",
                 "resourceType": "GMSound"
             }
@@ -322,6 +303,14 @@
             }
         },
         {
+            "Key": "75bf96dc-45ae-4691-879c-08fe09840347",
+            "Value": {
+                "id": "fa5ab9cf-da08-466d-8545-2065b01f54e2",
+                "resourcePath": "objects\\obj_spike\\obj_spike.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "77c9cf4f-3424-48f8-8cd3-ff777fd8760d",
             "Value": {
                 "id": "452a027d-e382-41eb-93a4-bc5982f37209",
@@ -410,6 +399,14 @@
             }
         },
         {
+            "Key": "88cfdf04-40b8-45bb-8914-d841d4716cf5",
+            "Value": {
+                "id": "7049f414-c66b-46ae-b76e-721ee20a38e1",
+                "resourcePath": "objects\\obj_enemy5\\obj_enemy5.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "895c2fdf-92b8-4609-98d2-6ad1f69a345c",
             "Value": {
                 "id": "dd22b7b4-c5b3-49dc-8c22-f49385760c24",
@@ -423,6 +420,22 @@
                 "id": "8a59476a-ad83-4c92-b3fb-df66408df76e",
                 "resourcePath": "sprites\/spr_playerStandLeft\/spr_playerStandLeft.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8e10d31a-aa8e-4cae-8bc1-927b2ca091d5",
+            "Value": {
+                "id": "448fd0f1-9cfc-4a3b-bb36-5ee250c225f3",
+                "resourcePath": "scripts\\enemy5check\\enemy5check.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8f2f7b34-e02d-4676-8f12-a7b0faf4d3c3",
+            "Value": {
+                "id": "7220df6b-8638-435a-8b4f-84b4aaf971ec",
+                "resourcePath": "objects\\obj_spike_path\\obj_spike_path.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -582,6 +595,14 @@
             "Value": {
                 "id": "d1135ad2-e7bb-4616-bf20-0b28f5c6518f",
                 "resourcePath": "sprites\/spr_title_text\/spr_title_text.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bd2f01db-1c4b-4d01-a2ca-11b6bfe9ed09",
+            "Value": {
+                "id": "76e19f21-9754-4a59-8954-16db9ae848dc",
+                "resourcePath": "sprites\\spr_enemy5\\spr_enemy5.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -853,17 +874,6 @@
             "Key": "faae977e-d3db-4ccd-b90b-db920ebb12d8",
             "Value": {
                 "id": "8be5a273-a7a7-41ec-9e1b-348f89ba1f05",
-                "modelName": "GMResourceInfo",
-                "mvc": "1.0",
-                "configDeltaFiles": [
-                    
-                ],
-                "configDeltas": [
-                    
-                ],
-                "resourceCreationConfigs": [
-                    "default"
-                ],
                 "resourcePath": "sounds\/snd_title\/snd_title.yy",
                 "resourceType": "GMSound"
             }
@@ -888,7 +898,8 @@
         "c49062de-195c-4c12-a7ef-b9e9c1047ca1",
         "2fb7ab0b-f75b-4ce6-b7dc-8527010ad76c",
         "af52a3dc-2b51-4256-860a-9b1861dba1c0",
-        "a1a26068-a9bd-4bcc-95db-2d6cbdcfe799"
+        "a1a26068-a9bd-4bcc-95db-2d6cbdcfe799",
+        "8e10d31a-aa8e-4cae-8bc1-927b2ca091d5"
     ],
     "tutorial": ""
 }
