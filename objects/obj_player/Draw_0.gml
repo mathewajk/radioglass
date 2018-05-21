@@ -13,7 +13,9 @@ if (!preview_on) {
 	img_i = 0;
 }
 if (img_i == 3) {
-	draw_healthbar(cx+36, cy+236, cx+82, cy+254, (bomb_cd/bomb_maxcd)*100, c_black, c_orange, c_red, 0, false, false);
+	draw_set_alpha(0.3);
+	draw_healthbar(cx+36, cy+236, cx+82, cy+254, (bomb_cd/bomb_maxcd)*100, c_black, c_red, c_red, 0, false, false);
+	draw_set_alpha(1);
 }
 draw_sprite_stretched(spr_staff_icon, img_i, cx+15, cy+200, 56, 56);
 
@@ -24,7 +26,7 @@ if (img_i != 3) {
 }
 draw_set_font(font_bomb_count);
 draw_text(bomb_n_x_offset, cy+244, "x"+string(bomb_n));
-
+draw_text(cx + 150, cy, string(last_attack_dir));
 
 
 //show a symbol if dash possible 
@@ -177,19 +179,19 @@ if(preview_on) {
 			attacking = true;
 			alarm[3] = 15;
 			attack_slow = true;
-			if (curr_attack == 1 || curr_attack = 2) {
+			if (curr_attack == 1 || curr_attack == 2) {
 				alarm[4] = 6;
 				var ang = point_direction(x, y, mouse_x, mouse_y);
 				if (ang >= 135 && ang < 225)
-					last_attack_direction = 1;
-				else if (ang >= 45 && ang > 135)
-					last_attack_direction = 3;
+					last_attack_dir = 1;
+				else if (ang >= 45 && ang < 135)
+					last_attack_dir = 3;
 				else if (ang >= 225 && ang < 315)
-					last_attack_direction = 4;
+					last_attack_dir = 4;
 				else
-					last_attack_direction = 2;
+					last_attack_dir = 2;
 			} else if (curr_attack == 3) {
-				last_attack_direction = 4;
+				last_attack_dir = 4;
 				alarm[4] = 3;
 			}
 			
