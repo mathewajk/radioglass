@@ -4,6 +4,8 @@
 dirx = obj_player.x;
 diry = obj_player.y;
 
+friendly_fire = 0;
+
 direction = point_direction(x,y,dirx,diry);
 direction += random(16)-8;
 
