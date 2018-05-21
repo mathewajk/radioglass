@@ -11,7 +11,7 @@ else if (abs(obj_player.x - x) > 400 && abs(obj_player.y - y) < 400) {
 if (see_player){
 if(obj_player.deflecting)
 	{
-		deflectEnemy(obj_player, self, 100);
+		deflectEnemy(obj_player, self, 70);
 	}	
 if (player_damage_cd == 0) {
 	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {

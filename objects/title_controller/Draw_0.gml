@@ -3,7 +3,7 @@
 
 if(fade) {
 	if (alpha < 1) {
-		alpha += 0.05
+		alpha += 1/fade_frames
 	}
 	draw_set_alpha(alpha)
 	draw_set_color(c_black)

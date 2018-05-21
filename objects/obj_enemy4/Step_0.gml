@@ -2,7 +2,7 @@
 // You can write your code in this editor
 if(obj_player.deflecting)
 	{
-		deflectEnemy(obj_player, self, 100);
+		deflectEnemy(obj_player, self, 70);
 	}	
 v = 6;
 var coll = instance_place(x,y,obj_slow);
