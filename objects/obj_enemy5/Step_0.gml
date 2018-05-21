@@ -2,6 +2,10 @@
 // You can write your code in this editor
 
 // deal damage to player if player gets too close
+if(obj_player.deflecting)
+	{
+		deflectEnemy(obj_player, self, 70);
+	}
 if (player_damage_cd == 0) {
 	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
 		if(not(obj_player.shield_up))

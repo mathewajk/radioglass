@@ -14,6 +14,7 @@ var v_dir = -(keyboard_check(ord("W")) | keyboard_check(vk_up)) + keyboard_check
 var h_dir = -(keyboard_check(ord("A")) | keyboard_check(vk_left)) +  keyboard_check(ord("D")) | keyboard_check(vk_right);
 var dodge =  (keyboard_check_pressed(vk_space));
 var deflect = keyboard_check_pressed(ord("R"));
+var shield = keyboard_check(vk_shift);
 
 
 
@@ -28,7 +29,7 @@ if(deflect && deflect_cost <= nrg && !deflecting)
 }
 
 //shield code
-if(keyboard_check(ord("F")) && nrg > 0)
+if(shield && nrg > 0)
 {
 	shield_up = true;
 }
@@ -46,7 +47,7 @@ if(shield_up)
 else
 {
 	if(shield_timer > 0 && nrg_timer == 0)
-	shield_timer -= 0.05;
+	shield_timer -= 0.01;
 }
 //show_debug_message(shield_timer);
 
