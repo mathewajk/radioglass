@@ -1,8 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if(abs(obj_player.x - x) < 150 && abs(obj_player.y - y) < 150) {
+	see_player = true;
+}
+else if (abs(obj_player.x - x) > 400 && abs(obj_player.y - y) < 400) {
+	see_player = false;
+}
 
-
+if (see_player){
 if(obj_player.deflecting)
 	{
 		deflectEnemy(obj_player, self, 100);
@@ -80,3 +86,4 @@ if(hp <= 0) {
 }
 
 depth = -y + 16;
+}
