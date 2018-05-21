@@ -51,4 +51,7 @@ bomb_n = 10;
 bomb_maxcd = 90;
 bomb_cd = 0;
 
+deflected = false;
+deflect_x = 0; 
+deflect_y = 0;
 preview_on = false;
