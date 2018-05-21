@@ -552,6 +552,25 @@
             }
         },
         {
+            "Key": "67296e88-1339-453a-a14b-df053b05705c",
+            "Value": {
+                "id": "cf346698-c71d-42f6-bd96-0e9f5fcfa9a0",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_title\/spr_title.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6d144db1-cdc6-4bc6-95e2-e2f0de72bc37",
             "Value": {
                 "id": "7c7e2661-db47-49ee-a195-731b8708a8c0",
@@ -932,6 +951,25 @@
             }
         },
         {
+            "Key": "992e2f91-0c01-4632-aceb-33c62b451150",
+            "Value": {
+                "id": "ccc27956-607c-4716-a70f-218e433ac7d9",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/obj_title_text\/obj_title_text.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "9aab02ae-53a2-450e-9954-24032422cc02",
             "Value": {
                 "id": "96b7d9f6-e018-4a0c-95d0-1a26130b03d6",
@@ -1176,6 +1214,25 @@
                 ],
                 "resourcePath": "objects\/obj_enemy4\/obj_enemy4.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b80b31ed-cecf-469b-9006-1da9f92ab1cb",
+            "Value": {
+                "id": "d1135ad2-e7bb-4616-bf20-0b28f5c6518f",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_title_text\/spr_title_text.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1502,6 +1559,25 @@
             }
         },
         {
+            "Key": "dd73c170-e063-4c5f-bef6-f9add7d2cb3e",
+            "Value": {
+                "id": "5f7f8a33-ac14-4b81-a070-b67d8da91339",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/title_handler\/title_handler.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "de0f79c8-d44c-444c-b181-eaf2d4cdb22b",
             "Value": {
                 "id": "daefa86b-9c44-4575-8054-686c5318a910",
@@ -1727,6 +1803,25 @@
                 ],
                 "resourcePath": "sprites\/spr_background\/spr_background.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fa52bbb5-ca16-4a52-aecb-6c28a1afe24c",
+            "Value": {
+                "id": "6564151f-2632-43b1-a9aa-426c770ca01e",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/room_title\/room_title.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
