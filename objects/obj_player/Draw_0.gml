@@ -21,7 +21,7 @@ draw_sprite_stretched(spr_staff_icon, img_i, cx+15, cy+200, 56, 56);
 
 var bomb_n_x_offset = cx+64;
 if (img_i != 3) {
-	draw_sprite_stretched(spr_bomb, 0, cx+80, cy+240, 16, 16);
+	draw_sprite_stretched(spr_tree, 0, cx+80, cy+240, 16, 16);
 	bomb_n_x_offset = cx+100;
 }
 draw_set_font(font_bomb_count);
@@ -197,7 +197,7 @@ if(preview_on) {
 		var tilemap_id = layer_tilemap_get_id(layer_id);
 		tilemap_clear(tilemap_id, 0);
 		
-		if(mouse_check_button(mb_left)) {
+		if(mouse_check_button(mb_left) && (!deflected)) {
 			attacking = true;
 			alarm[3] = 15;
 			attack_slow = true;
@@ -244,7 +244,7 @@ if(preview_on) {
 			}
 			else if(curr_attack == 3)
 			{
-			drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
+			//drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
 			}
 		}
 }
@@ -464,7 +464,7 @@ if(shift_down) {
 			for(var j =  -1; j <= 1; j++) {
 				if(mouse_pressed) {
 					if(tilemap_get(tilemap_id_terra, tile_x + i, tile_y + j) == 0) {
-						tilemap_set(tilemap_id_terra, 24 + (j * 11) + i, tile_x + i, tile_y + j);
+						tilemap_set(tilemap_id_terraf, 24 + (j * 11) + i, tile_x + i, tile_y + j);
 						instance_create_layer((tile_x + i) * 16, (tile_y + j) * 16, "instances_paths", obj_damage);
 					}
 					else {
