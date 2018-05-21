@@ -1573,7 +1573,7 @@
                 "resourceCreationConfigs": [
                     "default"
                 ],
-                "resourcePath": "objects\/title_handler\/title_handler.yy",
+                "resourcePath": "objects\/title_controller\/title_controller.yy",
                 "resourceType": "GMObject"
             }
         },
