@@ -82,6 +82,40 @@ if(coll && state = 0) {
 	// and if the damage object that collides with the enemy now has a different id
 	// than the previous collided object
 }	
+if(abs(obj_player.x - x) < 100 && abs(obj_player.y - y) < 100) {
+	mp_potential_step(obj_player.x, obj_player.y, 1, false);
+}
+else if(xx != -1 && yy != -1){
+	if(point_distance(x, y, xx, yy) < 6) {
+		pos++;
+		if(pos = path_get_number(path)) {
+			if(mp_grid_path(global.robotGrid, path, x, y, x + nextdir, y, false)) {
+				pos = 1;
+				path_set_kind(path, 0);
+				xx = path_get_point_x(path, pos);
+				yy = path_get_point_y(path, pos);
+				
+				if(xx > x) {
+					sprite_index = spr_robotWalkRight;
+				} else {
+					sprite_index = spr_robotWalkLeft;
+				}
+				
+				nextdir *= -1;
+			}
+			else {
+				xx = -1;
+				yy = -1;
+			}
+		}
+		else {
+			xx = path_get_point_x(path, pos);
+			yy = path_get_point_y(path, pos);
+		}
+	}
+
+	mp_potential_step(xx, yy, 1, false);
+}
 
 if(hp <= 0) {
 	instance_destroy(id);
