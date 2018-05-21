@@ -27,9 +27,9 @@ else if(xx != -1 && yy != -1){
 				yy = path_get_point_y(path, pos);
 				
 				if(xx > x) {
-					sprite_index = spr_robotStandRight;
+					sprite_index = spr_robotWalkRight;
 				} else {
-					sprite_index = spr_robotStandLeft;
+					sprite_index = spr_robotWalkLeft;
 				}
 				
 				nextdir *= -1;
