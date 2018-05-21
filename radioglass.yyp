@@ -1141,6 +1141,25 @@
             }
         },
         {
+            "Key": "ab8b3ed6-8e6c-48af-8ced-3d3a3ed3d017",
+            "Value": {
+                "id": "27cb7432-93a3-40dc-8566-f978fc0d993a",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_robotWalkBack\/spr_robotWalkBack.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ac5e593d-c7e1-4fab-a073-b0c9dc34c17c",
             "Value": {
                 "id": "dab43f62-1b3a-4d8a-a418-59c6907eb13f",
@@ -1423,6 +1442,25 @@
                 ],
                 "resourcePath": "views\/ce3d84e2-1517-4510-b5a3-4e5dec472939.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d13bd10b-e027-4b37-a90d-11054c8026aa",
+            "Value": {
+                "id": "ab975f99-e1da-4fa2-ae9c-a2110132b88a",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_robotStand\/spr_robotStand.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
