@@ -3,6 +3,9 @@
 //WASD momvent and making sure diagonal movement isn't faster
 //definitely a better way to do this...
 
+if(hp <= 0) {
+	room_goto(room_title);
+}
 
 var hspd = 0;
 var vspd = 0;
@@ -11,6 +14,8 @@ var v_dir = -(keyboard_check(ord("W")) | keyboard_check(vk_up)) + keyboard_check
 var h_dir = -(keyboard_check(ord("A")) | keyboard_check(vk_left)) +  keyboard_check(ord("D")) | keyboard_check(vk_right);
 var dodge =  (keyboard_check_pressed(vk_space));
 var deflect = keyboard_check_pressed(ord("R"));
+
+
 
 
 //deflect code
@@ -55,18 +60,32 @@ else {
 	vspd = v_dir * 4;
 }
 
+if (deflected){
+	hspd = deflect_x*4/sqrt((deflect_x*deflect_x)+(deflect_y*deflect_y));
+	vspd = deflect_y*4/sqrt((deflect_x*deflect_x)+(deflect_y*deflect_y));
+}
+if (place_meeting(x,y,obj_explosion) && (!deflected)){
+	deflect_x = x - obj_explosion.x;
+	deflect_y = y - obj_explosion.y;
+	if (deflect_x != 0 || deflect_y != 0){
+		deflected = true; 
+		alarm[5] = room_speed*3;
+	}
+}
+
 
 
 //add dodge mechanics--tony
 if (dodge) {
+	
 	if (dodge_cost <= nrg){
-		var x1 = mouse_x - x;
-		var y1 = mouse_y - y;
-		var z1 = sqrt(sqr(x1)+sqr(y1)); 
-		hspd = dodge_length*(x1/z1);
-	    vspd = dodge_length*(y1/z1);
+		hspd = dodge_length*hspd;
+	    vspd = dodge_length*vspd;
+		if(!place_meeting(x + hspd, y + vspd, obj_barrier))
+		{
 		nrg = nrg - dodge_cost;
 		nrg_cooldown = true;
+		}
 		//alarm[0] = room_speed*7;
 	}
 }	
@@ -154,15 +173,19 @@ if (place_meeting(x, y, obj_spike)) {
 
 if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
     hspd = 0;
+	deflected = false;
 }
 if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
     vspd = 0;
+	deflected = false;
 }
 if (place_meeting(x + hspd + sign(hspd), y, obj_rock)) {
 	hspd = obj_rock.hspeed;
+	deflected = false;
 }
 if (place_meeting(x, y + vspd + sign(vspd), obj_rock)) {
 	vspd = obj_rock.vspeed;
+	deflected = false;
 }
 if(place_meeting(x, y, obj_barrier) && place_meeting(x, y, obj_rock))
 {

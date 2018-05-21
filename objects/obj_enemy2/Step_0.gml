@@ -1,11 +1,17 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if(abs(obj_player.x - x) < 150 && abs(obj_player.y - y) < 150) {
+	see_player = true;
+}
+else if (abs(obj_player.x - x) > 400 && abs(obj_player.y - y) < 400) {
+	see_player = false;
+}
 
-
+if (see_player){
 if(obj_player.deflecting)
 	{
-		deflectEnemy(obj_player, obj_enemy2, 100);
+		deflectEnemy(obj_player, self, 70);
 	}	
 if (player_damage_cd == 0) {
 	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
@@ -28,7 +34,7 @@ if (coll) {
 	//show_debug_message("Slow!! " + string(id));
 	v = 2;
 }
-else v = 8;
+else v = 5;
 
 hspd = random(v)-v/2;
 vspd = random(v)-v/2;
@@ -51,12 +57,10 @@ if(place_meeting(x, y, obj_barrier) && place_meeting(x, y, obj_rock))
 }
 
 
-if(!obj_player.deflecting || abs(obj_player.x-x)+abs(obj_player.y-y)>100)
-{
 x += hspd;
 y += vspd;
 mp_potential_step(obj_player.x, obj_player.y, (v/2-0.5), false);
-}
+
 
 var coll = instance_place(x, y, obj_damage);
 // -- instance_place checks if the enemy collides with damage object
@@ -82,3 +86,4 @@ if(hp <= 0) {
 }
 
 depth = -y + 16;
+}

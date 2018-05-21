@@ -19,9 +19,10 @@ last_y_dir = 0;
 attacking = false;
 attack_slow = false;
 last_attack_dir = 1;
+deflect_dir = 1;
 
 curr_attack = 1; //toggle between path and radius attack
-curr_bullet = 2; //toggle between different bullets
+curr_bullet = 1; //toggle between different bullets
 num_bullets = 2;
 attacks = [1, 2, -1, -1, -1, -1, -1, -1, -1]; //what is this array? 
 
@@ -50,4 +51,7 @@ bomb_n = 10;
 bomb_maxcd = 90;
 bomb_cd = 0;
 
+deflected = false;
+deflect_x = 0; 
+deflect_y = 0;
 preview_on = false;
