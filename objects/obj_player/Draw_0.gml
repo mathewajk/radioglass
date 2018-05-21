@@ -35,31 +35,42 @@ draw_text(cx + 150, cy, string(last_attack_dir));
 var mouse_pressed = mouse_check_button_pressed(mb_left);
 
 if (!attacking){
-	if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-		sprite_index = spr_playerWalkLeft; //animate sprite
-	 	last_dir = 1; // set last direction
-	}
-	else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
-		sprite_index = spr_playerWalkRight;
-		last_dir = 2;
-	}
-	else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
-		sprite_index = spr_playerWalkBack;
-		last_dir = 3;
-	}
-	else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
-		sprite_index = spr_playerWalkForward;
-		last_dir = 4;
-	}
-	else {
-		switch(last_dir) {
-			case 1: sprite_index = spr_playerStandLeft; break;
-			case 2: sprite_index = spr_playerStandRight; break;
-			case 3: sprite_index = spr_playerStandBack; break;
-			case 4: sprite_index = spr_playerStandForward; break;
+	if(!deflecting){
+		if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
+			sprite_index = spr_playerWalkLeft; //animate sprite
+		 	last_dir = 1; // set last direction
+		}
+		else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
+			sprite_index = spr_playerWalkRight;
+			last_dir = 2;
+		}
+		else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
+			sprite_index = spr_playerWalkBack;
+			last_dir = 3;
+		}
+		else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
+			sprite_index = spr_playerWalkForward;
+			last_dir = 4;
+		}
+		else {
+			switch(last_dir) {
+				case 1: sprite_index = spr_playerStandLeft; break;
+				case 2: sprite_index = spr_playerStandRight; break;
+				case 3: sprite_index = spr_playerStandBack; break;
+				case 4: sprite_index = spr_playerStandForward; break;
+			}
 		}
 	}
-} else { // 
+	else { // 
+	switch(deflect_dir) {
+		case 1: sprite_index = spr_playerAttackLeft; break;
+		case 2: sprite_index = spr_playerAttackRight; break;
+		case 3: sprite_index = spr_playerAttackUp; break;
+		case 4: sprite_index = spr_playerAttackDown; break;
+	}
+}
+} 
+else { // 
 	switch(last_attack_dir) {
 		case 1: sprite_index = spr_playerAttackLeft; break;
 		case 2: sprite_index = spr_playerAttackRight; break;
@@ -102,6 +113,16 @@ draw_text(cx, cy+40, "attack: " + string(curr_bullet));
 
 if (mouse_check_button(mb_right) && preview_on)
 	preview_on = false;
+
+var def_ang = point_direction(x, y, mouse_x, mouse_y);
+				if (def_ang >= 135 && def_ang < 225)
+					deflect_dir = 1;
+				else if (def_ang >= 45 && def_ang < 135)
+					deflect_dir = 3;
+				else if (def_ang >= 225 && def_ang < 315)
+					deflect_dir = 4;
+				else
+					deflect_dir = 2;
 
 if(preview_on) {
 
