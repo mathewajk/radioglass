@@ -19,3 +19,6 @@ if(abs(x-obj_player.x)+abs(y-obj_player.y)<30){
 if(time==60||cnt_damage==1){
 	instance_destroy(id);
 }
+if(place_meeting(x, y, obj_barrier)){
+	instance_destroy(id);
+}
