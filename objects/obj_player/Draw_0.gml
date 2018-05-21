@@ -79,7 +79,8 @@ else { //
 	}
 }
 	
-
+if(deflecting)
+draw_sprite(spr_wave, -1, x, y);
 
 draw_self(); // this function draws instance sprite same as default draw.
 
