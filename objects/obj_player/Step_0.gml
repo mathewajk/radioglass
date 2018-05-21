@@ -77,14 +77,15 @@ if (place_meeting(x,y,obj_explosion) && (!deflected)){
 
 //add dodge mechanics--tony
 if (dodge) {
+	
 	if (dodge_cost <= nrg){
-		var x1 = mouse_x - x;
-		var y1 = mouse_y - y;
-		var z1 = sqrt(sqr(x1)+sqr(y1)); 
-		hspd = dodge_length*(x1/z1);
-	    vspd = dodge_length*(y1/z1);
+		hspd = dodge_length*hspd;
+	    vspd = dodge_length*vspd;
+		if(!place_meeting(x + hspd, y + vspd, obj_barrier))
+		{
 		nrg = nrg - dodge_cost;
 		nrg_cooldown = true;
+		}
 		//alarm[0] = room_speed*7;
 	}
 }	
