@@ -25,7 +25,7 @@ if (img_i != 3) {
 	bomb_n_x_offset = cx+100;
 }
 draw_set_font(font_bomb_count);
-draw_text(bomb_n_x_offset, cy+244, "x"+string(bomb_n));
+draw_text_color(bomb_n_x_offset, cy+244, "x"+string(bomb_n), c_white, c_white, c_white, c_white, 1);
 
 
 //show a symbol if dash possible 
@@ -109,7 +109,7 @@ else if mouse_wheel_down()
 	curr_bullet -= 1;
 if (curr_bullet < 1) curr_bullet = num_bullets;
 else if (curr_bullet > num_bullets) curr_bullet = 1;
-draw_text(cx, cy+40, "attack: " + string(curr_bullet));
+draw_text_color(cx, cy+40, "attack: " + string(curr_bullet),  c_white, c_white, c_white, c_white, 1);
 
 if (mouse_check_button(mb_right) && preview_on)
 	preview_on = false;
