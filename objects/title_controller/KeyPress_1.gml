@@ -3,4 +3,4 @@
 
 fade = true;
 alarm[0] = fade_frames;
-audio_sound_gain(snd, 0, 3000);
+audio_sound_gain(snd, 0, 2000);
