@@ -14,4 +14,4 @@ alarm[0] = 80;
 */
 last_coll = -1;
 state = 0;
-path_start(path_enemy3, 1.2, path_action_continue, true);
+path_start(path_enemy3_1, 1.2, path_action_continue, true);

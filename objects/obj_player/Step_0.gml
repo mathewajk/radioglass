@@ -147,6 +147,11 @@ if (attack_slow) { // slows speed down to 1 when attacking
 	}
 }
 
+if (place_meeting(x, y, obj_spike)) {
+	hspd = 0;
+	vspd = 0;
+}
+
 if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
     hspd = 0;
 }

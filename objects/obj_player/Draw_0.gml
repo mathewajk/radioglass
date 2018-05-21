@@ -26,7 +26,6 @@ if (img_i != 3) {
 }
 draw_set_font(font_bomb_count);
 draw_text(bomb_n_x_offset, cy+244, "x"+string(bomb_n));
-draw_text(cx + 150, cy, string(last_attack_dir));
 
 
 //show a symbol if dash possible 
