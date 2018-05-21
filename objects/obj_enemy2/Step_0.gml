@@ -28,7 +28,7 @@ if (coll) {
 	//show_debug_message("Slow!! " + string(id));
 	v = 2;
 }
-else v = 8;
+else v = 5;
 
 hspd = random(v)-v/2;
 vspd = random(v)-v/2;

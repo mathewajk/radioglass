@@ -12,7 +12,7 @@ var camera_y = camera_get_view_y(camera);
 
 surface_set_target(sfc_light);
 
-draw_clear_alpha(c_black,0.20)
+draw_clear_alpha(c_black,0.40)
 gpu_set_blendmode(bm_subtract);
 
 draw_sprite_ext(spr_light, 0, obj_player.x - camera_x, obj_player.y - camera_y, 10, 10, 0, c_white, 1);
