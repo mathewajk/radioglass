@@ -15,7 +15,7 @@ if (!preview_on) {
 if (img_i == 3) {
 	draw_healthbar(cx+36, cy+236, cx+82, cy+254, (bomb_cd/bomb_maxcd)*100, c_black, c_orange, c_red, 0, false, false);
 }
-draw_sprite_stretched(spr_staff, img_i, cx+15, cy+200, 56, 56);
+draw_sprite_stretched(spr_staff_icon, img_i, cx+15, cy+200, 56, 56);
 
 var bomb_n_x_offset = cx+64;
 if (img_i != 3) {
