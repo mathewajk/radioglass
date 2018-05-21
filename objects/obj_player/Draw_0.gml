@@ -21,7 +21,7 @@ draw_sprite_stretched(spr_staff_icon, img_i, cx+15, cy+200, 56, 56);
 
 var bomb_n_x_offset = cx+64;
 if (img_i != 3) {
-	draw_sprite_stretched(spr_bomb, 0, cx+80, cy+240, 16, 16);
+	draw_sprite_stretched(spr_tree, 0, cx+80, cy+240, 16, 16);
 	bomb_n_x_offset = cx+100;
 }
 draw_set_font(font_bomb_count);
@@ -34,31 +34,42 @@ draw_text(bomb_n_x_offset, cy+244, "x"+string(bomb_n));
 var mouse_pressed = mouse_check_button_pressed(mb_left);
 
 if (!attacking){
-	if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-		sprite_index = spr_playerWalkLeft; //animate sprite
-	 	last_dir = 1; // set last direction
-	}
-	else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
-		sprite_index = spr_playerWalkRight;
-		last_dir = 2;
-	}
-	else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
-		sprite_index = spr_playerWalkBack;
-		last_dir = 3;
-	}
-	else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
-		sprite_index = spr_playerWalkForward;
-		last_dir = 4;
-	}
-	else {
-		switch(last_dir) {
-			case 1: sprite_index = spr_playerStandLeft; break;
-			case 2: sprite_index = spr_playerStandRight; break;
-			case 3: sprite_index = spr_playerStandBack; break;
-			case 4: sprite_index = spr_playerStandForward; break;
+	if(!deflecting){
+		if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
+			sprite_index = spr_playerWalkLeft; //animate sprite
+		 	last_dir = 1; // set last direction
+		}
+		else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
+			sprite_index = spr_playerWalkRight;
+			last_dir = 2;
+		}
+		else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
+			sprite_index = spr_playerWalkBack;
+			last_dir = 3;
+		}
+		else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
+			sprite_index = spr_playerWalkForward;
+			last_dir = 4;
+		}
+		else {
+			switch(last_dir) {
+				case 1: sprite_index = spr_playerStandLeft; break;
+				case 2: sprite_index = spr_playerStandRight; break;
+				case 3: sprite_index = spr_playerStandBack; break;
+				case 4: sprite_index = spr_playerStandForward; break;
+			}
 		}
 	}
-} else { // 
+	else { // 
+	switch(deflect_dir) {
+		case 1: sprite_index = spr_playerAttackLeft; break;
+		case 2: sprite_index = spr_playerAttackRight; break;
+		case 3: sprite_index = spr_playerAttackUp; break;
+		case 4: sprite_index = spr_playerAttackDown; break;
+	}
+}
+} 
+else { // 
 	switch(last_attack_dir) {
 		case 1: sprite_index = spr_playerAttackLeft; break;
 		case 2: sprite_index = spr_playerAttackRight; break;
@@ -67,7 +78,8 @@ if (!attacking){
 	}
 }
 	
-
+if(deflecting)
+draw_sprite(spr_wave, -1, x, y);
 
 draw_self(); // this function draws instance sprite same as default draw.
 
@@ -101,6 +113,16 @@ draw_text(cx, cy+40, "attack: " + string(curr_bullet));
 
 if (mouse_check_button(mb_right) && preview_on)
 	preview_on = false;
+
+var def_ang = point_direction(x, y, mouse_x, mouse_y);
+				if (def_ang >= 135 && def_ang < 225)
+					deflect_dir = 1;
+				else if (def_ang >= 45 && def_ang < 135)
+					deflect_dir = 3;
+				else if (def_ang >= 225 && def_ang < 315)
+					deflect_dir = 4;
+				else
+					deflect_dir = 2;
 
 if(preview_on) {
 
@@ -174,7 +196,7 @@ if(preview_on) {
 		var tilemap_id = layer_tilemap_get_id(layer_id);
 		tilemap_clear(tilemap_id, 0);
 		
-		if(mouse_check_button(mb_left)) {
+		if(mouse_check_button(mb_left) && (!deflected)) {
 			attacking = true;
 			alarm[3] = 15;
 			attack_slow = true;
@@ -221,7 +243,7 @@ if(preview_on) {
 			}
 			else if(curr_attack == 3)
 			{
-			drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
+			//drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
 			}
 		}
 }
@@ -441,7 +463,7 @@ if(shift_down) {
 			for(var j =  -1; j <= 1; j++) {
 				if(mouse_pressed) {
 					if(tilemap_get(tilemap_id_terra, tile_x + i, tile_y + j) == 0) {
-						tilemap_set(tilemap_id_terra, 24 + (j * 11) + i, tile_x + i, tile_y + j);
+						tilemap_set(tilemap_id_terraf, 24 + (j * 11) + i, tile_x + i, tile_y + j);
 						instance_create_layer((tile_x + i) * 16, (tile_y + j) * 16, "instances_paths", obj_damage);
 					}
 					else {
