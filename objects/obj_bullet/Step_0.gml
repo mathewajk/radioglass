@@ -9,7 +9,7 @@ if(abs(x-obj_player.x)+abs(y-obj_player.y)<30){
 	if(obj_player.deflecting)
 	{
 		direction = point_direction(x,y,mouse_x,mouse_y);
-		friendly_fire = 1;
+		//friendly_fire = 1;
 	}
 	else if(not(obj_player.shield_up))
 	{
