@@ -1,6 +1,9 @@
 /// @description Insert description here
 // This enemy goes around in circles and shoots bullets at the player
-
+if(obj_player.deflecting)
+	{
+		deflectEnemy(obj_player, self, 70);
+	}
 if (player_damage_cd == 0) {
 	if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
 		if(not(obj_player.shield_up))

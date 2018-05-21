@@ -4,7 +4,7 @@
 var cx=camera_get_view_x(view_camera[0]), cy=camera_get_view_y(view_camera[0]);
 
 draw_healthbar(cx, cy, cx+100, cy+10, hp, make_color_rgb(51, 51, 153), make_color_rgb(255, 0, 102), make_color_rgb(204, 255, 102), 0, true, false);
-draw_healthbar(cx, cy+15, cx+100, cy+25, nrg, c_black, c_orange, c_yellow, 0, true, false);
+draw_healthbar(cx, cy+15, cx+100, cy+25, nrg, c_black, c_gray, c_orange, 0, true, false);
 
 
 // draw staff sprite
@@ -27,6 +27,15 @@ if (img_i != 3) {
 draw_set_font(font_bomb_count);
 draw_text_color(bomb_n_x_offset, cy+244, "x"+string(bomb_n), c_white, c_white, c_white, c_white, 1);
 
+//shield aura
+if(shield_up)
+{
+	image_blend = c_orange;
+}
+else
+{
+	image_blend = c_white;
+}
 
 //show a symbol if dash possible 
 /*if (dodge_cool)

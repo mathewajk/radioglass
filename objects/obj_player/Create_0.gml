@@ -39,7 +39,7 @@ nrg_cooldown = false;
 nrg_timer = 1;
 
 deflecting = false;
-deflect_cost = 50;
+deflect_cost = 75;
 
 dodge_cost = 75;
 //dodge_cool = true;
