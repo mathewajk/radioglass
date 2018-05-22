@@ -3,9 +3,9 @@
 //WASD momvent and making sure diagonal movement isn't faster
 //definitely a better way to do this...
 
-if(hp <= 0) {
-	room_goto(room_title);
-}
+//if(hp <= 0) {
+//	room_goto(room_title);
+//}
 
 var hspd = 0;
 var vspd = 0;
