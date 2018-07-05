@@ -1,6 +1,29 @@
 /// @description Initialize player
 // You can write your code in this editor
 
+//controls
+key_move_up = ord("W");
+key_move_left = ord("A");
+key_move_right = ord("D");
+key_move_down = ord("S");
+key_dodge = vk_space;
+key_deflect = ord("R");
+key_shield = vk_shift;
+key_path = ord("1");
+key_fan = ord("2");
+key_bomb = ord("3");
+
+controller_dodge = gp_face1;
+controller_deflect = gp_face2;
+controller_shield = gp_face3;
+controller_path = gp_padd;
+controller_fan = gp_padu;
+controller_bomb = gp_padl;
+controller_bullet = gp_stickr;
+controller_cancel = gp_shoulderr;
+controller_draw = gp_shoulderrb;
+
+
 xspeed = 4;
 yspeed = 4;
 
