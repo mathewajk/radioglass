@@ -10,11 +10,30 @@
 var hspd = 0;
 var vspd = 0;
 
-var v_dir = -(keyboard_check(ord("W")) | keyboard_check(vk_up)) + keyboard_check(ord("S")) | keyboard_check(vk_down);
-var h_dir = -(keyboard_check(ord("A")) | keyboard_check(vk_left)) +  keyboard_check(ord("D")) | keyboard_check(vk_right);
-var dodge =  (keyboard_check_pressed(vk_space));
-var deflect = keyboard_check_pressed(ord("R"));
-var shield = keyboard_check(vk_shift);
+var v_dir = 0;
+var h_dir = 0;
+var dodge = 0;
+var deflect = 0;
+var shield = 0;
+
+if(gamepad_is_connected(0))
+{
+	if(abs(gamepad_axis_value(0, gp_axislv)) > 0.1) 
+		v_dir = gamepad_axis_value(0, gp_axislv);
+	if(abs(gamepad_axis_value(0, gp_axislh)) > 0.1) 
+		h_dir = gamepad_axis_value(0, gp_axislh);
+	dodge = gamepad_button_check_pressed(0, controller_dodge);
+	deflect = gamepad_button_check_pressed(0, controller_deflect);
+	shield = gamepad_button_check(0, controller_shield);
+}
+else
+{
+	v_dir = -(keyboard_check(key_move_up) | keyboard_check(vk_up)) + keyboard_check(key_move_down) | keyboard_check(vk_down);
+	h_dir = -(keyboard_check(key_move_left) | keyboard_check(vk_left)) +  keyboard_check(key_move_right) | keyboard_check(vk_right);
+	dodge = keyboard_check_pressed(key_dodge);
+	deflect = keyboard_check_pressed(key_deflect);
+	shield = keyboard_check(key_shield);
+}
 
 
 
@@ -167,16 +186,12 @@ if (attack_slow) { // slows speed down to 1 when attacking
 	}
 }
 
-if (place_meeting(x, y, obj_spike)) {
-	hspd = 0;
-	vspd = 0;
-}
 
-if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
+if (place_meeting(x + hspd + sign(hspd), y, obj_barrier) || place_meeting(x + hspd + sign(hspd), y, obj_spike)) {
     hspd = 0;
 	deflected = false;
 }
-if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
+if (place_meeting(x, y + vspd + sign(vspd), obj_barrier) || place_meeting(x, y + vspd + sign(vspd), obj_spike)) {
     vspd = 0;
 	deflected = false;
 }

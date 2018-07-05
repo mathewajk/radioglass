@@ -40,23 +40,23 @@ else
 //show a symbol if dash possible 
 /*if (dodge_cool)
 	draw_text(cx, cy+15, "Dash");*/
-var mouse_pressed = mouse_check_button_pressed(mb_left);
+//var mouse_pressed = mouse_check_button_pressed(mb_left);
 
 if (!attacking){
 	if(!deflecting){
-		if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
+		if (keyboard_check(vk_left) || keyboard_check(key_move_left) || (abs(gamepad_axis_value(0, gp_axislh)) > abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislh) < -0.1))) {
 			sprite_index = spr_playerWalkLeft; //animate sprite
 		 	last_dir = 1; // set last direction
 		}
-		else if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
+		else if (keyboard_check(vk_right) || keyboard_check(key_move_right) || (abs(gamepad_axis_value(0, gp_axislh)) > abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislh) > 0.1))) {
 			sprite_index = spr_playerWalkRight;
 			last_dir = 2;
 		}
-		else if (keyboard_check(vk_up)|| keyboard_check(ord("W"))) {
+		else if (keyboard_check(vk_up)|| keyboard_check(key_move_up) || (abs(gamepad_axis_value(0, gp_axislh)) < abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislv) < -0.1))) {
 			sprite_index = spr_playerWalkBack;
 			last_dir = 3;
 		}
-		else if(keyboard_check(vk_down || keyboard_check(ord("S")))) {
+		else if (keyboard_check(vk_down) || keyboard_check(key_move_down) || (abs(gamepad_axis_value(0, gp_axislh)) < abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislv) > 0.1))) {
 			sprite_index = spr_playerWalkForward;
 			last_dir = 4;
 		}
@@ -92,38 +92,42 @@ draw_sprite(spr_wave, -1, x, y);
 
 draw_self(); // this function draws instance sprite same as default draw.
 
-var shift_down = keyboard_check(vk_shift);
+//var shift_down = keyboard_check(vk_shift);
 
 
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
 
-if(keyboard_check(ord("1"))){ //attack toggling
+if(keyboard_check(key_path) || gamepad_button_check(0, controller_path)){ //attack toggling
 	curr_attack = 1;
 	preview_on = true;
 }
-if(keyboard_check(ord("2"))){// fan
+if(keyboard_check(key_fan) || gamepad_button_check(0, controller_fan)){// fan
 	curr_attack = 2;
 	preview_on = true;
 }
-if(keyboard_check(ord("3"))){// bomb
+if(keyboard_check(key_bomb) || gamepad_button_check(0, controller_bomb)){// bomb
 	curr_attack = 3;
 	preview_on = true;
 }
 	
 //bullet toggling
-if mouse_wheel_up() 
+if (mouse_wheel_up() || gamepad_button_check(0, controller_bullet))
 	curr_bullet += 1;
-else if mouse_wheel_down()
+else if (mouse_wheel_down())
 	curr_bullet -= 1;
 if (curr_bullet < 1) curr_bullet = num_bullets;
 else if (curr_bullet > num_bullets) curr_bullet = 1;
 draw_text_color(cx, cy+40, "attack: " + string(curr_bullet),  c_white, c_white, c_white, c_white, 1);
 
-if (mouse_check_button(mb_right) && preview_on)
+if ((mouse_check_button(mb_right) || gamepad_button_check(0, controller_cancel)) && preview_on)
 	preview_on = false;
 
-var def_ang = point_direction(x, y, mouse_x, mouse_y);
+var def_ang = 0;
+if(gamepad_is_connected(0))
+	def_ang = point_direction(0, 0, gamepad_axis_value(0, gp_axisrh), gamepad_axis_value(0, gp_axisrv));
+else
+	def_ang = point_direction(x, y, mouse_x, mouse_y);
 				if (def_ang >= 135 && def_ang < 225)
 					deflect_dir = 1;
 				else if (def_ang >= 45 && def_ang < 135)
@@ -174,17 +178,33 @@ if(preview_on) {
 			length_limit = 50;
 		else if (curr_attack == 2)
 			length_limit = 40;
+		else if (curr_attack == 3)
+			length_limit = 0;
 		
 		var x0 = tile_x; //current tile x coordinate
 		var y0 = tile_y; //current tile y coordinate
-		var x1 = floor(mouse_x / 4); //where you want to end the path x coordinate
-		var y1 = floor(mouse_y / 4); //where you want to end the path y coordinate
+		var x1 = 0;
+		var y1 = 0;
+		if(gamepad_is_connected(0))
+		{
+			x1 = floor(x0 + (length_limit * gamepad_axis_value(0, gp_axisrh)));
+			y1 = floor(y0 + (length_limit * gamepad_axis_value(0, gp_axisrv)));
+		}
+		else
+		{
+			x1 = floor(mouse_x / 4); //where you want to end the path x coordinate
+			y1 = floor(mouse_y / 4); //where you want to end the path y coordinate
+		}
 		var width = 3;
 
 		if (curr_attack != 3) {
 			var path_length = floor(sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)));
 				//check if path is blocked by barrier, if so, shorten the length.
-			var curr_path = PathBlock(x0*4+2,y0*4+2,mouse_x,mouse_y,path_length);
+			var curr_path = 0;
+			if(gamepad_is_connected(0))
+				curr_path = PathBlock(x0*4+2,y0*4+2,x1*4,y1*4,path_length);
+			else
+				curr_path = PathBlock(x0*4+2,y0*4+2,mouse_x,mouse_y,path_length);
 			if(x1 != x0)
 				x1 = x0 + floor(curr_path / path_length *(x1 - x0));
 			if(y1 != y0)
@@ -205,13 +225,17 @@ if(preview_on) {
 		var tilemap_id = layer_tilemap_get_id(layer_id);
 		tilemap_clear(tilemap_id, 0);
 		
-		if(mouse_check_button(mb_left) && (!deflected)) {
+		if((mouse_check_button(mb_left) || gamepad_button_check(0, controller_draw)) && (!deflected)) {
 			attacking = true;
 			alarm[3] = 15;
 			attack_slow = true;
 			if (curr_attack == 1 || curr_attack == 2) {
 				alarm[4] = 6;
-				var ang = point_direction(x, y, mouse_x, mouse_y);
+				var ang = 0;
+				if(gamepad_is_connected(0))
+					ang = point_direction(0, 0, gamepad_axis_value(0, gp_axisrh), gamepad_axis_value(0, gp_axisrv));
+				else
+					ang = point_direction(x, y, mouse_x, mouse_y);
 				if (ang >= 135 && ang < 225)
 					last_attack_dir = 1;
 				else if (ang >= 45 && ang < 135)
