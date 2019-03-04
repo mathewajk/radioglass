@@ -25,6 +25,10 @@ if (player_damage_cd == 0) {
 	player_damage_cd -= 1;
 }
 
+
+if(dialogue != 0)
+speed = 0;
+
 /*
 var layer_id = layer_get_id("tiles_path");
 var tilemap_id = layer_tilemap_get_id(layer_id);
