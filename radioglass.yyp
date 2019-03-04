@@ -666,6 +666,25 @@
             }
         },
         {
+            "Key": "6b68bd4c-312c-4711-a86b-04bd1ecd6c81",
+            "Value": {
+                "id": "54b51750-2a37-4c5b-979d-f69eadb2ac15",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_red\/spr_red.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6d144db1-cdc6-4bc6-95e2-e2f0de72bc37",
             "Value": {
                 "id": "7c7e2661-db47-49ee-a195-731b8708a8c0",
