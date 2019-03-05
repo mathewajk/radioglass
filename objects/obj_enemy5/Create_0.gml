@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 state = 0;
+dialogue = 0; 
 alarm[0] = 5;
 home_x1 = x - 200;
 home_y1 = y - 200;
