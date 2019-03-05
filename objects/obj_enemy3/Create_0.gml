@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+dialogue = 0;
 hp = 3;
 hits = hp;
 cd = 30;
