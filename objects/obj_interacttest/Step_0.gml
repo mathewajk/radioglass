@@ -90,22 +90,65 @@ if(coll && state = 0) {
 
 //Code to run away from player
 
+if(!(obj_player.flashp)) {
+deltaDistance = obj_player.x - x;
 
-
-deltaDistance = obj_player.x - x; //Checks where the enemy is relative to the bomb
-
-
-//abs() makes sure the value is always positive, so i can properly check the distance even when it's negative.
-
-//If the enemy is closer than 90 pixels, it will begin to move away from the bomb
-
-if (abs(deltaDistance)<90)  
-{
-    x += 10;
-    y += 10;
+if (abs(deltaDistance)<150)  
+	{
+		var inst;
+		inst = instance_nearest(x, y, obj_player);
+		mp_potential_step(-inst.x, -inst.y, 5+random(1)*.5, false);
+		sprite_index = spr_ratalarmed;
+   } else if (abs(deltaDistance)>200) {
+		speed=0;
+		sprite_index = spr_ratcalm;
+	}
+} else { 
+	speed = 0;
+	sprite_index = spr_ratcalm;
 }
+   
+/*
+dirx = -obj_player.x;
+diry = -obj_player.y;
 
 
+direction = point_direction(x,y,dirx,diry);
+
+
+
+deltaDistance = obj_player.x - x;
+
+	if (abs(deltaDistance)<150)  
+	{
+		speed = 3;
+	} else if (abs(deltaDistance)>200) {
+		speed=0;
+	}
+
+
+/*
+
+var ex, ey;
+ex = instance_nearest(x, y, enemy).x;
+ey = instance_nearest(x, y, enemy).y;
+
+with (instance_create(x, y, obj_Missile))
+   {
+   direction = point_direction(x, y, ex, ey);
+   }
+if(keyboard_check(vk_backspace)) {
+	vs = (obj_player.h_dir)*.3;
+	hs = (obj_player.v_dir)*.3;
+	
+	deltaDistance = obj_player.x - x;
+
+	if (abs(deltaDistance)<90)  
+	{
+		x += hs;
+		y += vs;
+	}
+}*/
 
 
 /* CODE TO FOLLOW PLAYER
