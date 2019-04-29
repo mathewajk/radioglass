@@ -20,6 +20,7 @@ if (cd >= 1){
 	cd-=1;
 }
 
+/* //creates bullet
 var dist_to_player = point_distance(x, y, obj_player.x, obj_player.y);
 
 if (dist_to_player < 200){
@@ -57,6 +58,7 @@ if (place_meeting(x, y + vspd + sign(vspd), obj_rock)) {
 	vspd = obj_rock.vspeed;
 }
 */
+
 if(place_meeting(x, y, obj_barrier) && place_meeting(x, y, obj_rock))
 {
 	hp = 0;
@@ -85,6 +87,29 @@ if(coll && state = 0) {
 	// and if the damage object that collides with the enemy now has a different id
 	// than the previous collided object
 }	
+
+//Code to run away from player
+
+
+
+deltaDistance = obj_player.x - x; //Checks where the enemy is relative to the bomb
+
+
+//abs() makes sure the value is always positive, so i can properly check the distance even when it's negative.
+
+//If the enemy is closer than 90 pixels, it will begin to move away from the bomb
+
+if (abs(deltaDistance)<90)  
+{
+    x += 10;
+    y += 10;
+}
+
+
+
+
+/* CODE TO FOLLOW PLAYER
+
 if(abs(obj_player.x - x) < 100 && abs(obj_player.y - y) < 100) {
 	mp_potential_step(obj_player.x, obj_player.y, 1, false);
 }

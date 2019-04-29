@@ -22,6 +22,8 @@ startx = x;
 starty = y;
 nextdir = 128;
 
+
+
 pos = 1;
 if(mp_grid_path(global.robotGrid, path, x, y, x + nextdir, y, false)) {
 	path_set_kind(path, 0);

@@ -9,7 +9,7 @@ if(place_meeting(x, y, obj_player) && keyboard_check_pressed(ord("F")))
 		dialogue = instance_create_layer(0, 0, "instances_text", obj_textbox);	
 		with(dialogue)
 		{
-			text = "A playful fruit-eating creature that shoots poison if you scare it";
+			text = "a rodent-shaped creature that can flash colors: scared away unless you flash purple";
 			 
 		}
 	}
