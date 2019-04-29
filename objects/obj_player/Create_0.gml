@@ -12,6 +12,7 @@ key_shield = vk_shift;
 key_path = ord("1");
 key_fan = ord("2");
 key_bomb = ord("3");
+key_flashp = ord("P");
 
 controller_dodge = gp_face1;
 controller_deflect = gp_face2;
@@ -55,6 +56,7 @@ snap = 1;
 
 shield_up = false;
 shield_timer = 0;
+flashp= false; 
 
 hp = 100;
 nrg = 100;
@@ -78,3 +80,4 @@ deflected = false;
 deflect_x = 0; 
 deflect_y = 0;
 preview_on = false;
+

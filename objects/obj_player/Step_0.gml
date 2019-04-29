@@ -15,6 +15,7 @@ var h_dir = 0;
 var dodge = 0;
 var deflect = 0;
 var shield = 0;
+var flashpu = 0; 
 
 if(gamepad_is_connected(0))
 {
@@ -33,6 +34,7 @@ else
 	dodge = keyboard_check_pressed(key_dodge);
 	deflect = keyboard_check_pressed(key_deflect);
 	shield = keyboard_check(key_shield);
+	flashpu = keyboard_check(key_flashp);
 }
 
 
@@ -46,6 +48,13 @@ if(deflect && deflect_cost <= nrg && !deflecting)
 	nrg_cooldown = true;
 	alarm[2] = 60;
 }
+
+if (flashpu) {
+	flashp = true;
+} else {
+	flashp = false;
+}
+
 
 //shield code
 if(shield && nrg > 0)

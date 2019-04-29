@@ -31,11 +31,15 @@ draw_text_color(bomb_n_x_offset, cy+244, "x"+string(bomb_n), c_white, c_white, c
 if(shield_up)
 {
 	image_blend = c_orange;
+} else if(flashp) { 
+	image_blend = c_purple;
 }
 else
 {
 	image_blend = c_white;
 }
+
+
 
 //show a symbol if dash possible 
 /*if (dodge_cool)
