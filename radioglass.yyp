@@ -248,6 +248,25 @@
             }
         },
         {
+            "Key": "272e947c-6ec2-4e1c-96cd-5519cc69fb89",
+            "Value": {
+                "id": "2d738302-6582-4c61-903b-ebfa30dd593c",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_ratcalm\/spr_ratcalm.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "27c11b1e-65fd-440b-86be-d828fc723ae2",
             "Value": {
                 "id": "34b006a9-aa92-48fd-a57e-fe710ca9dd9c",
@@ -1255,6 +1274,25 @@
             }
         },
         {
+            "Key": "a09313e7-ed72-48fb-9e8f-930e4de4723a",
+            "Value": {
+                "id": "beb77f1c-7cf4-4ed6-8b2f-dfb9b44889bf",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/obj_interacttest\/obj_interacttest.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a1a26068-a9bd-4bcc-95db-2d6cbdcfe799",
             "Value": {
                 "id": "ee88a2d3-93aa-4fee-95fd-451b51858ee8",
@@ -1917,6 +1955,25 @@
                 ],
                 "resourcePath": "objects\/obj_bomb_terra\/obj_bomb_terra.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "e1ed574e-6707-45d1-94b5-a430465f9a59",
+            "Value": {
+                "id": "75743abb-51b3-4ae6-aaf6-1a97bd716687",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_ratalarmed\/spr_ratalarmed.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
