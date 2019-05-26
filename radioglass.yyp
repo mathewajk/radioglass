@@ -1977,6 +1977,25 @@
             }
         },
         {
+            "Key": "df802aea-3e60-467b-abf5-3bd7c42ae9b1",
+            "Value": {
+                "id": "c63b3845-3cd9-4b6b-a3be-af6692c5d984",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/obj_slime\/obj_slime.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e1ed574e-6707-45d1-94b5-a430465f9a59",
             "Value": {
                 "id": "75743abb-51b3-4ae6-aaf6-1a97bd716687",
