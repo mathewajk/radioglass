@@ -97,15 +97,21 @@ if (abs(deltaDistance)<150)
 	{
 		var inst;
 		inst = instance_nearest(x, y, obj_player);
-		mp_potential_step(-inst.x, -inst.y, 5+random(1)*.5, false);
+		mp_potential_step(-inst.x, -inst.y, 3+random(1)*.5, false);
 		sprite_index = spr_ratalarmed;
    } else if (abs(deltaDistance)>200) {
 		speed=0;
 		sprite_index = spr_ratcalm;
+		var _dir = irandom(359);
+		var _spd = irandom(1);
+		motion_add(_dir, _spd);
 	}
 } else { 
 	speed = 0;
 	sprite_index = spr_ratcalm;
+	var _dir = irandom(359);
+	var _spd = irandom(1);
+	motion_add(_dir, _spd);
 }
    
 /*

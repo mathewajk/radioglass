@@ -32,7 +32,7 @@ if(shield_up)
 {
 	image_blend = c_orange;
 } else if(flashp) { 
-	image_blend = c_purple;
+	image_blend = c_yellow;
 }
 else
 {
