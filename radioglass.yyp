@@ -552,6 +552,25 @@
             }
         },
         {
+            "Key": "50a2375a-0213-4e54-9de1-06f573027a9f",
+            "Value": {
+                "id": "77edda17-7920-4d5b-81d3-8d345cc6b7cc",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "rooms\/room_gameold\/room_gameold.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "51ce3162-266f-448f-9895-7d98aaf35adf",
             "Value": {
                 "id": "e350a21c-3b13-42bd-a997-28605f9e1b4f",
