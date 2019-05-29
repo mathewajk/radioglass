@@ -13,9 +13,10 @@ if (currCharIndex < string_length(dialog[dialogIndex, 1]) + 1) {
 	else {
 		frames_waited++;
 	}
+	// Add functionality to press key to skip current printing here
 } else {
 	// Press this key to display new line of text
-	if (keyboard_check_pressed(vk_f7)) { 
+	if (keyboard_check_pressed(key_for_new_line)) { 
 		dialogIndex++;
 		stringToDisplay = "";
 		currCharIndex = 1; // STRING INDEXING STARTS AT 1 
