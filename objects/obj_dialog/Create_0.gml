@@ -2,9 +2,10 @@
 // See Key Press event for example on how to set text and activate a dialog box
 
 // Todo: press key to skip running of text (in step)
-// Todo: display multiple lines of text at the same time
 
-frames_per_char = 2;
+
+frames_per_char = 1;
+key_for_new_line = ord("T");
 
 // Basic settings for box
 max_lines_of_dialog = 100;
