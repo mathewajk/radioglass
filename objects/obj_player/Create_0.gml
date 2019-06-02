@@ -50,6 +50,7 @@ curr_bullet = 1; //toggle between different bullets
 num_bullets = 2;
 attacks = [1, 2, -1, -1, -1, -1, -1, -1, -1]; //what is this array? 
 
+menu_open = 0;
 
 state = 0;
 snap = 1;
