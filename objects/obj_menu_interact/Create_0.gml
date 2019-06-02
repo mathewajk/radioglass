@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+active = 0;
 menu_state = 0;
 menu_selection = 0;
 color_selection = 0;
