@@ -20,6 +20,7 @@ if (cd >= 1){
 	cd-=1;
 }
 
+
 /* //creates bullet
 var dist_to_player = point_distance(x, y, obj_player.x, obj_player.y);
 
@@ -94,18 +95,19 @@ if(!(obj_player.flashp)) {
 deltaDistance = obj_player.x - x;
 
 if (abs(deltaDistance)<150)  
-	{
+{
 		var inst;
 		inst = instance_nearest(x, y, obj_player);
 		mp_potential_step(-inst.x, -inst.y, 3+random(1)*.5, false);
 		sprite_index = spr_ratalarmed;
-   } else if (abs(deltaDistance)>200) {
+} 
+else if (abs(deltaDistance)>200) {
 		speed=0;
 		sprite_index = spr_ratcalm;
 		var _dir = irandom(359);
 		var _spd = irandom(1);
 		motion_add(_dir, _spd);
-	}
+}
 } else { 
 	speed = 0;
 	sprite_index = spr_ratcalm;

@@ -5,6 +5,10 @@ hp = 3;
 hits = hp;
 cd = 30;
 player_damage_cd = 0;
+mood = random_range(1, 1000);
+flash_cycle = 0;
+glow_state = 0;
+color = c_yellow;
 
 /*
 facing = 1;
