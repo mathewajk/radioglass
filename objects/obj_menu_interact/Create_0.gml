@@ -3,9 +3,7 @@
 menu_state = 0;
 menu_selection = 0;
 color_selection = 0;
-available_colors = 6;
-text_top = "COLOR CHANGE";
-text_left = "LOCKED";
-text_right =  "LOCKED";
-text_bottom =  "LOCKED";
+available_colors = [c_yellow, c_fuchsia, c_blue, c_aqua, c_orange, c_red];
+available_interactions = ["COLOR CHANGE", "LOCKED", "LOCKED", "LOCKED"];
+
 

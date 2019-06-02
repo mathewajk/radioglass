@@ -2,15 +2,11 @@
 // You can write your code in this editor
 switch(menu_state)
 {
-	case 0: 
-		menu_selection--;
-		if(menu_selection < 0)
-			menu_selection = 3;
+	case 0:
+		menu_state = menu_selection + 1;
 		break;
 	case 1:
-		color_selection--;
-		if(color_selection < 0)
-			color_selection = 5;
+		
 		break;
 	default:
 		break;
