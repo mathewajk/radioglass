@@ -82,3 +82,8 @@ deflect_x = 0;
 deflect_y = 0;
 preview_on = false;
 
+spr_walk = spr_playerWalkForward;
+spr_idle = spr_playerStandForward;
+
+//indicate if an object is being controlled by a cutscene
+in_cutscene = false;
