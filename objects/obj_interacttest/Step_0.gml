@@ -93,24 +93,39 @@ if(coll && state = 0) {
 
 if(!(obj_player.flashp)) {
 deltaDistance = obj_player.x - x;
-
-if (abs(deltaDistance)<150)  
-{
+	if (abs(deltaDistance)<150)  
+	{
+		if(!flash_cycle)
+		{
+			alarm[2] = 10;
+			flash_cycle = 1;
+		}
 		var inst;
 		inst = instance_nearest(x, y, obj_player);
 		mp_potential_step(-inst.x, -inst.y, 3+random(1)*.5, false);
 		sprite_index = spr_ratalarmed;
-} 
-else if (abs(deltaDistance)>200) {
+    } 
+	else {
+		if (abs(deltaDistance)<200) 
+		{
+			if(!flash_cycle)
+			{
+				alarm[2] = 10;
+				flash_cycle = 1;
+			}
+		}
+		else
+			glow_state = 0;
 		speed=0;
 		sprite_index = spr_ratcalm;
 		var _dir = irandom(359);
 		var _spd = irandom(1);
 		motion_add(_dir, _spd);
-}
-} else { 
+	}
+} 
+else { 
 	speed = 0;
-	sprite_index = spr_ratcalm;
+	sprite_index = spr_ratcalm;	
 	var _dir = irandom(359);
 	var _spd = irandom(1);
 	motion_add(_dir, _spd);
