@@ -97,6 +97,7 @@ deltaDistance = obj_player.x - x;
 	{
 		if(!flash_cycle)
 		{
+			color = c_aqua;
 			alarm[2] = 10;
 			flash_cycle = 1;
 		}
