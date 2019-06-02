@@ -9,6 +9,5 @@ image_blend = c_white;
 
 if(glow_state == 1)
 {
-	
-	//draw_sprite(spr_light, 0, x, y);
+	draw_sprite(spr_light, 0, x, y);
 }
