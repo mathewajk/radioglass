@@ -6,13 +6,13 @@ key_move_up = ord("W");
 key_move_left = ord("A");
 key_move_right = ord("D");
 key_move_down = ord("S");
-key_dodge = vk_space;
+key_dodge = ord("X");
 key_deflect = ord("R");
 key_shield = vk_shift;
 key_path = ord("1");
 key_fan = ord("2");
 key_bomb = ord("3");
-key_flashp = ord("P");
+key_flashp = vk_space;
 
 controller_dodge = gp_face1;
 controller_deflect = gp_face2;
@@ -58,6 +58,7 @@ snap = 1;
 shield_up = false;
 shield_timer = 0;
 flashp= false; 
+flash_color = c_yellow;
 
 hp = 100;
 nrg = 100;

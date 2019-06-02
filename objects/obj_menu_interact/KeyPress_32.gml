@@ -6,6 +6,7 @@ switch(menu_state)
 		menu_state = menu_selection + 1;
 		break;
 	case 1:
+		obj_player.flash_color = available_colors[color_selection];
 		
 		break;
 	default:

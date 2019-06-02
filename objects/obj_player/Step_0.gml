@@ -34,7 +34,7 @@ else
 	dodge = keyboard_check_pressed(key_dodge);
 	deflect = keyboard_check_pressed(key_deflect);
 	shield = keyboard_check(key_shield);
-	flashpu = keyboard_check(key_flashp);
+	flashpu = keyboard_check_pressed(key_flashp);
 }
 
 
@@ -49,11 +49,8 @@ if(deflect && deflect_cost <= nrg && !deflecting)
 	alarm[2] = 60;
 }
 
-if (flashpu) {
-	flashp = true;
-} else {
-	flashp = false;
-}
+if (flashpu) 
+	flashp = !flashp;
 
 
 //shield code
