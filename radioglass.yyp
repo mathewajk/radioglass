@@ -495,14 +495,6 @@
             }
         },
         {
-            "Key": "75f48065-8ae6-49ef-aee4-b8147eb446e4",
-            "Value": {
-                "id": "b5fb7dd9-24ba-4e3a-bbc3-cef9395c9a43",
-                "resourcePath": "objects\\obj_interacttest_1st_scene\\obj_interacttest_1st_scene.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "77c9cf4f-3424-48f8-8cd3-ff777fd8760d",
             "Value": {
                 "id": "452a027d-e382-41eb-93a4-bc5982f37209",
