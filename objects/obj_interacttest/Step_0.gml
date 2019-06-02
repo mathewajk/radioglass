@@ -98,22 +98,24 @@ deltaDistance = obj_player.x - x;
 		if(!flash_cycle)
 		{
 			color = c_aqua;
-			alarm[2] = 10;
+			alarm[2] = 7;
 			flash_cycle = 1;
 		}
 		var inst;
 		inst = instance_nearest(x, y, obj_player);
 		mp_potential_step(-inst.x, -inst.y, 3+random(1)*.5, false);
-		sprite_index = spr_ratalarmed;
+		sprite_index = spr_glo_cyanalarm;
     } 
 	else {
 		if (abs(deltaDistance)<200) 
 		{
 			if(!flash_cycle)
 			{
-				alarm[2] = 10;
+				color = c_fuchsia;
+				alarm[2] = 12;
 				flash_cycle = 1;
 			}
+			sprite_index = spr_glo_pinkwarn;
 		}
 		else
 			glow_state = 0;
