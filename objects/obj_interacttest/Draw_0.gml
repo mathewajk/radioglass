@@ -6,3 +6,8 @@ if(state == 1)
 image_blend = c_red;
 else
 image_blend = c_white;
+
+if(glow_state == 1)
+{
+	draw_sprite_ext(spr_light, 0, x, y, 1, 1, 1, color, 0.5);
+}
