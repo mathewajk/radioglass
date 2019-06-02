@@ -38,3 +38,7 @@ else {
 	yy = -1;
 }
 
+
+in_cutscene = false;
+spr_walk = spr_ratalarmed;
+spr_idle = spr_ratcalm;
