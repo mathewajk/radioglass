@@ -16,7 +16,8 @@
         "6420dee8-41ce-433e-b7d7-42f0668591ef",
         "9a625ee0-e435-421d-9454-d941031d8307",
         "ce7da3c7-cf51-42a5-8566-baddc568e2f6",
-        "4717f3e3-74d7-49ef-b90a-d7d95e4416fe"
+        "4717f3e3-74d7-49ef-b90a-d7d95e4416fe",
+        "3eb781d0-692a-4d03-aa29-013282351bc1"
     ],
     "filterType": "GMScript",
     "folderName": "cutscene",

@@ -1,6 +1,6 @@
 /// @description Insert description here
 // This enemy goes around in circles and shoots bullets at the player
-if (in_cutscene){
+if (!in_cutscene){
 	if(obj_player.deflecting)
 		{
 			deflectEnemy(obj_player, self, 70);
@@ -334,4 +334,59 @@ if (in_cutscene){
 	if(hp <= 0) {
 		instance_destroy(id);
 	}*/
+} else {
+	switch(behavior_state) 
+	{
+		case -1:
+		{
+			sprite_index = spr_ratcalm;
+			break;
+		}
+		// idle state
+		case 0:
+		{
+			speed = 0;
+			var _dir = irandom(359);
+			var _spd = irandom(1);
+			motion_add(_dir, _spd);
+			glow_state = 0;
+			sprite_index = spr_glo_yellowsafe;	
+
+			break;
+		}
+		// alarmed state
+		case 1:
+		{
+			// flashing
+			speed = 0;
+			var _dir = irandom(359);
+			var _spd = irandom(1);
+			motion_add(_dir, _spd);
+			
+			if(!flash_cycle)
+			{
+				color = global.c_glo_pink;
+				flash_cycle = 1;
+				alarm[2] = 12;
+			}
+			sprite_index = spr_glo_pinkwarn;
+			break;
+		}
+		// escaping state
+		case 2:
+		{
+			// motion
+			// flashing
+			speed = 0;
+			if(!flash_cycle)
+			{
+				color = global.c_glo_cyan;
+				flash_cycle = 1;
+				alarm[2] = 7;
+			}
+			sprite_index = spr_glo_cyanalarm;		
+			break;		
+		}
+	}
+
 }
