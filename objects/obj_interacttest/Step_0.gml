@@ -1,5 +1,6 @@
 /// @description Insert description here
 // This enemy goes around in circles and shoots bullets at the player
+
 if(obj_player.deflecting)
 	{
 		deflectEnemy(obj_player, self, 70);
@@ -46,10 +47,10 @@ switch (facing) {
 }
 
 if (place_meeting(x + hspd + sign(hspd), y, obj_barrier)) {
-    hspd = 0;
+	hspd = 0;
 }
 if (place_meeting(x, y + vspd + sign(vspd), obj_barrier)) {
-    vspd = 0;
+	vspd = 0;
 }
 
 if (place_meeting(x + hspd + sign(hspd), y, obj_rock)) {
@@ -104,6 +105,7 @@ deltaDistance = obj_player.x - x;
 		var inst;
 		inst = instance_nearest(x, y, obj_player);
 		mp_potential_step(-inst.x, -inst.y, 3+random(1)*.5, false);
+
 		sprite_index = spr_glo_cyanalarm;
     } 
 	else {
@@ -160,9 +162,9 @@ ex = instance_nearest(x, y, enemy).x;
 ey = instance_nearest(x, y, enemy).y;
 
 with (instance_create(x, y, obj_Missile))
-   {
-   direction = point_direction(x, y, ex, ey);
-   }
+	{
+	direction = point_direction(x, y, ex, ey);
+	}
 if(keyboard_check(vk_backspace)) {
 	vs = (obj_player.h_dir)*.3;
 	hs = (obj_player.v_dir)*.3;
@@ -216,4 +218,4 @@ else if(xx != -1 && yy != -1){
 
 if(hp <= 0) {
 	instance_destroy(id);
-}
+}*/
