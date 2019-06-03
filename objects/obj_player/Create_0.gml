@@ -12,7 +12,6 @@ key_shield = vk_shift;
 key_path = ord("1");
 key_fan = ord("2");
 key_bomb = ord("3");
-key_flashp = vk_space;
 
 controller_dodge = gp_face1;
 controller_deflect = gp_face2;
@@ -83,3 +82,8 @@ deflect_x = 0;
 deflect_y = 0;
 preview_on = false;
 
+spr_walk = spr_playerWalkForward;
+spr_idle = spr_playerStandForward;
+
+//indicate if an object is being controlled by a cutscene
+in_cutscene = false;
