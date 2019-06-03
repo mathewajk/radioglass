@@ -115,7 +115,6 @@ if (!in_cutscene){
 		// idle state
 		case 0:
 		{
-			glow_state = 0;
 			// motion
 		
 			speed = 0;
@@ -152,7 +151,9 @@ if (!in_cutscene){
 			if (see_calm_color || distance_to_enemy >= alarm_radius)
 			{
 				behavior_state = 0; // idle	
-				glow_state = 0;
+				color = global.c_glo_yellow;
+				glow_state = 1;
+				alarm[3] = 30; // flash yellow when safe
 			}
 			else if (distance_to_enemy < escape_radius && !see_calm_color)
 			{
