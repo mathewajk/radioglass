@@ -55,5 +55,6 @@ else {
 
 
 in_cutscene = false;
+use_default = false;
 spr_walk = spr_ratalarmed;
 spr_idle = spr_ratcalm;
