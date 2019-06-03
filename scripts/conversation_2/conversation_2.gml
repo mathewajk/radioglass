@@ -3,8 +3,8 @@
 // feel free to use \n to print multiple lines at once
 
 var feng = spr_playerStandForward;
-var axel  = spr_robotWalkRight;
-var ren = spr_tree;
+var axel  = spr_axel;
+	var ren = spr_ren;
 var glodent_calm = spr_ratcalm;
 show_debug_message("run conversation2")
 
