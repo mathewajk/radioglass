@@ -1,1 +1,2 @@
-in_cutscene = true
+in_cutscene = true;
+behavior_state = -1;

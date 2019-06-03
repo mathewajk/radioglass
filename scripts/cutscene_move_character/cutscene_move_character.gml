@@ -21,17 +21,16 @@ var xx = x_dest;
 var yy = y_dest;
 
 with(obj){
-	sprite_index = spr_walk;
-	
+	if (use_default) sprite_index = spr_walk;
 	if(point_distance(x,y,xx,yy) >= spd){
 		var dir = point_direction(x,y,xx,yy);
 		var ldirx = lengthdir_x(spd, dir);
 		var ldiry = lengthdir_y(spd, dir);
-		if(ldirx != 0 ) { image_xxscale = sign(ldirx);}
+		if(ldirx != 0 ) { image_xscale = sign(ldirx);}
 		x += ldirx;
 		y += ldiry;
 	} else { 
-		sprite_index = spr_idle;
+		if (use_default)  sprite_index = spr_idle;
 		x = xx;
 		y = yy;
 		with(other){

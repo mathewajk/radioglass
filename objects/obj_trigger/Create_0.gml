@@ -2,6 +2,8 @@
 // You can write your code in this editor
 
 t_scene_info = -1;
+triggered = false;
+concurrent = false;
 /*sample scene_info
 t_scene_info = [
 	[create_box_at_mouse],

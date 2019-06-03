@@ -87,7 +87,7 @@ spr_idle = spr_playerStandForward;
 
 //indicate if an object is being controlled by a cutscene
 in_cutscene = false;
-
+use_default = true; 
 
 // spawn glow object that follows player
 glow_inst = glodentGlow_create(glodentColor.none);
