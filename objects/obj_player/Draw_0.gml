@@ -48,19 +48,19 @@ else
 
 if (!attacking){
 	if(!deflecting){
-		if (!in_cutscene) && (keyboard_check(vk_left) || keyboard_check(key_move_left) || (abs(gamepad_axis_value(0, gp_axislh)) > abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislh) < -0.1))) {
+		if (keyboard_check(vk_left) || keyboard_check(key_move_left) || (abs(gamepad_axis_value(0, gp_axislh)) > abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislh) < -0.1))) {
 			sprite_index = spr_playerWalkLeft; //animate sprite
 		 	last_dir = 1; // set last direction
 		}
-		else if (!in_cutscene) && (keyboard_check(vk_right) || keyboard_check(key_move_right) || (abs(gamepad_axis_value(0, gp_axislh)) > abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislh) > 0.1))) {
+		else if (keyboard_check(vk_right) || keyboard_check(key_move_right) || (abs(gamepad_axis_value(0, gp_axislh)) > abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislh) > 0.1))) {
 			sprite_index = spr_playerWalkRight;
 			last_dir = 2;
 		}
-		else if (!in_cutscene) && (keyboard_check(vk_up)|| keyboard_check(key_move_up) || (abs(gamepad_axis_value(0, gp_axislh)) < abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislv) < -0.1))) {
+		else if (keyboard_check(vk_up)|| keyboard_check(key_move_up) || (abs(gamepad_axis_value(0, gp_axislh)) < abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislv) < -0.1))) {
 			sprite_index = spr_playerWalkBack;
 			last_dir = 3;
 		}
-		else if (!in_cutscene) && (keyboard_check(vk_down) || keyboard_check(key_move_down) || (abs(gamepad_axis_value(0, gp_axislh)) < abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislv) > 0.1))) {
+		else if (keyboard_check(vk_down) || keyboard_check(key_move_down) || (abs(gamepad_axis_value(0, gp_axislh)) < abs(gamepad_axis_value(0, gp_axislv)) && (gamepad_axis_value(0, gp_axislv) > 0.1))) {
 			sprite_index = spr_playerWalkForward;
 			last_dir = 4;
 		}
@@ -108,49 +108,44 @@ if(flashp)
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
 
-if (!in_cutscene){
-	if(keyboard_check(key_path) || gamepad_button_check(0, controller_path)){ //attack toggling
-		curr_attack = 1;
-		preview_on = true;
-	}
-	if(keyboard_check(key_fan) || gamepad_button_check(0, controller_fan)){// fan
-		curr_attack = 2;
-		preview_on = true;
-	}
-	if(keyboard_check(key_bomb) || gamepad_button_check(0, controller_bomb)){// bomb
-		curr_attack = 3;
-		preview_on = true;
-	}
-	
-	//bullet toggling
-	if (mouse_wheel_up() || gamepad_button_check(0, controller_bullet))
-		curr_bullet += 1;
-	else if (mouse_wheel_down())
-		curr_bullet -= 1;
-	if (curr_bullet < 1) curr_bullet = num_bullets;
-	else if (curr_bullet > num_bullets) curr_bullet = 1;
+if(keyboard_check(key_path) || gamepad_button_check(0, controller_path)){ //attack toggling
+	curr_attack = 1;
+	preview_on = true;
 }
-
+if(keyboard_check(key_fan) || gamepad_button_check(0, controller_fan)){// fan
+	curr_attack = 2;
+	preview_on = true;
+}
+if(keyboard_check(key_bomb) || gamepad_button_check(0, controller_bomb)){// bomb
+	curr_attack = 3;
+	preview_on = true;
+}
+	
+//bullet toggling
+if (mouse_wheel_up() || gamepad_button_check(0, controller_bullet))
+	curr_bullet += 1;
+else if (mouse_wheel_down())
+	curr_bullet -= 1;
+if (curr_bullet < 1) curr_bullet = num_bullets;
+else if (curr_bullet > num_bullets) curr_bullet = 1;
 draw_text_color(cx, cy+40, "attack: " + string(curr_bullet),  c_white, c_white, c_white, c_white, 1);
 
-if (!in_cutscene){
-	if ((mouse_check_button(mb_right) || gamepad_button_check(0, controller_cancel)) && preview_on)
-		preview_on = false;
+if ((mouse_check_button(mb_right) || gamepad_button_check(0, controller_cancel)) && preview_on)
+	preview_on = false;
 
-	var def_ang = 0;
-	if(gamepad_is_connected(0))
-		def_ang = point_direction(0, 0, gamepad_axis_value(0, gp_axisrh), gamepad_axis_value(0, gp_axisrv));
-	else
-		def_ang = point_direction(x, y, mouse_x, mouse_y);
-					if (def_ang >= 135 && def_ang < 225)
-						deflect_dir = 1;
-					else if (def_ang >= 45 && def_ang < 135)
-						deflect_dir = 3;
-					else if (def_ang >= 225 && def_ang < 315)
-						deflect_dir = 4;
-					else
-						deflect_dir = 2;
-}
+var def_ang = 0;
+if(gamepad_is_connected(0))
+	def_ang = point_direction(0, 0, gamepad_axis_value(0, gp_axisrh), gamepad_axis_value(0, gp_axisrv));
+else
+	def_ang = point_direction(x, y, mouse_x, mouse_y);
+				if (def_ang >= 135 && def_ang < 225)
+					deflect_dir = 1;
+				else if (def_ang >= 45 && def_ang < 135)
+					deflect_dir = 3;
+				else if (def_ang >= 225 && def_ang < 315)
+					deflect_dir = 4;
+				else
+					deflect_dir = 2;
 
 if(preview_on) {
 
@@ -240,7 +235,7 @@ if(preview_on) {
 		var tilemap_id = layer_tilemap_get_id(layer_id);
 		tilemap_clear(tilemap_id, 0);
 		
-		if (!in_cutscene) && ((mouse_check_button(mb_left) || gamepad_button_check(0, controller_draw)) && (!deflected)) {
+		if((mouse_check_button(mb_left) || gamepad_button_check(0, controller_draw)) && (!deflected)) {
 			attacking = true;
 			alarm[3] = 15;
 			attack_slow = true;

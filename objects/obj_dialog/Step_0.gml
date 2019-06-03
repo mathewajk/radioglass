@@ -1,9 +1,6 @@
 /// @description Displaying text
 // Displays one more character per frame to produce typewriter effect
 
-with(inst_74B1D3B8){
-	show_debug_message(string(dialogIndex));
-}
 if (currCharIndex < string_length(dialog[dialogIndex, 1]) + 1) {
 	spriteToDisplay = dialog[dialogIndex, 0];
 	if (frames_waited == frames_per_char) {

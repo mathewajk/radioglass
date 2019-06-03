@@ -21,8 +21,6 @@ var xx = x_dest;
 var yy = y_dest;
 
 with(obj){
-	show_debug_message(string(y));
-
 	if (use_default) sprite_index = spr_walk;
 	if(point_distance(x,y,xx,yy) >= spd){
 		var dir = point_direction(x,y,xx,yy);

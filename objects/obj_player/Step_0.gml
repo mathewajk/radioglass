@@ -267,10 +267,7 @@ if (!in_cutscene){
 	//bomb count
 	if (bomb_cd != 0) 
 		bomb_cd--;
-} else {
-
 }
-
 
 //set player to camera center
 /*
