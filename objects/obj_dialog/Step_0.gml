@@ -24,6 +24,10 @@ if (currCharIndex < string_length(dialog[dialogIndex, 1]) + 1) {
 		// hide dialog window when all dialog lines are run
 		if (dialogIndex == dialogCount)
 		{
+			for (var i = 0; i < max_lines_of_dialog; i++) {
+				dialog[i, 0] = -1; //sprite index
+				dialog[i, 1] = ""; //dialog
+			}
 			active = false;
 		}
 	}
