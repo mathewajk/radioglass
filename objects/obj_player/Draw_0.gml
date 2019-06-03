@@ -98,6 +98,12 @@ draw_self(); // this function draws instance sprite same as default draw.
 
 //var shift_down = keyboard_check(vk_shift);
 
+//color drawing
+if(flashp)
+{
+	draw_sprite_ext(spr_light, 0, x, y, 1, 1, 1, flash_color, 0.5);
+}
+
 
 var tile_x = floor(x / 4); // get coordinates of current tile
 var tile_y = floor(y / 4);
