@@ -39,6 +39,6 @@ if (active)
 
 		draw_set_color(c_white);
 		angle = color_selection * pi / 3;
-		draw_circle(xcen + radius * sin(angle), ycen + radius * cos(angle), (width / 40), false);
+		draw_circle(xcen + radius * sin(angle), ycen - radius * cos(angle), (width / 40), false);
 	}
 }
