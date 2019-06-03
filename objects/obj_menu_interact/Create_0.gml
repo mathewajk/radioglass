@@ -1,9 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
-active = 0;
-menu_state = 0;
+active = 1;
+menu_state = 1;
 menu_selection = 0;
 color_selection = 0;
+default_state = 1;
 
 global.c_glo_red = make_color_rgb(255, 110, 112);
 global.c_glo_orange = make_color_rgb(255, 157, 26);

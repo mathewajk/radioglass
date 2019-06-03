@@ -7,11 +7,11 @@ if (active)
 	var rect_width = 200;
 	var rect_height = 400;
 	var border_width = 5;
-	var wheel_xscale = 5;
-	var wheel_yscale = 5;
+	var wheel_xscale = 3;
+	var wheel_yscale = 3;
 	var text_scale = 2
-	var xcen = 150;
-	var ycen = 500;
+	var xcen = 100;
+	var ycen = 300;
 	// For demo, will only be using color menu
 	if(menu_state == 0)
 	{

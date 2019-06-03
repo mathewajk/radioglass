@@ -3,10 +3,10 @@
 if(active)
 {
 	active = false;
-	menu_state = 0;
+	menu_state = default_state;
 }
 else
 {
 	active = true;
-	menu_state = 0;
+	menu_state = default_state;
 }

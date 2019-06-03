@@ -33,20 +33,21 @@ if(active)
 
 				obj_player.glow_inst.color = glow_color;
 			}
-			active = 0;
-			menu_state = 0;
+// Commented out for demo test			
+//			active = 0;
+			menu_state = default_state;
 			break;
 		case 2:
 			active = 0;
-			menu_state = 0;
+			menu_state = default_state;
 			break;
 		case 3:
 			active = 0;
-			menu_state = 0;
+			menu_state = default_state;
 			break;
 		case 4:
 			active = 0;
-			menu_state = 0;
+			menu_state = default_state;
 			break;
 		default:
 			break;
