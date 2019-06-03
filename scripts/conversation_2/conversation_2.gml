@@ -6,7 +6,6 @@ var feng = spr_playerStandForward;
 var axel  = spr_robotWalkRight;
 var ren = spr_tree;
 var glodent_calm = spr_ratcalm;
-show_debug_message("run conversation2")
 
 var a = 1;//*** important make this array local 
 
