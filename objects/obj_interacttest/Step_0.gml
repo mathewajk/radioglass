@@ -1,6 +1,6 @@
 /// @description Insert description here
 // This enemy goes around in circles and shoots bullets at the player
-if (!in_cutscene){
+if ((!obj_player.in_cutscene) && (!in_cutscene)){
 	if(obj_player.deflecting)
 		{
 			deflectEnemy(obj_player, self, 70);
@@ -340,6 +340,7 @@ if (!in_cutscene){
 	{
 		case -1:
 		{
+			speed = 0;
 			sprite_index = spr_ratcalm;
 			break;
 		}
