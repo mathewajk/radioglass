@@ -31,14 +31,14 @@ if (active)
 		draw_circle(xcen, ycen, width / 4, false);
 		draw_set_color(c_black);
 		draw_circle(xcen, ycen, (width / 4) - 10, false);
-		for(i = 0; i < 6; i++)
+		for(i = 0; i < 8; i++)
 		{
 			draw_set_color(available_colors[i]);
-			draw_circle(xcen + (radius * sin(i * (pi/3))), ycen - (radius * cos(i * (pi/3))), (width / 20), false);
+			draw_circle(xcen + (radius * sin(i * (pi/4))), ycen - (radius * cos(i * (pi/4))), (width / 20), false);
 		}
 
 		draw_set_color(c_white);
-		angle = color_selection * pi / 3;
+		angle = color_selection * pi / 4;
 		draw_circle(xcen + radius * sin(angle), ycen - radius * cos(angle), (width / 40), false);
 	}
 }
