@@ -13,7 +13,11 @@ if (currCharIndex < string_length(dialog[dialogIndex, 1]) + 1) {
 	else {
 		frames_waited++;
 	}
-	// Add functionality to press key to skip current printing here
+	// Press this key during print sequence to skip to final display
+	if (keyboard_check_pressed(key_for_new_line)){
+		currCharIndex = string_length(dialog[dialogIndex, 1]) + 1;
+		stringToDisplay = dialog[dialogIndex, 1];
+	}
 } else {
 	// Press this key to display new line of text
 	if (keyboard_check_pressed(key_for_new_line)) { 

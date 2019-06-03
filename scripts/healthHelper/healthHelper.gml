@@ -15,4 +15,5 @@ var right = x0 + (hits*4);
 var top = y0 + 2;
 var bottom = y0 - 2;
 var hp_draw = (hp/hits) * 100;
-draw_healthbar(left, top, right, bottom, hp_draw, backcol, mincol, maxcol, dir, showback, showborder);
+//Borders disabled for now since they don't line up properly
+draw_healthbar(left, top, right, bottom, hp_draw, backcol, mincol, maxcol, dir, showback, false);
