@@ -97,6 +97,15 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 
 	var color_inst;
 	var see_calm_color = false;
+	var player_color_flag = 0;
+	if(obj_player.glow_inst.color != glodentColor.none && (distance_to_enemy < observe_radius))
+	{
+		player_color_flag = obj_player.glow_inst.color;
+	}
+	else
+	{
+		player_color_flag = glodentColor.none;
+	}
 	for (i = 0; i < instance_number(obj_glodentGlow); i += 1)
 	{
 		color_inst = instance_find(obj_glodentGlow,i);
@@ -109,7 +118,6 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 			see_calm_color = true;
 		}
 	}
-
 	switch(behavior_state) 
 	{
 		// idle state
@@ -124,7 +132,11 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 			motion_add(_dir, _spd);
 		
 			// enter alarmed state when player/enemy gets close
-			if (distance_to_enemy < alarm_radius && !see_calm_color) {
+			if (player_color_flag == glodentColor.cyan)
+				behavior_state = 2;
+			else if (player_color_flag == glodentColor.yellow)
+				behavior_state = 0;
+			else if ((distance_to_enemy < alarm_radius && !see_calm_color) || player_color_flag == glodentColor.pink) {
 				behavior_state = 1;	
 			}
 			break;
@@ -148,14 +160,14 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 		
 			sprite_index = spr_glo_pinkwarn;
 		
-			if (see_calm_color || distance_to_enemy >= alarm_radius)
+			if (see_calm_color || distance_to_enemy >= alarm_radius || player_color_flag == glodentColor.yellow)
 			{
 				behavior_state = 0; // idle	
 				color = global.c_glo_yellow;
 				glow_state = 1;
 				alarm[3] = 30; // flash yellow when safe
 			}
-			else if (distance_to_enemy < escape_radius && !see_calm_color)
+			else if ((distance_to_enemy < escape_radius && !see_calm_color) || player_color_flag == glodentColor.cyan)
 			{
 				// enter escaping state
 				behavior_state = 2;
@@ -188,11 +200,22 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 			}
 			else
 			{
-				if (distance_to_enemy < escape_radius)
+				if (player_color_flag == glodentColor.yellow)
+				{
+					behavior_state = 0; // idle	
+					color = global.c_glo_yellow;
+					glow_state = 1;
+					alarm[3] = 30; // flash yellow when safe
+				}
+				else if (player_color_flag == glodentColor.cyan)
+				{
+					escape_cooldown = 30;
+				}
+				else if (distance_to_enemy < escape_radius)
 				{
 					escape_cooldown = 15;
 				}
-				if (distance_to_enemy >= escape_radius)
+				else if (distance_to_enemy >= escape_radius)
 				{
 					behavior_state = 1;
 					glow_state = 0;
