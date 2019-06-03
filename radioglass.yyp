@@ -229,6 +229,14 @@
             }
         },
         {
+            "Key": "1ab1d62c-ba5e-4b50-ac86-203a1dd4791e",
+            "Value": {
+                "id": "958f1754-7587-4709-95d1-e15228540de8",
+                "resourcePath": "scripts\\conversation_8\\conversation_8.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "1dd4aa25-ad1e-4ff0-95bc-1dc587fa5712",
             "Value": {
                 "id": "dc688f48-b146-4ba3-94a3-03617a09113c",
@@ -511,6 +519,14 @@
                 ],
                 "resourcePath": "sprites\/spr_scorpion\/spr_scorpion.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "38f2f8ac-96fd-43a6-a654-eca0cd760632",
+            "Value": {
+                "id": "11bc695f-6cce-454b-80ef-55f5ccb20268",
+                "resourcePath": "scripts\\conversation_6\\conversation_6.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1065,6 +1081,14 @@
             }
         },
         {
+            "Key": "66d096c5-eb6c-4b9a-bcbc-bb0cda2f7d12",
+            "Value": {
+                "id": "c4743ab1-119d-4574-bc5a-0440d8acb83c",
+                "resourcePath": "scripts\\conversation_10\\conversation_10.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "66fe2e6a-9a83-422f-b78c-46dd3d690fb6",
             "Value": {
                 "id": "6a26bd90-3fe2-47f9-8dd4-de7d116fb86c",
@@ -1312,6 +1336,7 @@
             }
         },
         {
+<<<<<<< HEAD
             "Key": "7ac89992-132f-4c0d-baad-caa86bc9b248",
             "Value": {
                 "id": "076a6cdf-5b37-4e46-88d2-b25cb9fdbfe8",
@@ -1331,6 +1356,8 @@
             }
         },
         {
+=======
+>>>>>>> yiyang2
             "Key": "7b3b96d3-27f2-44c2-b1c3-ec92b9d5f5c2",
             "Value": {
                 "id": "a807cef3-9a8f-41a2-9414-f40834682ee8",
@@ -1692,6 +1719,7 @@
             }
         },
         {
+<<<<<<< HEAD
             "Key": "8d79b5c2-bf08-4e04-9e41-0a5b1197cd94",
             "Value": {
                 "id": "418adbae-8156-4c43-8b67-e710274e4946",
@@ -1708,6 +1736,13 @@
                 ],
                 "resourcePath": "sprites\/spr_intro1\/spr_intro1.yy",
                 "resourceType": "GMSprite"
+=======
+            "Key": "8cd9fa50-8bd8-44b4-8090-0b0cfcb5463f",
+            "Value": {
+                "id": "83ab4f5e-1f2c-44a9-b773-333b840d3305",
+                "resourcePath": "scripts\\conversation_4\\conversation_4.yy",
+                "resourceType": "GMScript"
+>>>>>>> yiyang2
             }
         },
         {
@@ -1977,6 +2012,14 @@
             }
         },
         {
+            "Key": "9c23de54-286a-4f6c-a6ac-783eb73f8b3b",
+            "Value": {
+                "id": "919a2f8a-3401-4615-94bd-6beaaa18f19f",
+                "resourcePath": "scripts\\conversation_11\\conversation_11.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "9c5c6d8b-6f22-4e0d-871a-beabe134ff4c",
             "Value": {
                 "id": "71b7c3e3-a46a-4129-8fb3-6646043dba0d",
@@ -2031,6 +2074,14 @@
                 ],
                 "resourcePath": "objects\/obj_bomb\/obj_bomb.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9f8bd258-5a4b-43aa-bd90-ee60efa960f7",
+            "Value": {
+                "id": "7d753f0d-1fbd-4e3e-a40a-574b50116200",
+                "resourcePath": "scripts\\conversation_9\\conversation_9.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2715,6 +2766,14 @@
                 ],
                 "resourcePath": "views\/c8e9440f-c42a-4128-8b6b-42d0c67e8ea2.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "cb64bbde-bb84-46cf-a3e9-f2afd17ce422",
+            "Value": {
+                "id": "eedf2c1e-a93a-4d2f-ba47-2bcf5e9138ac",
+                "resourcePath": "scripts\\conversation_5\\conversation_5.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -3440,6 +3499,14 @@
             }
         },
         {
+            "Key": "f582c814-d0d9-4333-839d-fdd81a42fc49",
+            "Value": {
+                "id": "04ca075e-7829-4faf-8c49-20757fe8be8d",
+                "resourcePath": "scripts\\conversation_7\\conversation_7.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f5d9077e-9964-4c4b-9642-beb37b74882d",
             "Value": {
                 "id": "86801503-0227-403c-9b8e-91d803768d92",
@@ -3596,9 +3663,9 @@
         "5d8ce83a-8283-4327-8fbb-dd1a13bde58d",
         "c46259fa-b13c-4280-b897-a968454748a6",
         "a5f97daa-2c37-4a00-b448-f653a8dcc179",
-        "d27d307b-86ec-4b37-9aba-520caf9788f9",
         "81bbe50d-5e4c-4285-87a7-b73b5948d337",
         "e2d5019a-2b6c-45b4-8741-80669c2e0f9a",
+        "d27d307b-86ec-4b37-9aba-520caf9788f9",
         "de0f79c8-d44c-444c-b181-eaf2d4cdb22b",
         "c49062de-195c-4c12-a7ef-b9e9c1047ca1",
         "2fb7ab0b-f75b-4ce6-b7dc-8527010ad76c",
@@ -3609,6 +3676,14 @@
         "d0202446-c7c8-4bf3-bf7c-a02f2f9c34e4",
         "4c3f4788-c9e7-4bae-8157-f0e9a4a54c44",
         "66fe2e6a-9a83-422f-b78c-46dd3d690fb6",
+        "8cd9fa50-8bd8-44b4-8090-0b0cfcb5463f",
+        "cb64bbde-bb84-46cf-a3e9-f2afd17ce422",
+        "38f2f8ac-96fd-43a6-a654-eca0cd760632",
+        "f582c814-d0d9-4333-839d-fdd81a42fc49",
+        "1ab1d62c-ba5e-4b50-ac86-203a1dd4791e",
+        "9f8bd258-5a4b-43aa-bd90-ee60efa960f7",
+        "66d096c5-eb6c-4b9a-bcbc-bb0cda2f7d12",
+        "9c23de54-286a-4f6c-a6ac-783eb73f8b3b",
         "d7fcf8da-0e35-4d44-af83-b6060af76edd",
         "cfc70778-9728-471e-89d2-9573362f3ada",
         "767cc1cc-9eac-4784-b20f-cccfb4de2754",

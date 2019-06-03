@@ -5,7 +5,7 @@
 
 // There should only exist one obj_dialog instance 
 var dialog_inst = instance_find(obj_dialog, 0);
-show_debug_message("-----");
+
 with (dialog_inst) {	
 	if (!active) {
 		active = true;
@@ -13,11 +13,9 @@ with (dialog_inst) {
 		dialogCount = 0;
 		dialogIndex = 0;
 		for (var i = 0; i < dialoglen; i++) {
-			show_debug_message(string(i));
 			dialog[dialogCount, 0] = argument0[i, 0];
 			dialog[dialogCount, 1] = argument0[i, 1];
 			dialogCount++;
 		}
 	}
 }
-show_debug_message("-----");
