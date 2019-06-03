@@ -2205,6 +2205,25 @@
             }
         },
         {
+            "Key": "a5cb8fdb-359c-4557-9811-f949c3f89ae1",
+            "Value": {
+                "id": "52dc654a-87b8-4af4-a79b-1cd0abce32ea",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_predator\/spr_predator.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a5f97daa-2c37-4a00-b448-f653a8dcc179",
             "Value": {
                 "id": "edfc2317-b8d9-4e41-af47-1d386fd0f744",
