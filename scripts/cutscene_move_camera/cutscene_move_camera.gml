@@ -6,6 +6,10 @@
 ///@arg smoothly?
 ///@arg spd 
 
+//important there could be problem if one camera script is interrupted by another cutscnee
+// make sure to finish camera before other cutscenes
+// need debuggin 
+// recreate: movec 400 + press t equickly dialogue 
 
 
 var obj = argument0,relative =argument3, smooth = argument4,spd = argument5;
@@ -36,6 +40,7 @@ var xx = x_dest;
 var yy = y_dest;
 
 with(obj){
+	show_debug_message(string(x));			
 	if(point_distance(x,y,xx,yy) >= spd){
 		var dir = point_direction(x,y,xx,yy);
 		var ldirx = lengthdir_x(spd, dir);
@@ -50,6 +55,7 @@ with(obj){
 		x = -1;
 		y = -1;		
 		with(other){
+			show_debug_message("----------");
 			x_dest = -1;
 			y_dest = -1;
 			cutscene_end_action();
