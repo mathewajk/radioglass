@@ -9,4 +9,4 @@ enum glodentColor {
 	pink,
 	orange,
 	green
-}
+};
