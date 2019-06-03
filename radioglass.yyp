@@ -1163,7 +1163,18 @@
             "Key": "767cc1cc-9eac-4784-b20f-cccfb4de2754",
             "Value": {
                 "id": "fa0a24b7-81aa-4f5e-a690-57cebea89dec",
-                "resourcePath": "scripts\\do_definitions\\do_definitions.yy",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/do_definitions\/do_definitions.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1393,6 +1404,25 @@
                 ],
                 "resourcePath": "objects\/obj_explosion\/obj_explosion.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "80697807-c3fe-4b09-b7e8-c99f9e31c1aa",
+            "Value": {
+                "id": "2aa4bf35-02b0-45ac-9f03-906247844050",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_glo_fight\/spr_glo_fight.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2558,7 +2588,18 @@
             "Key": "cfc70778-9728-471e-89d2-9573362f3ada",
             "Value": {
                 "id": "e257f6a8-00ce-435b-9795-97c820f46db8",
-                "resourcePath": "scripts\\glodentGlow_create\\glodentGlow_create.yy",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "scripts\/glodentGlow_create\/glodentGlow_create.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2604,7 +2645,18 @@
             "Key": "d3b225ae-0df0-481c-bc09-123883a1c389",
             "Value": {
                 "id": "a8969145-c86e-4462-9205-ba6295fc13f8",
-                "resourcePath": "objects\\obj_glodentGlow\\obj_glodentGlow.yy",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/obj_glodentGlow\/obj_glodentGlow.yy",
                 "resourceType": "GMObject"
             }
         },
