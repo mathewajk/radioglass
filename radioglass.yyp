@@ -2262,6 +2262,25 @@
             }
         },
         {
+            "Key": "b8729e43-92f4-4255-91ce-21102e2ffdfc",
+            "Value": {
+                "id": "cdfff408-a605-4825-b1ef-3535ca85891c",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/spr_glow_friendani\/spr_glow_friendani.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b8aa85b7-6835-47a4-a817-a3a5efbbf08c",
             "Value": {
                 "id": "c9e241ad-5b78-48ef-8f61-67589ab37da9",
