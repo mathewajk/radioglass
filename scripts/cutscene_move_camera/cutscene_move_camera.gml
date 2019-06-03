@@ -1,11 +1,23 @@
 ///@description cutscene_move_camera
 ///@arg obj 
-///@arg x
+///@arg x 
 ///@arg y
 ///@arg relative? 
+///@arg smoothly?
 ///@arg spd 
 
-var obj = argument0,relative =argument3, spd = argument4;
+
+
+var obj = argument0,relative =argument3, smooth = argument4,spd = argument5;
+var view = 0
+
+
+if (obj.x == -1){
+	obj.x = camera_get_view_x(view_camera[view]);
+	obj.y = camera_get_view_y(view_camera[view]);
+}
+
+
 
 if(x_dest == -1){
 	if (relative){
@@ -17,27 +29,30 @@ if(x_dest == -1){
 	}
 }
 
+
+
+
 var xx = x_dest;
 var yy = y_dest;
 
 with(obj){
-	sprite_index = spr_walk;
-	
 	if(point_distance(x,y,xx,yy) >= spd){
 		var dir = point_direction(x,y,xx,yy);
 		var ldirx = lengthdir_x(spd, dir);
 		var ldiry = lengthdir_y(spd, dir);
-		if(ldirx != 0 ) { image_xxscale = sign(ldirx);}
 		x += ldirx;
 		y += ldiry;
+		camera_set_view_pos(view_camera[view], x, y);
 	} else { 
-		sprite_index = spr_idle;
 		x = xx;
 		y = yy;
+		camera_set_view_pos(view_camera[view], x, y);
+		x = -1;
+		y = -1;		
 		with(other){
 			x_dest = -1;
 			y_dest = -1;
-			cutscene_end_action();		
+			cutscene_end_action();
 		}
 	}
 }

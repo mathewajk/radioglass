@@ -1,3 +1,4 @@
+
 ///@description glodentFlash_create
 ///@arg x
 ///@arg y

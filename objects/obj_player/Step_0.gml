@@ -268,3 +268,10 @@ if (!in_cutscene){
 	if (bomb_cd != 0) 
 		bomb_cd--;
 }
+
+//set player to camera center
+/*
+view_xview = obj_player.x - view_wview[view_current]/2;
+view_yview = obj_player.y - 15  - view_hview[view_current]/2;
+camera_set_view_pos(view_camera[view_current], view_xview, view_yview);
+*/
