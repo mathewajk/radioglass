@@ -142,7 +142,7 @@ if (in_cutscene){
 			// flashing
 			if(!flash_cycle)
 			{
-				color = c_fuchsia;
+				color = global.c_glo_pink;
 				flash_cycle = 1;
 				alarm[2] = 12;
 			}
@@ -175,7 +175,7 @@ if (in_cutscene){
 		
 			if(!flash_cycle)
 			{
-				color = c_aqua;
+				color = global.c_glo_cyan;
 				flash_cycle = 1;
 				alarm[2] = 7;
 			}

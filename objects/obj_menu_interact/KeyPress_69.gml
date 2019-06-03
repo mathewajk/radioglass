@@ -6,12 +6,12 @@ if (active)
 	{
 		case 0: 
 			menu_selection++;
-			if(menu_selection > 3)
+			if(menu_selection > (array_length_1d(available_interactions) - 1))
 				menu_selection = 0;
 			break;
 		case 1:
 			color_selection++;
-			if(color_selection > 5)
+			if(color_selection > (array_length_1d(available_colors) - 1))
 				color_selection = 0;
 			break;
 		default:

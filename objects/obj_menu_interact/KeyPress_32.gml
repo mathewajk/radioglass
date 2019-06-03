@@ -21,13 +21,13 @@ if(active)
 				var glow_color;
 					switch(color_selection) {
 						case 0: glow_color = glodentColor.none; break;
-						case 1: glow_color = glodentColor.blue; break;
-						case 2: glow_color = glodentColor.cyan; break;
+						case 1: glow_color = glodentColor.red; break;
+						case 2: glow_color = glodentColor.orange; break;
 						case 3: glow_color = glodentColor.yellow; break;
-						case 4: glow_color = glodentColor.red; break;
-						case 5: glow_color = glodentColor.pink; break;
-						case 6: glow_color = glodentColor.orange; break;
-						case 7: glow_color = glodentColor.green; break;
+						case 4: glow_color = glodentColor.green; break;
+						case 5: glow_color = glodentColor.cyan; break;
+						case 6: glow_color = glodentColor.blue; break;
+						case 7: glow_color = glodentColor.pink; break;
 						default: glow_color = glodentColor.none;
 					}
 
