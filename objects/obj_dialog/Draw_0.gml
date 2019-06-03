@@ -12,15 +12,15 @@ if (active) {
 	
 	draw_set_color(c_white);
 	draw_text(cx + text_xOrigin, cy + text_yOrigin, stringToDisplay);
-	
+
 	if (spriteToDisplay != -1) {
+		
 		avatarScale = sprite_get_height(spriteToDisplay) / inBoxH;
+		if (spriteToDisplay == spr_playerStandForward) {
+			draw_sprite_ext(spriteToDisplay, -1, cx + avatar_xOrigin, cy+ avatar_yOrigin + 12, avatarScale, avatarScale, 0, c_white, 1);
+		} else {
+			draw_sprite_ext(spriteToDisplay, -1, cx + avatar_xOrigin, cy+ avatar_yOrigin, avatarScale, avatarScale, 0, c_white, 1);
+		}
 	}
-	
-	if (spriteToDisplay == spr_playerStandForward) {
-		draw_sprite_ext(spriteToDisplay, -1, cx + avatar_xOrigin, cy+ avatar_yOrigin + 12, avatarScale, avatarScale, 0, c_white, 1);
-	} else {
-		draw_sprite_ext(spriteToDisplay, -1, cx + avatar_xOrigin, cy+ avatar_yOrigin, avatarScale, avatarScale, 0, c_white, 1);
-	}
-	
+		
 }
