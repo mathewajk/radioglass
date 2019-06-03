@@ -6,8 +6,8 @@ hits = hp;
 cd = 30;
 player_damage_cd = 0;
 mood = random_range(1, 1000);
-flash_cycle = 0;
-glow_state = 0;
+flash_cycle = 0; // 
+glow_state = 0; // 1 if the glowing sprite is showed
 color = c_yellow;
 
 /*
@@ -17,7 +17,22 @@ facing = 1;
 alarm[0] = 80;
 */
 last_coll = -1;
-state = 0;
+coll_state = 0;
+
+behavior_state = 0;
+// states:
+// 0: idle;
+// 1: alarmed;
+// 2: escaping;
+observe_radius = 220;
+alarm_radius = 150;
+escape_radius = 80;
+escape_cooldown = 0;
+
+
+// add light object
+glow_inst = glodentGlow_create(glodentColor.none);
+
 
 //path_start(path_enemy4, 1.2, path_action_continue, true);
 path = path_add();

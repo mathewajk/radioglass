@@ -78,11 +78,11 @@ var coll = instance_place(x, y, obj_damage);
 // -- pseudo-false: any number < 0.5
 // -- pseudo-true: any number >= 0.5
 
-if(coll && state = 0) {
+if(coll && coll_state = 0) {
 	show_debug_message("Hit!! " + string(id));
 	hp -= 1; // increased damage from 5 to 10
 	
-	state = 1;
+	coll_state = 1;
 	alarm[1] = 10; //10 frames of invulnerability
 	
 	// only deal damage to enemy if it collides with a damage object
@@ -90,11 +90,124 @@ if(coll && state = 0) {
 	// than the previous collided object
 }	
 
-//Code to run away from player
+var distance_to_enemy = distance_to_object(obj_player); // need to change
 
-if(!(obj_player.flashp)) {
-deltaDistance = obj_player.x - x;
-	if (abs(deltaDistance)<150)  
+// check for different colors
+// need to figure out scenario with multiple colors present
+
+var color_inst;
+var see_calm_color = false;
+for (i = 0; i < instance_number(obj_glodentGlow); i += 1)
+{
+	color_inst = instance_find(obj_glodentGlow,i);
+	if (color_inst == glow_inst 
+		|| distance_to_object(color_inst) > observe_radius) 
+	{
+		continue;
+	}
+	if (color_inst.color == glodentColor.yellow) {
+		see_calm_color = true;
+	}
+}
+
+switch(behavior_state) 
+{
+	// idle state
+	case 0:
+	{
+		glow_state = 0;
+		// motion
+		
+		speed = 0;
+		sprite_index = spr_glo_yellowsafe;	
+		var _dir = irandom(359);
+		var _spd = irandom(1);
+		motion_add(_dir, _spd);
+		
+		// enter alarmed state when player/enemy gets close
+		if (distance_to_enemy < alarm_radius && !see_calm_color) {
+			behavior_state = 1;	
+		}
+		break;
+	}
+	// alarmed state
+	case 1:
+	{
+		// movement // need to fix
+		speed = 0;
+		var _dir = irandom(359);
+		var _spd = irandom(1);
+		motion_add(_dir, _spd);
+		
+		// flashing
+		if(!flash_cycle)
+		{
+			color = c_fuchsia;
+			flash_cycle = 1;
+			alarm[2] = 12;
+		}
+		
+		sprite_index = spr_glo_pinkwarn;
+		
+		if (see_calm_color || distance_to_enemy >= alarm_radius)
+		{
+			behavior_state = 0; // idle	
+			glow_state = 0;
+		}
+		else if (distance_to_enemy < escape_radius && !see_calm_color)
+		{
+			// enter escaping state
+			behavior_state = 2;
+			escape_cooldown = 45;
+			glow_state = 0;
+		}
+		break;
+	}
+	// escaping state
+	case 2:
+	{
+		// motion
+		var inst;
+		inst = instance_nearest(x, y, obj_player);
+		mp_potential_step(-inst.x, -inst.y, 3+random(1)*.5, false);
+		
+		// flashing
+		
+		if(!flash_cycle)
+		{
+			color = c_aqua;
+			flash_cycle = 1;
+			alarm[2] = 7;
+		}
+		sprite_index = spr_glo_cyanalarm;
+		
+		if (escape_cooldown > 0)
+		{
+			escape_cooldown--;
+		}
+		else
+		{
+			if (distance_to_enemy < escape_radius)
+			{
+				escape_cooldown = 15;
+			}
+			if (distance_to_enemy >= escape_radius)
+			{
+				behavior_state = 1;
+				glow_state = 0;
+			}
+		}
+		break;		
+	}
+}
+
+//Code to run away from player
+	
+/*
+
+if(!see_calm_color) {
+	deltaDistance = distance_to_object(obj_player);
+	if (abs(deltaDistance)<100)
 	{
 		if(!flash_cycle)
 		{
@@ -109,7 +222,7 @@ deltaDistance = obj_player.x - x;
 		sprite_index = spr_glo_cyanalarm;
     } 
 	else {
-		if (abs(deltaDistance)<200) 
+		if (abs(deltaDistance)<150) 
 		{
 			if(!flash_cycle)
 			{
@@ -129,13 +242,15 @@ deltaDistance = obj_player.x - x;
 	}
 } 
 else { 
+	// idle
 	speed = 0;
 	sprite_index = spr_ratcalm;	
 	var _dir = irandom(359);
 	var _spd = irandom(1);
 	motion_add(_dir, _spd);
 }
-   
+  
+  */
 /*
 dirx = -obj_player.x;
 diry = -obj_player.y;

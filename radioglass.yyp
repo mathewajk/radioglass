@@ -495,6 +495,14 @@
             }
         },
         {
+            "Key": "767cc1cc-9eac-4784-b20f-cccfb4de2754",
+            "Value": {
+                "id": "fa0a24b7-81aa-4f5e-a690-57cebea89dec",
+                "resourcePath": "scripts\\do_definitions\\do_definitions.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "77c9cf4f-3424-48f8-8cd3-ff777fd8760d",
             "Value": {
                 "id": "452a027d-e382-41eb-93a4-bc5982f37209",
@@ -1031,6 +1039,14 @@
             }
         },
         {
+            "Key": "cfc70778-9728-471e-89d2-9573362f3ada",
+            "Value": {
+                "id": "e257f6a8-00ce-435b-9795-97c820f46db8",
+                "resourcePath": "scripts\\glodentGlow_create\\glodentGlow_create.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d13bd10b-e027-4b37-a90d-11054c8026aa",
             "Value": {
                 "id": "ab975f99-e1da-4fa2-ae9c-a2110132b88a",
@@ -1044,6 +1060,14 @@
                 "id": "de033a36-c0f0-47da-ba7f-2dd9c436a405",
                 "resourcePath": "scripts\/drawEdgeRadius\/drawEdgeRadius.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "d3b225ae-0df0-481c-bc09-123883a1c389",
+            "Value": {
+                "id": "a8969145-c86e-4462-9205-ba6295fc13f8",
+                "resourcePath": "objects\\obj_glodentGlow\\obj_glodentGlow.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1331,7 +1355,9 @@
         "6420dee8-41ce-433e-b7d7-42f0668591ef",
         "9a625ee0-e435-421d-9454-d941031d8307",
         "ce7da3c7-cf51-42a5-8566-baddc568e2f6",
-        "4717f3e3-74d7-49ef-b90a-d7d95e4416fe"
+        "4717f3e3-74d7-49ef-b90a-d7d95e4416fe",
+        "cfc70778-9728-471e-89d2-9573362f3ada",
+        "767cc1cc-9eac-4784-b20f-cccfb4de2754"
     ],
     "tutorial": ""
 }
