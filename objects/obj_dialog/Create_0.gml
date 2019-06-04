@@ -13,11 +13,14 @@ leftPadding = 140;
 rightPadding = 10;
 bottomPadding = 10;
 
-width = camera_get_view_width(view_camera[0]) - leftPadding - rightPadding;
+screen_width = camera_get_view_width(view_camera[0]);
+screen_height = camera_get_view_height(view_camera[0]);
+
+width = screen_width - leftPadding - rightPadding;
 height = 50;
 
 xOrigin = leftPadding;
-yOrigin = camera_get_view_height(view_camera[0]) - height - bottomPadding;
+yOrigin = screen_height - height - bottomPadding;
 
 // Probably don't need the following if we have a sprite for box
 borderSize = 6;
