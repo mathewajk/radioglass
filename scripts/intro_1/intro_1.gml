@@ -2,6 +2,10 @@
 
 
 var a = 1;
+for (var i = 0; i < 8; i++) {
+	a[i, 0] = 0;
+}
+
 a[0,1] = "Thousands of years ago, the Earth was on way to complete environmental destruction";
 a[1,1] = "a group of scientists discovered Atom, a mystical power that allowed the rearrangement of matter and energy. They built the Atom Core, which was meant to save the world from a slow path into extinction.";
 a[2,1] = "However, the Core was a disastrous failure, causing a nuclear fallout that began to irradiate the whole world. Humanity fled underground.";

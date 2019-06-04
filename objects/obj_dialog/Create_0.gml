@@ -49,4 +49,5 @@ dialogIndex = 0; // current dialog index in conversation, increments one by one
 currCharIndex = 1; // current char index, increments one by one
 spriteToDisplay = -1; // initial value
 stringToDisplay = ""; // initial value
+text_font = -1
 

@@ -3,8 +3,14 @@
 
 // see conversaton_1 script for example on how to format dialog
 
-// There should only exist one obj_dialog instance 
-var dialog_inst = instance_find(obj_dialog, 0);
+// There should only exist one obj_dialog instance
+var dialog_inst;
+if (!instance_exists(obj_dialog)) {
+	dialog_inst = instance_create_layer(0,0,"instances_text", obj_dialog);
+} else {
+	dialog_inst = instance_find(obj_dialog, 0);
+}
+
 show_debug_message("-----");
 with (dialog_inst) {	
 	if (!active) {
@@ -21,3 +27,4 @@ with (dialog_inst) {
 	}
 }
 show_debug_message("-----");
+return dialog_inst;
