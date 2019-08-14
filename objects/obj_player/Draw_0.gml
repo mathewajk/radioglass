@@ -158,9 +158,13 @@ if(preview_on) {
 	var layer_id = layer_get_id("small_tiles_path");
 	var tilemap_id = layer_tilemap_get_id(layer_id);
 
-	var layer_id_terra = layer_get_id("small_tiles_terraformed");
-	var tilemap_id_terra = layer_tilemap_get_id(layer_id_terra);
-
+/*	var layer_id_terra = layer_get_id("small_tiles_terraformed");
+	var tilemap_id_terra = layer_tilemap_get_id(layer_id_terra);*/
+	var layer_id_grass = layer_get_id("small_tiles_terraformed");
+	var tilemap_id_grass = layer_tilemap_get_id(layer_id_grass);
+	var layer_id_water = layer_get_id("water_layer");
+	var tilemap_id_water = layer_tilemap_get_id(layer_id_water);
+	
 	/* old code from the old mechanic
 	if(curr_attack == 1) {
 		var y_dist = floor((mouse_y - y) / 4);
@@ -240,58 +244,60 @@ if(preview_on) {
 		var tilemap_id = layer_tilemap_get_id(layer_id);
 		tilemap_clear(tilemap_id, 0);
 		
-		if (!in_cutscene) && ((mouse_check_button(mb_left) || gamepad_button_check(0, controller_draw)) && (!deflected)) {
-			attacking = true;
-			alarm[3] = 15;
-			attack_slow = true;
-			if (curr_attack == 1 || curr_attack == 2) {
-				alarm[4] = 6;
-				var ang = 0;
-				if(gamepad_is_connected(0))
-					ang = point_direction(0, 0, gamepad_axis_value(0, gp_axisrh), gamepad_axis_value(0, gp_axisrv));
-				else
-					ang = point_direction(x, y, mouse_x, mouse_y);
-				if (ang >= 135 && ang < 225)
-					last_attack_dir = 1;
-				else if (ang >= 45 && ang < 135)
-					last_attack_dir = 3;
-				else if (ang >= 225 && ang < 315)
+		if (!in_cutscene) {
+			if ((mouse_check_button(mb_left) || gamepad_button_check(0, controller_draw)) && (!deflected)) {
+				attacking = true;
+				alarm[3] = 15;
+				attack_slow = true;
+				if (curr_attack == 1 || curr_attack == 2) {
+					alarm[4] = 6;
+					var ang = 0;
+					if(gamepad_is_connected(0))
+						ang = point_direction(0, 0, gamepad_axis_value(0, gp_axisrh), gamepad_axis_value(0, gp_axisrv));
+					else
+						ang = point_direction(x, y, mouse_x, mouse_y);
+					if (ang >= 135 && ang < 225)
+						last_attack_dir = 1;
+					else if (ang >= 45 && ang < 135)
+						last_attack_dir = 3;
+					else if (ang >= 225 && ang < 315)
+						last_attack_dir = 4;
+					else
+						last_attack_dir = 2;
+				} else if (curr_attack == 3) {
 					last_attack_dir = 4;
-				else
-					last_attack_dir = 2;
-			} else if (curr_attack == 3) {
-				last_attack_dir = 4;
-				alarm[4] = 3;
-			}
+					alarm[4] = 3;
+				}
 			
-			if(curr_attack == 1)
-			{
-				drawPath(x0,y0,x1,y1,width,tilemap_id_terra,true,curr_bullet);
-				drawEdgeRadius((x0+x1)/2,(y0+y1)/2,x1,y1,tilemap_id_terra, curr_attack);
-			}
-			else if(curr_attack == 2)
-			{
-				drawFan(x0,y0,x1,y1, pi/2, tilemap_id_terra,true,curr_bullet);
-				drawEdgeRadius((x0+x1)/2,(y0+y1)/2,x1+((x1-x0)/5),y1+((y1-y0)/5),tilemap_id_terra, curr_attack);
-			}
-			else if(curr_attack == 3) // bomb
-				if (bomb_cd == 0 && bomb_n > 0) {
-					instance_create_layer(x, y, "instances_bullet", obj_bomb);
-					bomb_cd = bomb_maxcd;
-					bomb_n--;
-				}	
+				if(curr_attack == 1)
+				{
+					drawPath(x0,y0,x1,y1,width,tilemap_id_grass,true,curr_bullet);
+					drawEdgeRadius((x0+x1)/2,(y0+y1)/2,x1,y1);
+				}
+				else if(curr_attack == 2)
+				{
+					drawFan(x0,y0,x1,y1, pi/2, tilemap_id_water,true,curr_bullet);
+					drawEdgeRadius((x0+x1)/2,(y0+y1)/2,x1+((x1-x0)/5),y1+((y1-y0)/5));
+				}
+				else if(curr_attack == 3) // bomb
+					if (bomb_cd == 0 && bomb_n > 0) {
+						instance_create_layer(x, y, "instances_bullet", obj_bomb);
+						bomb_cd = bomb_maxcd;
+						bomb_n--;
+					}	
 			
-		}
-		else {
-			if(curr_attack == 1)
-			drawPath(x0,y0,x1,y1,width,tilemap_id,false,curr_bullet);
-			else if(curr_attack == 2)
-			{
-			drawFan(x0, y0, x1, y1, pi/2, tilemap_id, false, curr_bullet);
 			}
-			else if(curr_attack == 3)
-			{
-			//drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
+			else {
+				if(curr_attack == 1)
+				drawPath(x0,y0,x1,y1,width,tilemap_id,false,curr_bullet);
+				else if(curr_attack == 2)
+				{
+				drawFan(x0, y0, x1, y1, pi/2, tilemap_id, false, curr_bullet);
+				}
+				else if(curr_attack == 3)
+				{
+				//drawCircle(x0,y0,x1,y1, tilemap_id,false,curr_bullet);
+				}
 			}
 		}
 }

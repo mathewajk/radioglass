@@ -16,8 +16,12 @@ var winit = argument6;
 var tilemap_id = argument7;
 var terraform_on = argument8;
 var bullet = argument9;
-var water_layer = layer_get_id("water_layer");
-var water_id = layer_tilemap_get_id(water_layer);
+var layer_id_grass = layer_get_id("small_tiles_terraformed");
+var tilemap_id_grass = layer_tilemap_get_id(layer_id_grass);
+var layer_id_water = layer_get_id("water_layer");
+var tilemap_id_water = layer_tilemap_get_id(layer_id_water);
+var layer_id_path = layer_get_id("small_tiles_path");
+var tilemap_id_path = layer_tilemap_get_id(layer_id_path);
 
 var xc=x0+(sign(dx) * 2 / (sqrt(1 + (power(dy, 2)/power(dx, 2))))); //current x you are drawing, shifted some distance away from the player
 var yc=y0+(sign(dy) * 2 / (sqrt(1 + (power(dx, 2)/power(dy, 2))))); //current y you are drawing, shifted some distance away from the player
@@ -49,8 +53,11 @@ var error= einit;
 var tk= abs(dx)+abs(dy)-winit;
 
 while (tk<=wthr){ //remove "=" for even tiled widths
-	if(tilemap_get(tilemap_id, xc, yc) == 0 && tilemap_get(water_id, xc, yc) == 0 ) {
-		if(terraform_on) {
+	if(terraform_on) {
+		if(tilemap_get(tilemap_id_grass, xc, yc) == 0 && 
+		   tilemap_get(tilemap_id_water, xc, yc) == 0 && 
+		   !instance_position(floor(xc) * 4, floor(yc) * 4, obj_barrier)) {
+
 		  var coinflip = floor(random(4));
 			
 		  if(coinflip != 0)
@@ -62,9 +69,9 @@ while (tk<=wthr){ //remove "=" for even tiled widths
 			case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
 		  }
 		}
-		else {
-			tilemap_set(tilemap_id, 16, xc,yc);
-		}
+	}
+	else {
+		tilemap_set(tilemap_id_path, 1, xc,yc);
 	}
 
     if (error > threshold) { 
@@ -105,24 +112,27 @@ tk= abs(dx)+abs(dy)+winit;
 
 while (tk<=wthr) { 
 	
-	if(tilemap_get(tilemap_id, xc, yc) == 0 && tilemap_get(water_id, xc, yc) == 0 ) {
-		if(terraform_on) {
-		  var coinflip = floor(random(4));
+	if(terraform_on) {
+		if(tilemap_get(tilemap_id_grass, xc, yc) == 0 && 
+		   tilemap_get(tilemap_id_water, xc, yc) == 0  && 
+		   !instance_position(floor(xc) * 4, floor(yc) * 4, obj_barrier)) {
+			  var coinflip = floor(random(4));
 			
-		  if(coinflip != 0)
-			tilemap_set(tilemap_id, 15, xc, yc);
-		  else
-			tilemap_set(tilemap_id, 17, xc, yc);
+			  if(coinflip != 0)
+				tilemap_set(tilemap_id, 15, xc, yc);
+			  else
+				tilemap_set(tilemap_id, 17, xc, yc);
 			
-		 switch (bullet){
-			case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow);break;
-			case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
-		  }
-		}
-		else {
-			tilemap_set(tilemap_id, 16, xc,yc);
-		}
+			 switch (bullet){
+				case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow);break;
+				case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
+			  }
+			}
 	}
+	else {
+		tilemap_set(tilemap_id_path, 1, xc,yc);
+	}
+
 	
     if (error > threshold) { 
 	if (vOctant)

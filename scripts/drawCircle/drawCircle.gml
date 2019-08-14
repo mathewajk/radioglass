@@ -7,9 +7,12 @@ var y1= argument3;
 var tilemap_id= argument4;
 var terraform_on = argument5;
 var bullet = argument6;
-
-var water_layer = layer_get_id("water_layer");
-var water_id = layer_tilemap_get_id(water_layer);
+var layer_id_grass = layer_get_id("small_tiles_terraformed");
+var tilemap_id_grass = layer_tilemap_get_id(layer_id_grass);
+var layer_id_water = layer_get_id("water_layer");
+var tilemap_id_water = layer_tilemap_get_id(layer_id_water);
+var layer_id_path = layer_get_id("small_tiles_path");
+var tilemap_id_path = layer_tilemap_get_id(layer_id_path);
 
 var dx = x1 - x0;
 var dy = y1 - y0;
@@ -25,7 +28,7 @@ for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
 		var cen_to_curr = sqrt(power((xc - x0), 2) + power((yc - y0), 2));
 		if (cen_to_curr <= radius)
 		{
-			if(tilemap_get(tilemap_id, xc, yc) == 0 && tilemap_get(water_id, xc, yc) == 0) {
+			if(tilemap_get(tilemap_id_grass, xc, yc) == 0 && tilemap_get(tilemap_id_water, xc, yc) == 0 && !instance_position(floor(xc) * 4, floor(yc) * 4, obj_barrier)) {
 				if(true) {
 				  var coinflip = floor(random(4));
 			
@@ -39,7 +42,7 @@ for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
 				  }
 				}
 				else {
-					tilemap_set(tilemap_id, 36, xc,yc);
+					tilemap_set(tilemap_id_path, 2, xc,yc);
 				}
 			}
 		}

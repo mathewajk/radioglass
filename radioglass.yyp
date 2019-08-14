@@ -239,6 +239,14 @@
             }
         },
         {
+            "Key": "38a11844-5eaf-445d-9e58-36e339119f43",
+            "Value": {
+                "id": "2c210402-9122-46cb-a448-274abed24ed7",
+                "resourcePath": "sprites\/spr_ts_water\/spr_ts_water.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "38f2f8ac-96fd-43a6-a654-eca0cd760632",
             "Value": {
                 "id": "bca6953d-9faa-4dac-b12c-dd6d7cfa70bd",
@@ -340,6 +348,14 @@
                 "id": "6e487365-b44c-4b76-9d2a-cedfae8244cb",
                 "resourcePath": "objects\/obj_waterReflect\/obj_waterReflect.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "4b85321c-130c-42fa-bdd1-1c3791bd6190",
+            "Value": {
+                "id": "03a29ac6-329b-4b1a-b246-4031d819b3fc",
+                "resourcePath": "sprites\/spr_ts_preview\/spr_ts_preview.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -471,6 +487,14 @@
             }
         },
         {
+            "Key": "62dff383-4bfc-4be0-9588-a668cf612686",
+            "Value": {
+                "id": "124f3167-4c48-4f86-b6c6-5ab61ef7da40",
+                "resourcePath": "tilesets\/ts_preview\/ts_preview.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "6420dee8-41ce-433e-b7d7-42f0668591ef",
             "Value": {
                 "id": "89cea6a4-c975-4c2c-ae15-89ea56562340",
@@ -548,6 +572,14 @@
                 "id": "4a2da26d-b958-4b94-b47c-48b7b961bce7",
                 "resourcePath": "views\/6fc56425-28b8-43f3-98b0-0f64ea4934ad.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6fdea772-3ab7-4c1a-a564-30b26efbfd34",
+            "Value": {
+                "id": "eb48ea42-818c-4559-bcb7-8e08540c48c8",
+                "resourcePath": "tilesets\/ts_water\/ts_water.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -882,7 +914,7 @@
             "Key": "983a715a-575d-486a-84ad-451424ca37e3",
             "Value": {
                 "id": "eaa69332-2a89-4138-b1fc-5886d75aa235",
-                "resourcePath": "fonts\\intro_font\\intro_font.yy",
+                "resourcePath": "fonts\/intro_font\/intro_font.yy",
                 "resourceType": "GMFont"
             }
         },
@@ -1639,9 +1671,9 @@
         "81bbe50d-5e4c-4285-87a7-b73b5948d337",
         "e2d5019a-2b6c-45b4-8741-80669c2e0f9a",
         "de0f79c8-d44c-444c-b181-eaf2d4cdb22b",
+        "af52a3dc-2b51-4256-860a-9b1861dba1c0",
         "c49062de-195c-4c12-a7ef-b9e9c1047ca1",
         "2fb7ab0b-f75b-4ce6-b7dc-8527010ad76c",
-        "af52a3dc-2b51-4256-860a-9b1861dba1c0",
         "a1a26068-a9bd-4bcc-95db-2d6cbdcfe799",
         "8e10d31a-aa8e-4cae-8bc1-927b2ca091d5",
         "a108346c-94c4-49c8-86be-f2d3adcb0422",

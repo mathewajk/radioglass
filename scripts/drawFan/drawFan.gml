@@ -8,8 +8,12 @@ var angle = argument4;
 var tilemap_id= argument5;
 var terraform_on = argument6;
 var bullet = argument7;
-var water_layer = layer_get_id("water_layer");
-var water_id = layer_tilemap_get_id(water_layer);
+var layer_id_grass = layer_get_id("small_tiles_terraformed");
+var tilemap_id_grass = layer_tilemap_get_id(layer_id_grass);
+var layer_id_water = layer_get_id("water_layer");
+var tilemap_id_water = layer_tilemap_get_id(layer_id_water);
+var layer_id_path = layer_get_id("small_tiles_path");
+var tilemap_id_path = layer_tilemap_get_id(layer_id_path);
 
 
 var dx = x1 - x0;
@@ -35,23 +39,24 @@ for(var xc = (x0-radius)+1; xc < (x0+radius); xc++)
 		{
 			if(cen_to_curr <= radius)
 			{
-				if(tilemap_get(tilemap_id, xc, yc) == 0 && tilemap_get(water_id, xc, yc) == 0) {
-					if(terraform_on) {
-					  var coinflip = floor(random(4));
+				if(terraform_on) {
+					if(tilemap_get(tilemap_id_grass, xc, yc) == 0 && tilemap_get(tilemap_id_water, xc, yc) == 0 && !instance_position(floor(xc) * 4, floor(yc) * 4, obj_barrier)) {
+					
+						  var coinflip = floor(random(4));
 			
-					  if(coinflip != 0)
-						tilemap_set(water_id, 35, xc, yc);
-					  else
-						tilemap_set(water_id, 37, xc, yc);
+						  if(coinflip != 0)
+							tilemap_set(tilemap_id, 15, xc, yc);
+						  else
+							tilemap_set(tilemap_id, 17, xc, yc);
 			
-					  switch (bullet){
-						case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
-						case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow); break;
-					  }
+						  switch (bullet){
+							case 1: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_damage); break;
+							case 2: instance_create_layer(floor(xc) * 4, floor(yc) * 4, "instances_paths", obj_slow); break;
+						  }
 					}
-					else {
-						tilemap_set(tilemap_id, 36, xc,yc);
-					}
+				}
+				else {
+					tilemap_set(tilemap_id_path, 2, xc,yc);
 				}
 			}
 		}
