@@ -847,6 +847,14 @@
             }
         },
         {
+            "Key": "90e144b9-3ca8-4439-8b7b-f24b218102ff",
+            "Value": {
+                "id": "05bf6220-dd0d-4c12-9214-57f54d25c0de",
+                "resourcePath": "scripts\/interact_bluex2\/interact_bluex2.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "91a79c5c-c732-499e-b3eb-780411c2fe08",
             "Value": {
                 "id": "58141624-4ab7-4319-9b3d-a20bdc7ae7d3",
@@ -1689,6 +1697,7 @@
         "9f8bd258-5a4b-43aa-bd90-ee60efa960f7",
         "66d096c5-eb6c-4b9a-bcbc-bb0cda2f7d12",
         "9c23de54-286a-4f6c-a6ac-783eb73f8b3b",
+        "90e144b9-3ca8-4439-8b7b-f24b218102ff",
         "d7fcf8da-0e35-4d44-af83-b6060af76edd",
         "cfc70778-9728-471e-89d2-9573362f3ada",
         "767cc1cc-9eac-4784-b20f-cccfb4de2754",

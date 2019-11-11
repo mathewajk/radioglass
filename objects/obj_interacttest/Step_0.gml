@@ -91,6 +91,17 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 	}	
 
 	var distance_to_enemy = distance_to_object(obj_player); // need to change
+	var nearest_glodent = instance_nearest(x, y, obj_interacttest);
+	var distance_to_nearest_glodent = distance_to_object(nearest_glodent);
+	var player_angle = arctan2(y - obj_player.y, x - obj_player.x);
+	var player_facing = 0;
+	if(((obj_player.last_dir == 1) && (abs(player_angle) >= ((3 * pi) / 4))) ||
+	   ((obj_player.last_dir == 2) && (abs(player_angle) < (pi / 4))) ||
+	   ((obj_player.last_dir == 3) && (player_angle > ((-3 * pi) / 4)) && (player_angle <= ((-1 * pi) / 4))) ||
+	   ((obj_player.last_dir == 4) && (player_angle >= (pi / 4)) && (player_angle < ((3 * pi) / 4))))
+	{
+		player_facing = 1;
+	}
 
 	// check for different colors
 	// need to figure out scenario with multiple colors present
@@ -130,13 +141,29 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 			var _dir = irandom(359);
 			var _spd = irandom(1);
 			motion_add(_dir, _spd);
-		
 			// enter alarmed state when player/enemy gets close
-			if (player_color_flag == glodentColor.cyan)
+			if (player_trust_flag && 
+			    (distance_to_enemy < interact_radius) && 
+				(player_facing == 1) &&
+				(player_color_flag != glodentColor.none) && 
+				(player_color_flag != glodentColor.pink) &&
+				(player_color_flag != glodentColor.cyan) &&
+				(player_color_flag != glodentColor.yellow) &&
+				(obj_player.in_interaction == false) &&
+				(interact_potential == 1)) //initializes interact sequence under specific conditions
+			{
+				obj_player.interaction_glodent = id;
+				obj_player.in_interaction = true;
+				interact_potential = 0;
+				behavior_state = 3;
+			}
+			else if (player_color_flag == glodentColor.cyan)
 				behavior_state = 2;
-			else if (player_color_flag == glodentColor.yellow)
+			else if (player_color_flag == glodentColor.yellow) {
+				player_trust_flag = 1;
 				behavior_state = 0;
-			else if ((distance_to_enemy < alarm_radius && !see_calm_color) || player_color_flag == glodentColor.pink) {
+			}
+			else if ((distance_to_enemy < alarm_radius && !see_calm_color && !player_trust_flag) || player_color_flag == glodentColor.pink) {
 				behavior_state = 1;	
 			}
 			break;
@@ -167,7 +194,7 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 				glow_state = 1;
 				alarm[3] = 30; // flash yellow when safe
 			}
-			else if ((distance_to_enemy < escape_radius && !see_calm_color) || player_color_flag == glodentColor.cyan)
+			else if ((distance_to_enemy < escape_radius && !see_calm_color && !(player_trust_flag)) || player_color_flag == glodentColor.cyan)
 			{
 				// enter escaping state
 				behavior_state = 2;
@@ -202,6 +229,7 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 			{
 				if (player_color_flag == glodentColor.yellow)
 				{
+					player_trust_flag = 1;
 					behavior_state = 0; // idle	
 					color = global.c_glo_yellow;
 					glow_state = 1;
@@ -211,7 +239,7 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 				{
 					escape_cooldown = 30;
 				}
-				else if (distance_to_enemy < escape_radius)
+				else if (distance_to_enemy < escape_radius && !(player_trust_flag))
 				{
 					escape_cooldown = 15;
 				}
@@ -221,7 +249,68 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 					glow_state = 0;
 				}
 			}
-			break;		
+			break;	
+		}
+		case 3: //interacting
+		{
+			speed = 0;
+			if(distance_to_enemy < interact_radius)
+			{
+				if (player_color_flag == glodentColor.orange)
+				{
+					color = global.c_glo_orange;
+					emote = glodentEmote.smile;
+					sprite_index = spr_glow_friendani;
+					glow_state = 1;
+					alarm[3] = 30;
+				}
+				else if (player_color_flag == glodentColor.red)
+				{
+					if(mood > 500)
+					{
+						color = global.c_glo_blue;
+						sprite_index = spr_glo_blueaggr;
+						glow_state = 1;
+						alarm[3] = 30;
+					}
+					else
+					{
+						behavior_state = 0;
+					}
+				}
+				else if (player_color_flag == glodentColor.blue)
+				{
+					if(!(dialog_open))
+					{
+						if(mood > 500)
+						{
+							color = global.c_glo_blue;
+							sprite_index = spr_glo_blueaggr;
+							activateDialog(interact_bluex2());
+							dialog_open = 1;
+						}
+						else
+						{
+							color = global.c_glo_red;
+							sprite_index = spr_glo_redsubmit;
+							glow_state = 1;
+							alarm[3] = 30;
+						}
+					}
+					else
+					{
+						if(!(obj_dialog.active))
+						{
+							color = global.c_glo_red;
+							sprite_index = spr_glo_redsubmit;
+							glow_state = 1;
+							alarm[3] = 30;
+						}
+					}
+				}
+			}
+			alarm[5] = 60;
+			break;
 		}
 	}
 

@@ -91,3 +91,8 @@ use_default = true;
 
 // spawn glow object that follows player
 glow_inst = glodentGlow_create(glodentColor.none);
+
+//check if player is currently interacting
+in_interaction = false;
+//id of the glodent that is being interacted with
+interaction_glodent = 0;

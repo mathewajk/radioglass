@@ -10,3 +10,13 @@ enum glodentColor {
 	orange,
 	green
 };
+
+enum glodentEmote {
+	none,
+	dots,
+	exclaim,
+	mad,
+	question,
+	sad,
+	smile
+};

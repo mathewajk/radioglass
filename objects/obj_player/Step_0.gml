@@ -17,6 +17,8 @@ if (!in_cutscene){
 	var dodge = 0;
 	var deflect = 0;
 	var shield = 0;
+	
+	var nearest_glodent = instance_nearest(x, y, obj_interacttest);
 
 	if(gamepad_is_connected(0))
 	{
