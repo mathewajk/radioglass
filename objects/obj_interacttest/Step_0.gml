@@ -448,6 +448,7 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 		instance_destroy(id);
 	}*/
 } else {
+	show_debug_message(behavior_state);
 	switch(behavior_state) 
 	{
 		case -1:

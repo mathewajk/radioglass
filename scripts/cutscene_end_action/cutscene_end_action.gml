@@ -2,7 +2,6 @@
 
 
 scene++;
-
 if (scene >= array_length_1d(scene_info)){
 	instance_destroy();
 	exit;

@@ -1,10 +1,10 @@
-/// @description Insert description here
+/// @description Start a predefined cutscene when touched by player
+
 // You can write your code in this editor
 
-t_scene_info = -1;
-triggered = false;
-concurrent = false;
-/*sample scene_info
+t_scene_info = -1; 
+/* Define the cutscene as a list of events 
+e.g.
 t_scene_info = [
 	[create_box_at_mouse],
 	[cutscene_change_variable,obj_player,"control",false],
@@ -15,3 +15,9 @@ t_scene_info = [
 	[create_box_at_mouse],
 ];
 */
+
+triggered = false; //use to trigger the cutscene by cutscene_activate_trigger, without player's touching it
+
+concurrent = false; //whether this cutscene can run concurrently with another cutscene
+
+
