@@ -9,8 +9,8 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 		if(abs(obj_player.x-x)+abs(obj_player.y-y)<30) {
 			if(not(obj_player.shield_up))
 			{
-			obj_player.hp-=3;
-			player_damage_cd = 20;
+				//obj_player.hp-=3;
+				player_damage_cd = 20;
 			}
 		}
 	} else {

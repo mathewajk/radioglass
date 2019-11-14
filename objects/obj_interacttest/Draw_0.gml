@@ -7,8 +7,8 @@ image_blend = c_red;
 else
 image_blend = c_white;
 
-draw_text(x - 30, y, string(mood));
-draw_text(x + 30, y, string(behavior_state));
+//draw_text(x - 30, y, string(mood));
+//draw_text(x + 30, y, string(behavior_state));
 	var player_angle = arctan2(y - obj_player.y, x - obj_player.x);
 	var player_facing = 0;
 	if(((obj_player.last_dir == 1) && (abs(player_angle) >= ((3 * pi) / 4))) ||
@@ -18,7 +18,7 @@ draw_text(x + 30, y, string(behavior_state));
 	{
 		player_facing = 1;
 	}
-draw_text(x, y - 40, string(player_facing));
+//draw_text(x, y - 40, string(player_facing));
 
 if(glow_state == 1)
 {
