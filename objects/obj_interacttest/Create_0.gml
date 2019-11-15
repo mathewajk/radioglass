@@ -50,6 +50,7 @@ path = path_add();
 startx = x;
 starty = y;
 nextdir = 128;
+forage_timer = 5;
 
 pos = 1;
 if(mp_grid_path(global.robotGrid, path, x, y, x + nextdir, y, false)) {

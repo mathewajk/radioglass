@@ -13,5 +13,6 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 			dialog_open = 0;
 			behavior_state = 0;
 		}
+			alarm[6] = 30;
 	}
 }
