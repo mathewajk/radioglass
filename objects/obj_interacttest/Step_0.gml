@@ -20,7 +20,11 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 	if (cd >= 1){
 		cd-=1;
 	}
-
+	if(hp <= 0) {
+		
+		instance_destroy(id);
+		instance_destroy(glow_inst.id);
+	}
 
 	/* //creates bullet
 	var dist_to_player = point_distance(x, y, obj_player.x, obj_player.y);
@@ -134,13 +138,14 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 		// idle state
 		case 0:
 		{
-			// motion
-		
-			speed = 0;
 			sprite_index = spr_glo_yellowsafe;	
-			var _dir = irandom(359);
-			var _spd = irandom(1);
-			motion_add(_dir, _spd);
+			// motion
+			if (place_meeting(x + hspeed, y, obj_barrier) || place_meeting(x + hspeed, y, obj_rock)) {
+			    hspeed = 0;
+			}
+			if (place_meeting(x, y + vspeed, obj_barrier) || place_meeting(x, y + vspeed, obj_rock)) {
+			    vspeed = 0;
+			}
 			// enter alarmed state when player/enemy gets close
 			if (player_trust_flag && 
 			    (distance_to_enemy < interact_radius) && 
@@ -172,10 +177,17 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 		case 1:
 		{
 			// movement // need to fix
+			alarm[6] = -1;
 			speed = 0;
 			var _dir = irandom(359);
 			var _spd = irandom(1);
 			motion_add(_dir, _spd);
+			if (place_meeting(x + hspeed, y, obj_barrier) || place_meeting(x + hspeed, y, obj_rock)) {
+			    hspeed = 0;
+			}
+			if (place_meeting(x, y + vspeed, obj_barrier) || place_meeting(x, y + vspeed, obj_rock)) {
+			    vspeed = 0;
+			}
 		
 			// flashing
 			if(!flash_cycle)
@@ -207,10 +219,16 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 		case 2:
 		{
 			// motion
+			alarm[6] = -1;
 			var inst;
 			inst = instance_nearest(x, y, obj_player);
 			mp_potential_step(-inst.x, -inst.y, 3+random(1)*.5, false);
-		
+			if (place_meeting(x + hspeed, y, obj_barrier) || place_meeting(x + hspeed, y, obj_rock)) {
+			    hspeed = 0;
+			}
+			if (place_meeting(x, y + vspeed, obj_barrier) || place_meeting(x, y + vspeed, obj_rock)) {
+			    vspeed = 0;
+			}
 			// flashing
 		
 			if(!flash_cycle)
@@ -253,6 +271,7 @@ if ((!obj_player.in_cutscene) && (!in_cutscene)){
 		}
 		case 3: //interacting
 		{
+			alarm[6] = -1;
 			speed = 0;
 			if(distance_to_enemy < interact_radius)
 			{
