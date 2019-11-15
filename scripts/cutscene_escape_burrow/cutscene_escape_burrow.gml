@@ -20,6 +20,5 @@ with(obj_interacttest){
 		behavior_state = 2;
 		this.triggered = true;
 	}
-	show_debug_message(behavior_state);
 }
 cutscene_end_action();
